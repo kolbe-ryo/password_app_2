@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:password_app_2/constants/bottom_navigation_item.dart';
+import 'package:password_app_2/view/id_password_manager_page.dart';
 
 // provider for page index
 final pageIndexProvider = StateProvider<int>(((ref) => 0));
@@ -12,9 +13,18 @@ class SelectionPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Simple Password Service'),
+        title: const Text('ID / PASSWORD'),
       ),
       body: kNavigationPageItems[ref.watch(pageIndexProvider)],
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const IdPasswordManagerPage(),
+          ),
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: kBottomNavigationItems,
         currentIndex: ref.watch(pageIndexProvider),
