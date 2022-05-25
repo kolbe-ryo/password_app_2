@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:password_app_2/view/component/molecules/notification_toast.dart';
 
 class CopyButton extends StatelessWidget {
   const CopyButton(this.title, {Key? key}) : super(key: key);
@@ -14,7 +15,11 @@ class CopyButton extends StatelessWidget {
           fontWeight: FontWeight.w300,
         ),
       ),
-      onPressed: () {},
+      onPressed: () {
+        // クリップボードにコピーする
+        // トースト表示
+        NotificationToast.showToast();
+      },
       style: ElevatedButton.styleFrom(primary: Colors.teal),
     );
   }
