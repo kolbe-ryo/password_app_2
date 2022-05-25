@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:password_app_2/view/genre_order_page.dart';
+import 'package:password_app_2/view/registration_order_page.dart';
+import 'package:password_app_2/view/settings_page.dart';
 
-const bottomNavigationItems = [
+const kBottomNavigationItems = [
   BottomNavigationBarItem(
     icon: Icon(Icons.access_time),
     label: '登録順',
@@ -13,4 +16,10 @@ const bottomNavigationItems = [
     icon: Icon(Icons.settings_outlined),
     label: '設定',
   ),
+];
+
+const kNavigationPageItems = [
+  RegistrationOrderPage(),
+  GenreOrderPage(),
+  SettingsPage(),
 ];
