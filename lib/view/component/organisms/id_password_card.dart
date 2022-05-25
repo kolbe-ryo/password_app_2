@@ -8,12 +8,18 @@ class IdPasswordCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.grey,
+      color: Colors.white,
       child: Column(
         children: [
           CopyButton(IdPassword.id.value),
           CopyButton(IdPassword.password.value),
         ],
+      ),
+      shape: const RoundedRectangleBorder(
+        side: BorderSide(
+          color: Colors.grey,
+        ),
+        borderRadius: BorderRadius.all(Radius.circular(8.0)),
       ),
     );
   }

@@ -14,7 +14,17 @@ class MyApp extends StatelessWidget {
     return ProviderScope(
       child: MaterialApp(
         title: 'Password App',
-        theme: ThemeData.dark(),
+        theme: ThemeData(
+          primarySwatch: Colors.teal,
+          appBarTheme: AppBarTheme.of(context).copyWith(
+            backgroundColor: Colors.white,
+            titleTextStyle: const TextStyle(
+              color: Colors.teal,
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+          ),
+        ),
         home: const SelectionPage(),
       ),
     );
