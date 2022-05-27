@@ -17,7 +17,7 @@ class IdPasswordCard extends StatelessWidget {
       ),
       shape: const RoundedRectangleBorder(
         side: BorderSide(
-          color: Colors.grey,
+          color: Color.fromRGBO(200, 200, 200, 1),
         ),
         borderRadius: BorderRadius.all(Radius.circular(8.0)),
       ),

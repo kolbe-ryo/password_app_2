@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.teal,
           appBarTheme: AppBarTheme.of(context).copyWith(
             backgroundColor: Colors.white,
+            elevation: 1.0,
             titleTextStyle: const TextStyle(
               color: Colors.teal,
               fontWeight: FontWeight.bold,
