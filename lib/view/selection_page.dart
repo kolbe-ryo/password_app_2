@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:password_app_2/constants/bottom_navigation_item.dart';
+import 'package:password_app_2/constants/const_letter.dart';
 import 'package:password_app_2/view/id_password_manager_page.dart';
 
 // provider for page index
@@ -14,7 +15,7 @@ class SelectionPage extends ConsumerWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('ID / PASSWORD'),
+        title: const Text(kAppBarTitle),
       ),
       body: kNavigationPageItems[ref.watch(pageIndexProvider)],
       floatingActionButton: FloatingActionButton(

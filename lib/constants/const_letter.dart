@@ -1,0 +1,1 @@
+const kAppBarTitle = 'ID / PASSWORD';

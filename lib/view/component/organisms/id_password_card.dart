@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/enum/id_password_enum.dart';
 import 'package:password_app_2/view/component/molecules/copy_button.dart';
 
@@ -7,20 +8,25 @@ class IdPasswordCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.white,
-      child: Column(
-        children: [
-          CopyButton(IdPassword.id.value),
-          CopyButton(IdPassword.password.value),
-        ],
-      ),
-      shape: const RoundedRectangleBorder(
-        side: BorderSide(
-          color: Color.fromRGBO(200, 200, 200, 1),
+    return GestureDetector(
+      child: Card(
+        color: Colors.white,
+        child: Column(
+          children: [
+            CopyButton(IdPassword.id.value),
+            CopyButton(IdPassword.password.value),
+          ],
         ),
-        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        shape: const RoundedRectangleBorder(
+          side: BorderSide(
+            color: kGreyColor,
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        ),
       ),
+      onTap: () => {
+        // id_password_manager_pageに遷移
+      },
     );
   }
 }

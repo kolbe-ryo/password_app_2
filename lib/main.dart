@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/view/selection_page.dart';
 
 void main() {
@@ -15,15 +16,11 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Password App',
         theme: ThemeData(
-          primarySwatch: Colors.teal,
+          primarySwatch: Colors.red,
           appBarTheme: AppBarTheme.of(context).copyWith(
             backgroundColor: Colors.white,
             elevation: 1.0,
-            titleTextStyle: const TextStyle(
-              color: Colors.teal,
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
+            titleTextStyle: kHeadLineStyle,
           ),
         ),
         home: const SelectionPage(),

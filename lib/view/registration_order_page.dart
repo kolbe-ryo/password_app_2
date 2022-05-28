@@ -8,9 +8,10 @@ class RegistrationOrderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        childAspectRatio: 1.5,
         crossAxisCount: 2,
-        mainAxisSpacing: 8.0,
         crossAxisSpacing: 8.0,
+        mainAxisSpacing: 8.0,
       ),
       itemBuilder: (context, index) => IdPasswordCard(),
       itemCount: 10,
