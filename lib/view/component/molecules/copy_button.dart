@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/view/component/molecules/notification_toast.dart';
 
 class CopyButton extends StatelessWidget {
@@ -10,13 +12,14 @@ class CopyButton extends StatelessWidget {
     return ElevatedButton(
       child: Text(
         title,
-        style: const TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.w300,
-        ),
+        style: kCopyButtonTextStyle,
       ),
-      onPressed: () {
+      onPressed: () async {
         // クリップボードにコピーする
+        // TODO ストレージからコピーする処理
+        final copyData = ClipboardData(text: "hogehoge");
+        await Clipboard.setData(copyData);
+
         // トースト表示
         NotificationToast.showToast();
       },

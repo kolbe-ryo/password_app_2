@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/enum/id_password_enum.dart';
+import 'package:password_app_2/view/component/atom/title_text.dart';
 import 'package:password_app_2/view/component/molecules/copy_button.dart';
 
 class IdPasswordCard extends StatelessWidget {
@@ -12,9 +13,22 @@ class IdPasswordCard extends StatelessWidget {
       child: Card(
         color: Colors.white,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            CopyButton(IdPassword.id.value),
-            CopyButton(IdPassword.password.value),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TitleText(),
+                Icon(Icons.money),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CopyButton(IdPassword.id.value),
+                CopyButton(IdPassword.password.value),
+              ],
+            ),
           ],
         ),
         shape: const RoundedRectangleBorder(

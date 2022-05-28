@@ -9,3 +9,8 @@ const kHeadLineStyle = TextStyle(
   fontWeight: FontWeight.bold,
   fontSize: 20,
 );
+
+const kCopyButtonTextStyle = TextStyle(
+  color: Colors.white,
+  fontWeight: FontWeight.w300,
+);
