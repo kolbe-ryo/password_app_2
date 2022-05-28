@@ -23,7 +23,8 @@ class CopyButton extends StatelessWidget {
         // トースト表示
         NotificationToast.showToast();
       },
-      style: ElevatedButton.styleFrom(primary: Colors.teal),
+      style:
+          ElevatedButton.styleFrom(primary: Colors.redAccent.withOpacity(0.9)),
     );
   }
 }
