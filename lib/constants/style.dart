@@ -16,12 +16,15 @@ const kCopyButtonTextStyle = TextStyle(
 );
 
 const kFirstTextStyle = TextStyle(
-  color: kGreyColor,
-  fontSize: 20,
+  color: Colors.black54,
+  fontSize: 30,
   fontWeight: FontWeight.w600,
 );
 const kSecondTextStyle = TextStyle(
-  color: kGreyColor,
+  color: Colors.black38,
   fontSize: 15,
   fontWeight: FontWeight.w600,
 );
+
+// Size
+const kSpacing = 16.0;

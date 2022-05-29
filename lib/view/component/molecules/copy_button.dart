@@ -8,10 +8,12 @@ class CopyButton extends StatelessWidget {
     Key? key,
     required this.title,
     required this.idPass,
+    required this.color,
   }) : super(key: key);
 
   final String title;
   final String idPass;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class CopyButton extends StatelessWidget {
         // トースト表示
         NotificationToast.showToast();
       },
-      style: ElevatedButton.styleFrom(primary: Colors.pinkAccent),
+      style: ElevatedButton.styleFrom(primary: color),
     );
   }
 }

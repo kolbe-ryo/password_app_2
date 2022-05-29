@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-enum IconDataEnum {
+enum GenreDataEnum {
   @JsonValue(0)
   money,
   @JsonValue(1)
@@ -12,29 +12,29 @@ enum IconDataEnum {
   sns,
 }
 
-extension IconDataEnumExt on IconDataEnum {
+extension GenreDataEnumExt on GenreDataEnum {
   IconData get value {
     switch (this) {
-      case IconDataEnum.money:
-        return Icons.money;
-      case IconDataEnum.shopping:
-        return Icons.shopping_basket;
-      case IconDataEnum.transportation:
-        return Icons.car_rental;
-      case IconDataEnum.sns:
+      case GenreDataEnum.money:
+        return Icons.payment;
+      case GenreDataEnum.shopping:
+        return Icons.shopping_cart;
+      case GenreDataEnum.transportation:
+        return Icons.commute;
+      case GenreDataEnum.sns:
         return Icons.account_box_rounded;
     }
   }
 
   Color get color {
     switch (this) {
-      case IconDataEnum.money:
+      case GenreDataEnum.money:
         return Colors.pink;
-      case IconDataEnum.shopping:
+      case GenreDataEnum.shopping:
         return Colors.lightGreen;
-      case IconDataEnum.transportation:
+      case GenreDataEnum.transportation:
         return Colors.cyan;
-      case IconDataEnum.sns:
+      case GenreDataEnum.sns:
         return Colors.purpleAccent;
     }
   }

@@ -19,12 +19,21 @@ class IdPasswordCard extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                TitleText(idPasswordCardModel.title),
-                Icon(idPasswordCardModel.iconData),
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: kSpacing),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: TitleText(idPasswordCardModel.title),
+                  ),
+                  Icon(
+                    idPasswordCardModel.iconData,
+                    color: idPasswordCardModel.color,
+                    size: 40,
+                  ),
+                ],
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -32,10 +41,12 @@ class IdPasswordCard extends ConsumerWidget {
                 CopyButton(
                   title: IdPassword.id.value,
                   idPass: idPasswordCardModel.id,
+                  color: idPasswordCardModel.color,
                 ),
                 CopyButton(
                   title: IdPassword.password.value,
                   idPass: idPasswordCardModel.password,
+                  color: idPasswordCardModel.color,
                 ),
               ],
             ),
@@ -45,7 +56,7 @@ class IdPasswordCard extends ConsumerWidget {
           side: BorderSide(
             color: kGreyColor,
           ),
-          borderRadius: BorderRadius.all(Radius.circular(8.0)),
+          borderRadius: BorderRadius.all(Radius.circular(kSpacing / 2)),
         ),
       ),
       onTap: () => {
