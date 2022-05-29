@@ -4,8 +4,14 @@ import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/view/component/molecules/notification_toast.dart';
 
 class CopyButton extends StatelessWidget {
-  const CopyButton(this.title, {Key? key}) : super(key: key);
+  const CopyButton({
+    Key? key,
+    required this.title,
+    required this.idPass,
+  }) : super(key: key);
+
   final String title;
+  final String idPass;
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +22,7 @@ class CopyButton extends StatelessWidget {
       ),
       onPressed: () async {
         // クリップボードにコピーする
-        // TODO ストレージからコピーする処理
-        final copyData = ClipboardData(text: "hogehoge");
+        final copyData = ClipboardData(text: idPass);
         await Clipboard.setData(copyData);
 
         // トースト表示

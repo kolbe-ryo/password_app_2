@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/enum/id_password_enum.dart';
+import 'package:password_app_2/model/id_password_card_model.dart';
 import 'package:password_app_2/view/component/atom/title_text.dart';
 import 'package:password_app_2/view/component/molecules/copy_button.dart';
 
 class IdPasswordCard extends ConsumerWidget {
-  const IdPasswordCard({Key? key}) : super(key: key);
+  const IdPasswordCard(this.idPasswordCardModel, {Key? key}) : super(key: key);
+
+  final IdPasswordCardModel idPasswordCardModel;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -19,15 +22,21 @@ class IdPasswordCard extends ConsumerWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                TitleText(),
-                Icon(Icons.money),
+                TitleText(idPasswordCardModel.title),
+                Icon(idPasswordCardModel.iconData),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                CopyButton(IdPassword.id.value),
-                CopyButton(IdPassword.password.value),
+                CopyButton(
+                  title: IdPassword.id.value,
+                  idPass: idPasswordCardModel.id,
+                ),
+                CopyButton(
+                  title: IdPassword.password.value,
+                  idPass: idPasswordCardModel.password,
+                ),
               ],
             ),
           ],

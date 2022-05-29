@@ -14,3 +14,14 @@ const kCopyButtonTextStyle = TextStyle(
   color: Colors.white,
   fontWeight: FontWeight.w600,
 );
+
+const kFirstTextStyle = TextStyle(
+  color: kGreyColor,
+  fontSize: 20,
+  fontWeight: FontWeight.w600,
+);
+const kSecondTextStyle = TextStyle(
+  color: kGreyColor,
+  fontSize: 15,
+  fontWeight: FontWeight.w600,
+);

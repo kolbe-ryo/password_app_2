@@ -1,10 +1,15 @@
-import 'package:password_app_2/enum/icon_data_enum.dart';
+import 'package:flutter/material.dart';
 
 class IdPasswordCardModel {
   final String title;
-  final IconDataEnum iconData;
+  final IconData iconData;
   final String id;
   final String password;
 
-  IdPasswordCardModel(this.title, this.iconData, this.id, this.password);
+  IdPasswordCardModel({
+    required this.title,
+    required this.iconData,
+    required this.id,
+    required this.password,
+  });
 }
