@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/enum/id_password_enum.dart';
 import 'package:password_app_2/view/component/atom/title_text.dart';
 import 'package:password_app_2/view/component/molecules/copy_button.dart';
 
-class IdPasswordCard extends StatelessWidget {
+class IdPasswordCard extends ConsumerWidget {
   const IdPasswordCard({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
       child: Card(
         color: Colors.white,

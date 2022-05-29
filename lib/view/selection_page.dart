@@ -12,12 +12,15 @@ class SelectionPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final pageIndex = ref.watch(pageIndexProvider);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text(kAppBarTitle),
       ),
-      body: kNavigationPageItems[ref.watch(pageIndexProvider)],
+      body: Consumer(
+        builder: (context, ref, child) => kNavigationPageItems[pageIndex],
+      ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () => Navigator.push(
@@ -29,9 +32,8 @@ class SelectionPage extends ConsumerWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: kBottomNavigationItems,
-        currentIndex: ref.watch(pageIndexProvider),
-        onTap: (int index) =>
-            ref.read(pageIndexProvider.notifier).state = index,
+        currentIndex: pageIndex,
+        onTap: (int index) => ref.read(pageIndexProvider.state).state = index,
       ),
     );
   }
