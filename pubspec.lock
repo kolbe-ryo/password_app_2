@@ -188,6 +188,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_gesture_password:
+    dependency: "direct dev"
+    description:
+      name: flutter_gesture_password
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -202,6 +209,48 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
+  flutter_secure_storage:
+    dependency: "direct dev"
+    description:
+      name: flutter_secure_storage
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.0.2"
+  flutter_secure_storage_linux:
+    dependency: transitive
+    description:
+      name: flutter_secure_storage_linux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
+  flutter_secure_storage_macos:
+    dependency: transitive
+    description:
+      name: flutter_secure_storage_macos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
+  flutter_secure_storage_platform_interface:
+    dependency: transitive
+    description:
+      name: flutter_secure_storage_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  flutter_secure_storage_web:
+    dependency: transitive
+    description:
+      name: flutter_secure_storage_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
+  flutter_secure_storage_windows:
+    dependency: transitive
+    description:
+      name: flutter_secure_storage_windows
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -345,6 +394,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.1"
+  plugin_platform_interface:
+    dependency: transitive
+    description:
+      name: plugin_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.2"
   pool:
     dependency: transitive
     description:
@@ -499,4 +555,4 @@ packages:
     version: "3.1.1"
 sdks:
   dart: ">=2.17.0-0 <3.0.0"
-  flutter: ">=1.17.0"
+  flutter: ">=2.0.0"
