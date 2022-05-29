@@ -12,5 +12,5 @@ const kHeadLineStyle = TextStyle(
 
 const kCopyButtonTextStyle = TextStyle(
   color: Colors.white,
-  fontWeight: FontWeight.w300,
+  fontWeight: FontWeight.w600,
 );

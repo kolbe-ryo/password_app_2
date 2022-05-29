@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 enum IconDataEnum {
@@ -9,4 +10,19 @@ enum IconDataEnum {
   transportation,
   @JsonValue(3)
   sns,
+}
+
+extension IconDataEnumExt on IconDataEnum {
+  IconData get value {
+    switch (this) {
+      case IconDataEnum.money:
+        return Icons.money;
+      case IconDataEnum.shopping:
+        return Icons.shopping_basket;
+      case IconDataEnum.transportation:
+        return Icons.car_rental;
+      case IconDataEnum.sns:
+        return Icons.account_box_rounded;
+    }
+  }
 }

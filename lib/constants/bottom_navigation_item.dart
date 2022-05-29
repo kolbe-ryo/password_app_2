@@ -10,7 +10,7 @@ const kBottomNavigationItems = [
   ),
   BottomNavigationBarItem(
     icon: Icon(Icons.apps_outlined),
-    label: 'ジャンル',
+    label: 'ジャンル別',
   ),
   BottomNavigationBarItem(
     icon: Icon(Icons.settings_outlined),
