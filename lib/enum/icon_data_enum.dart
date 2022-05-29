@@ -25,4 +25,17 @@ extension IconDataEnumExt on IconDataEnum {
         return Icons.account_box_rounded;
     }
   }
+
+  Color get color {
+    switch (this) {
+      case IconDataEnum.money:
+        return Colors.pink;
+      case IconDataEnum.shopping:
+        return Colors.lightGreen;
+      case IconDataEnum.transportation:
+        return Colors.cyan;
+      case IconDataEnum.sns:
+        return Colors.purpleAccent;
+    }
+  }
 }
