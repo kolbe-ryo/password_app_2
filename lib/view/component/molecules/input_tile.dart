@@ -1,23 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:password_app_2/constants/id_password_manager_item.dart';
+import 'package:password_app_2/constants/style.dart';
 
 class InputTile extends StatelessWidget {
-  const InputTile({
+  const InputTile(
+    this.idPasswordManagerItem, {
     Key? key,
-    required this.caption,
-    required this.hintText,
   }) : super(key: key);
 
-  final String caption;
-  final String hintText;
+  final IdPasswordManagerItem idPasswordManagerItem;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         ListTile(
-          title: Text(caption),
+          contentPadding: const EdgeInsets.only(top: kSpacing),
+          title: Text(
+            idPasswordManagerItem.caption,
+            style: kFirstTextStyle,
+          ),
         ),
-        TextField(),
+        TextField(
+          decoration: InputDecoration(hintText: idPasswordManagerItem.hintText),
+        ),
       ],
     );
   }

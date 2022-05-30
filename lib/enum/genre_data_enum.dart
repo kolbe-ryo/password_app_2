@@ -13,7 +13,7 @@ enum GenreDataEnum {
 }
 
 extension GenreDataEnumExt on GenreDataEnum {
-  IconData get value {
+  IconData get icon {
     switch (this) {
       case GenreDataEnum.money:
         return Icons.payment;

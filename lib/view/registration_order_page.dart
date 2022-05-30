@@ -19,7 +19,7 @@ class RegistrationOrderPage extends StatelessWidget {
       itemBuilder: (context, index) => IdPasswordCard(
         IdPasswordCardModel(
           title: '楽天証券株式会社',
-          iconData: GenreDataEnum.transportation.value,
+          iconData: GenreDataEnum.transportation.icon,
           id: 'id',
           password: 'password',
           color: GenreDataEnum.money.color,
