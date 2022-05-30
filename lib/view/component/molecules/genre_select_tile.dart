@@ -19,7 +19,7 @@ class GenreSelectTile extends ConsumerWidget {
           contentPadding: const EdgeInsets.only(top: kSpacing),
           title: Text(
             idPasswordManagerItem.caption,
-            style: kFirstTextStyle,
+            style: kCaptionTextStyle,
           ),
         ),
         Row(

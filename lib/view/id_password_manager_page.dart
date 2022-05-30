@@ -24,12 +24,16 @@ class IdPasswordManagerPage extends StatelessWidget {
                     ? GenreSelectTile(kIdPasswordManagerItem[index])
                     : InputTile(kIdPasswordManagerItem[index]),
             itemCount: kIdPasswordManagerItem.length,
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
           ),
           Padding(
-            padding: const EdgeInsets.only(top: kSpacing),
-            child:
-                ElevatedButton(onPressed: () => {}, child: Text('この内容で登録する')),
+            padding: const EdgeInsets.only(top: kSpacing * 2),
+            child: TextButton(
+                onPressed: () => {},
+                child: const Text(
+                  '登録する',
+                )),
           )
         ],
       ),

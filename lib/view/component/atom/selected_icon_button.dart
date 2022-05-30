@@ -19,6 +19,7 @@ class SelectedIconButton extends ConsumerWidget {
       icon: Icon(
         genreData.icon,
         color: selection == genreData ? genreData.color : kGreyColor,
+        size: 30,
       ),
     );
   }

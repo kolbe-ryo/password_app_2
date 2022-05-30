@@ -10,32 +10,44 @@ enum GenreDataEnum {
   transportation,
   @JsonValue(3)
   sns,
+  @JsonValue(4)
+  entertainment,
+  @JsonValue(5)
+  others,
 }
 
 extension GenreDataEnumExt on GenreDataEnum {
   IconData get icon {
     switch (this) {
       case GenreDataEnum.money:
-        return Icons.payment;
+        return Icons.attach_money;
       case GenreDataEnum.shopping:
         return Icons.shopping_cart;
       case GenreDataEnum.transportation:
         return Icons.commute;
       case GenreDataEnum.sns:
-        return Icons.account_box_rounded;
+        return Icons.account_box;
+      case GenreDataEnum.entertainment:
+        return Icons.sports_esports;
+      case GenreDataEnum.others:
+        return Icons.apps;
     }
   }
 
   Color get color {
     switch (this) {
       case GenreDataEnum.money:
-        return Colors.pink;
+        return Colors.teal;
       case GenreDataEnum.shopping:
         return Colors.lightGreen;
       case GenreDataEnum.transportation:
         return Colors.cyan;
       case GenreDataEnum.sns:
         return Colors.purpleAccent;
+      case GenreDataEnum.entertainment:
+        return Colors.orangeAccent;
+      case GenreDataEnum.others:
+        return Colors.yellow;
     }
   }
 }

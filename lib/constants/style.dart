@@ -26,5 +26,11 @@ const kSecondTextStyle = TextStyle(
   fontWeight: FontWeight.w600,
 );
 
+const kCaptionTextStyle = TextStyle(
+  color: Colors.black54,
+  fontSize: 20,
+  fontWeight: FontWeight.w600,
+);
+
 // Size
 const kSpacing = 16.0;

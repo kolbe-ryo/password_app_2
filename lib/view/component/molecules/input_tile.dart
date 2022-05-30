@@ -18,11 +18,14 @@ class InputTile extends StatelessWidget {
           contentPadding: const EdgeInsets.only(top: kSpacing),
           title: Text(
             idPasswordManagerItem.caption,
-            style: kFirstTextStyle,
+            style: kCaptionTextStyle,
           ),
         ),
         TextField(
-          decoration: InputDecoration(hintText: idPasswordManagerItem.hintText),
+          decoration: InputDecoration(
+            hintText: idPasswordManagerItem.hintText,
+            hintStyle: kSecondTextStyle,
+          ),
         ),
       ],
     );
