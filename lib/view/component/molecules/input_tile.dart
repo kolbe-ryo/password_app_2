@@ -17,9 +17,7 @@ class InputTile extends StatelessWidget {
         ListTile(
           title: Text(caption),
         ),
-        TextField(
-          decoration: InputDecoration(hintText: hintText),
-        ),
+        TextField(),
       ],
     );
   }
