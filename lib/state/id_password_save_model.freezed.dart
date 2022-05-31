@@ -20,17 +20,11 @@ IdPasswordSaveModel _$IdPasswordSaveModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$IdPasswordSaveModel {
-  @JsonKey(name: 'name')
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'id')
   String get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'password')
   String get password => throw _privateConstructorUsedError;
-  @JsonKey(name: 'genre')
   int get genre => throw _privateConstructorUsedError;
-  @JsonKey(name: 'memo')
   String get memo => throw _privateConstructorUsedError;
-  @JsonKey(name: 'time')
   DateTime get time => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,12 +39,12 @@ abstract class $IdPasswordSaveModelCopyWith<$Res> {
           IdPasswordSaveModel value, $Res Function(IdPasswordSaveModel) then) =
       _$IdPasswordSaveModelCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'name') String name,
-      @JsonKey(name: 'id') String id,
-      @JsonKey(name: 'password') String password,
-      @JsonKey(name: 'genre') int genre,
-      @JsonKey(name: 'memo') String memo,
-      @JsonKey(name: 'time') DateTime time});
+      {String name,
+      String id,
+      String password,
+      int genre,
+      String memo,
+      DateTime time});
 }
 
 /// @nodoc
@@ -108,12 +102,12 @@ abstract class _$$_IdPasswordSaveModelCopyWith<$Res>
       __$$_IdPasswordSaveModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'name') String name,
-      @JsonKey(name: 'id') String id,
-      @JsonKey(name: 'password') String password,
-      @JsonKey(name: 'genre') int genre,
-      @JsonKey(name: 'memo') String memo,
-      @JsonKey(name: 'time') DateTime time});
+      {String name,
+      String id,
+      String password,
+      int genre,
+      String memo,
+      DateTime time});
 }
 
 /// @nodoc
@@ -169,34 +163,33 @@ class __$$_IdPasswordSaveModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_IdPasswordSaveModel extends _IdPasswordSaveModel {
   const _$_IdPasswordSaveModel(
-      {@JsonKey(name: 'name') required this.name,
-      @JsonKey(name: 'id') required this.id,
-      @JsonKey(name: 'password') required this.password,
-      @JsonKey(name: 'genre') required this.genre,
-      @JsonKey(name: 'memo') required this.memo,
-      @JsonKey(name: 'time') required this.time})
+      {this.name = '',
+      this.id = '',
+      this.password = '',
+      this.genre = 0,
+      this.memo = '',
+      required this.time})
       : super._();
 
   factory _$_IdPasswordSaveModel.fromJson(Map<String, dynamic> json) =>
       _$$_IdPasswordSaveModelFromJson(json);
 
   @override
-  @JsonKey(name: 'name')
+  @JsonKey()
   final String name;
   @override
-  @JsonKey(name: 'id')
+  @JsonKey()
   final String id;
   @override
-  @JsonKey(name: 'password')
+  @JsonKey()
   final String password;
   @override
-  @JsonKey(name: 'genre')
+  @JsonKey()
   final int genre;
   @override
-  @JsonKey(name: 'memo')
+  @JsonKey()
   final String memo;
   @override
-  @JsonKey(name: 'time')
   final DateTime time;
 
   @override
@@ -242,35 +235,28 @@ class _$_IdPasswordSaveModel extends _IdPasswordSaveModel {
 
 abstract class _IdPasswordSaveModel extends IdPasswordSaveModel {
   const factory _IdPasswordSaveModel(
-          {@JsonKey(name: 'name') required final String name,
-          @JsonKey(name: 'id') required final String id,
-          @JsonKey(name: 'password') required final String password,
-          @JsonKey(name: 'genre') required final int genre,
-          @JsonKey(name: 'memo') required final String memo,
-          @JsonKey(name: 'time') required final DateTime time}) =
-      _$_IdPasswordSaveModel;
+      {final String name,
+      final String id,
+      final String password,
+      final int genre,
+      final String memo,
+      required final DateTime time}) = _$_IdPasswordSaveModel;
   const _IdPasswordSaveModel._() : super._();
 
   factory _IdPasswordSaveModel.fromJson(Map<String, dynamic> json) =
       _$_IdPasswordSaveModel.fromJson;
 
   @override
-  @JsonKey(name: 'name')
   String get name => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'id')
   String get id => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'password')
   String get password => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'genre')
   int get genre => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'memo')
   String get memo => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'time')
   DateTime get time => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

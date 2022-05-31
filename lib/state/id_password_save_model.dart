@@ -5,15 +5,14 @@ part 'id_password_save_model.g.dart';
 
 @freezed
 class IdPasswordSaveModel with _$IdPasswordSaveModel {
-  @JsonSerializable(explicitToJson: true)
   const IdPasswordSaveModel._();
 
   const factory IdPasswordSaveModel({
-    required String name,
-    required String id,
-    required String password,
-    required int genre,
-    required String memo,
+    @Default('') String name,
+    @Default('') String id,
+    @Default('') String password,
+    @Default(0) int genre,
+    @Default('') String memo,
     required DateTime time,
   }) = _IdPasswordSaveModel;
 

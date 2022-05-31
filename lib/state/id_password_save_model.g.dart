@@ -9,11 +9,11 @@ part of 'id_password_save_model.dart';
 _$_IdPasswordSaveModel _$$_IdPasswordSaveModelFromJson(
         Map<String, dynamic> json) =>
     _$_IdPasswordSaveModel(
-      name: json['name'] as String,
-      id: json['id'] as String,
-      password: json['password'] as String,
-      genre: json['genre'] as int,
-      memo: json['memo'] as String,
+      name: json['name'] as String? ?? '',
+      id: json['id'] as String? ?? '',
+      password: json['password'] as String? ?? '',
+      genre: json['genre'] as int? ?? 0,
+      memo: json['memo'] as String? ?? '',
       time: DateTime.parse(json['time'] as String),
     );
 
