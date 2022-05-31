@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:password_app_2/constants/style.dart';
+import 'package:password_app_2/enum/genre_data_enum.dart';
 import 'package:password_app_2/state/id_password_save_model.dart';
 import 'package:password_app_2/state/id_password_save_model_list.dart';
 import 'package:password_app_2/view/component/atom/selected_icon_button.dart';
@@ -32,11 +33,15 @@ class DataRegisterButton extends ConsumerWidget {
           //     .update(ref.watch(itemProvider.state).state),
           print(genre);
         },
-        child: const Text(
+        child: Text(
           '登録する',
-          style: TextStyle(fontSize: 20),
+          style: TextStyle(fontSize: 20, color: genre.color),
         ),
       ),
     );
+  }
+
+  bool checkEmpty() {
+    return false;
   }
 }

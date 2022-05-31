@@ -22,6 +22,7 @@ class InputTile extends StatelessWidget {
           ),
         ),
         TextField(
+          // TODO attributeを使用して、保存するstateを制御する
           decoration: InputDecoration(
             hintText: idPasswordManagerItem.hintText,
             hintStyle: kSecondTextStyle(),
