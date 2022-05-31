@@ -33,7 +33,7 @@ class IdPasswordManagerPage extends StatelessWidget {
               onPressed: () => {},
               child: const Text(
                 '登録する',
-                style: kCaptionTextStyle,
+                style: TextStyle(fontSize: 20),
               ),
             ),
           )
