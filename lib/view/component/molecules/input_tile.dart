@@ -24,7 +24,7 @@ class InputTile extends StatelessWidget {
         TextField(
           decoration: InputDecoration(
             hintText: idPasswordManagerItem.hintText,
-            hintStyle: kSecondTextStyle,
+            hintStyle: kSecondTextStyle(),
           ),
         ),
       ],

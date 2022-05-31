@@ -17,6 +17,23 @@ enum GenreDataEnum {
 }
 
 extension GenreDataEnumExt on GenreDataEnum {
+  String get name {
+    switch (this) {
+      case GenreDataEnum.money:
+        return '金融';
+      case GenreDataEnum.shopping:
+        return '買い物';
+      case GenreDataEnum.transportation:
+        return '交通';
+      case GenreDataEnum.sns:
+        return 'ソーシャル';
+      case GenreDataEnum.entertainment:
+        return 'エンタメ';
+      case GenreDataEnum.others:
+        return 'その他';
+    }
+  }
+
   IconData get icon {
     switch (this) {
       case GenreDataEnum.money:

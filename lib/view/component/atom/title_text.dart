@@ -23,7 +23,7 @@ class TitleText extends StatelessWidget {
             child: Text(
               title.substring(1),
               overflow: TextOverflow.ellipsis,
-              style: kSecondTextStyle,
+              style: kSecondTextStyle(),
             ),
           ),
           const SizedBox(width: 2.0),

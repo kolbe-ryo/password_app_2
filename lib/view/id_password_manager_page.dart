@@ -30,10 +30,12 @@ class IdPasswordManagerPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: kSpacing * 2),
             child: TextButton(
-                onPressed: () => {},
-                child: const Text(
-                  '登録する',
-                )),
+              onPressed: () => {},
+              child: const Text(
+                '登録する',
+                style: kCaptionTextStyle,
+              ),
+            ),
           )
         ],
       ),

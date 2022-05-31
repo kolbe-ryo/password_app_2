@@ -14,13 +14,23 @@ class SelectedIconButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selection = ref.watch(selectedGenreProvider.state).state;
-    return IconButton(
-      onPressed: () => ref.read(selectedGenreProvider.state).state = genreData,
-      icon: Icon(
-        genreData.icon,
-        color: selection == genreData ? genreData.color : kGreyColor,
-        size: 30,
-      ),
+    return Column(
+      children: [
+        IconButton(
+          onPressed: () =>
+              ref.read(selectedGenreProvider.state).state = genreData,
+          icon: Icon(
+            genreData.icon,
+            color: selection == genreData ? genreData.color : kGreyColor,
+            size: 30,
+          ),
+        ),
+        if (selection == genreData)
+          Text(
+            selection.name,
+            style: kSecondTextStyle(color: selection.color),
+          ),
+      ],
     );
   }
 }

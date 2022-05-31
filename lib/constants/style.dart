@@ -20,11 +20,12 @@ const kFirstTextStyle = TextStyle(
   fontSize: 30,
   fontWeight: FontWeight.w600,
 );
-const kSecondTextStyle = TextStyle(
-  color: Colors.black38,
-  fontSize: 15,
-  fontWeight: FontWeight.w600,
-);
+
+kSecondTextStyle({Color color = Colors.black38}) => TextStyle(
+      color: color,
+      fontSize: 15,
+      fontWeight: FontWeight.w600,
+    );
 
 const kCaptionTextStyle = TextStyle(
   color: Colors.black54,

@@ -3,17 +3,17 @@ import 'package:password_app_2/enum/id_password_manager_item_enum.dart';
 final kIdPasswordManagerItem = [
   IdPasswordManagerItem(
     caption: '名称',
-    hintText: '登録名',
+    hintText: '例：〇〇銀行',
     attribute: IdPasswordManagerItems.name,
   ),
   IdPasswordManagerItem(
     caption: 'ID',
-    hintText: 'ID',
+    hintText: '例：abcde',
     attribute: IdPasswordManagerItems.id,
   ),
   IdPasswordManagerItem(
     caption: 'PASSWORD',
-    hintText: 'PASSWORD',
+    hintText: '例：12345',
     attribute: IdPasswordManagerItems.password,
   ),
   IdPasswordManagerItem(
@@ -24,7 +24,7 @@ final kIdPasswordManagerItem = [
   ),
   IdPasswordManagerItem(
     caption: 'メモ',
-    hintText: 'メモを入力',
+    hintText: '例：メモを入力',
     attribute: IdPasswordManagerItems.memo,
   ),
 ];
