@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/state/id_password_save_model.dart';
 import 'package:password_app_2/state/id_password_save_model_list.dart';
+import 'package:password_app_2/view/component/atom/selected_icon_button.dart';
 import 'package:password_app_2/view_model/id_password_save_view_model.dart';
 
 final savingProvider =
@@ -19,14 +20,17 @@ class DataRegisterButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final genre = ref.watch(selectedGenreProvider.state).state;
+
     return Padding(
       padding: const EdgeInsets.only(top: kSpacing * 2),
       child: TextButton(
-        onPressed: () => {
+        onPressed: () {
           // TODO 入力が完了しているか確認してreadする
-          ref
-              .read(savingProvider.notifier)
-              .update(ref.watch(itemProvider.state).state),
+          // ref
+          //     .read(savingProvider.notifier)
+          //     .update(ref.watch(itemProvider.state).state),
+          print(genre);
         },
         child: const Text(
           '登録する',
