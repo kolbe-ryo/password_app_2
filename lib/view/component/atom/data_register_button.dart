@@ -34,9 +34,10 @@ class DataRegisterButton extends ConsumerWidget {
           //     .read(savingProvider.notifier)
           //     .update(ref.watch(itemProvider.state).state),
           print(genre);
-          ref.read(savingProvider.notifier).addItem(savingItem);
-          ref.read(savingProvider.notifier).save();
-          ref.read(savingProvider.notifier).get();
+          // ref.read(savingProvider.notifier).addItem(savingItem);
+          // ref.read(savingProvider.notifier).save();
+          // ref.read(savingProvider.notifier).get();
+          // ref.read(savingProvider.notifier).delete(savingItem);
         },
         child: Text(
           '登録する',
