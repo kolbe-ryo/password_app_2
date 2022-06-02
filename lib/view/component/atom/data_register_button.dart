@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/enum/genre_data_enum.dart';
+import 'package:password_app_2/interface/secure_storage_interface.dart';
 import 'package:password_app_2/model/id_password_save_model.dart';
 import 'package:password_app_2/state/id_password_save_model_list.dart';
 import 'package:password_app_2/view/component/atom/selected_icon_button.dart';
@@ -22,6 +23,7 @@ class DataRegisterButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final genre = ref.watch(selectedGenreProvider.state).state;
+    final savingItem = ref.watch(itemProvider.state).state;
 
     return Padding(
       padding: const EdgeInsets.only(top: kSpacing * 2),
@@ -32,6 +34,9 @@ class DataRegisterButton extends ConsumerWidget {
           //     .read(savingProvider.notifier)
           //     .update(ref.watch(itemProvider.state).state),
           print(genre);
+          ref.read(savingProvider.notifier).addItem(savingItem);
+          ref.read(savingProvider.notifier).save();
+          ref.read(savingProvider.notifier).get();
         },
         child: Text(
           '登録する',
