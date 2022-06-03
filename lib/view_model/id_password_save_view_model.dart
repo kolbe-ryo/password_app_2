@@ -9,10 +9,14 @@ class IdPasswordSaveViewModel extends StateNotifier<IdPasswordSaveModelList> {
 
   final SecureStorageInterface _interface = SecureStorageService();
 
-  void addItem(IdPasswordSaveModel model) =>
+  void addIdPasswordSaveModel(IdPasswordSaveModel model) =>
       state = state.copyWith(modelList: [...state.modelList, model]);
 
-  Future<IdPasswordSaveModelList> get() async => await _interface.get();
+  Future<IdPasswordSaveModelList?> get() async {
+    // await _interface.delete();
+    final test = await _interface.get();
+    return test;
+  }
 
   void save() => _interface.save(state);
 

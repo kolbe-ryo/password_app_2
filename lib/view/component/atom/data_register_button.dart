@@ -2,18 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/enum/genre_data_enum.dart';
-import 'package:password_app_2/interface/secure_storage_interface.dart';
-import 'package:password_app_2/model/id_password_save_model.dart';
 import 'package:password_app_2/state/id_password_save_model_list.dart';
 import 'package:password_app_2/view/component/atom/selected_icon_button.dart';
+import 'package:password_app_2/view/id_password_manager_page.dart';
 import 'package:password_app_2/view_model/id_password_save_view_model.dart';
 
 final savingProvider =
     StateNotifierProvider<IdPasswordSaveViewModel, IdPasswordSaveModelList>(
         (ref) => IdPasswordSaveViewModel());
-
-final itemProvider =
-    StateProvider((ref) => IdPasswordSaveModel(time: DateTime.now()));
 
 class DataRegisterButton extends ConsumerWidget {
   const DataRegisterButton({
@@ -23,21 +19,24 @@ class DataRegisterButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final genre = ref.watch(selectedGenreProvider.state).state;
-    final savingItem = ref.watch(itemProvider.state).state;
 
     return Padding(
       padding: const EdgeInsets.only(top: kSpacing * 2),
       child: TextButton(
-        onPressed: () {
+        onPressed: () async {
           // TODO 入力が完了しているか確認してreadする
           // ref
           //     .read(savingProvider.notifier)
           //     .update(ref.watch(itemProvider.state).state),
           print(genre);
-          // ref.read(savingProvider.notifier).addItem(savingItem);
-          // ref.read(savingProvider.notifier).save();
-          // ref.read(savingProvider.notifier).get();
+          ref
+              .read(savingProvider.notifier)
+              .addIdPasswordSaveModel(ref.watch(itemProvider.state).state);
+          ref.read(savingProvider.notifier).save();
+          final data = await ref.read(savingProvider.notifier).get();
           // ref.read(savingProvider.notifier).delete(savingItem);
+          print(data);
+          Navigator.pop(context);
         },
         child: Text(
           '登録する',
