@@ -95,8 +95,7 @@ class __$$_IdPasswordSaveModelListCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable()
 class _$_IdPasswordSaveModelList implements _IdPasswordSaveModelList {
   const _$_IdPasswordSaveModelList(
       {final List<IdPasswordSaveModel> modelList = const []})

@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:password_app_2/enum/genre_data_enum.dart';
 
 part 'id_password_save_model.freezed.dart';
 part 'id_password_save_model.g.dart';
@@ -11,7 +12,7 @@ class IdPasswordSaveModel with _$IdPasswordSaveModel {
     @Default('') String name,
     @Default('') String id,
     @Default('') String password,
-    @Default(0) int genre,
+    @Default(GenreDataEnum.money) GenreDataEnum genre,
     @Default('') String memo,
     required DateTime time,
   }) = _IdPasswordSaveModel;

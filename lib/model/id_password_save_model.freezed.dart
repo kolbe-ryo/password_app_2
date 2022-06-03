@@ -23,7 +23,7 @@ mixin _$IdPasswordSaveModel {
   String get name => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
-  int get genre => throw _privateConstructorUsedError;
+  GenreDataEnum get genre => throw _privateConstructorUsedError;
   String get memo => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
 
@@ -42,7 +42,7 @@ abstract class $IdPasswordSaveModelCopyWith<$Res> {
       {String name,
       String id,
       String password,
-      int genre,
+      GenreDataEnum genre,
       String memo,
       DateTime time});
 }
@@ -81,7 +81,7 @@ class _$IdPasswordSaveModelCopyWithImpl<$Res>
       genre: genre == freezed
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
-              as int,
+              as GenreDataEnum,
       memo: memo == freezed
           ? _value.memo
           : memo // ignore: cast_nullable_to_non_nullable
@@ -105,7 +105,7 @@ abstract class _$$_IdPasswordSaveModelCopyWith<$Res>
       {String name,
       String id,
       String password,
-      int genre,
+      GenreDataEnum genre,
       String memo,
       DateTime time});
 }
@@ -146,7 +146,7 @@ class __$$_IdPasswordSaveModelCopyWithImpl<$Res>
       genre: genre == freezed
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
-              as int,
+              as GenreDataEnum,
       memo: memo == freezed
           ? _value.memo
           : memo // ignore: cast_nullable_to_non_nullable
@@ -166,7 +166,7 @@ class _$_IdPasswordSaveModel extends _IdPasswordSaveModel {
       {this.name = '',
       this.id = '',
       this.password = '',
-      this.genre = 0,
+      this.genre = GenreDataEnum.money,
       this.memo = '',
       required this.time})
       : super._();
@@ -185,7 +185,7 @@ class _$_IdPasswordSaveModel extends _IdPasswordSaveModel {
   final String password;
   @override
   @JsonKey()
-  final int genre;
+  final GenreDataEnum genre;
   @override
   @JsonKey()
   final String memo;
@@ -238,7 +238,7 @@ abstract class _IdPasswordSaveModel extends IdPasswordSaveModel {
       {final String name,
       final String id,
       final String password,
-      final int genre,
+      final GenreDataEnum genre,
       final String memo,
       required final DateTime time}) = _$_IdPasswordSaveModel;
   const _IdPasswordSaveModel._() : super._();
@@ -253,7 +253,7 @@ abstract class _IdPasswordSaveModel extends IdPasswordSaveModel {
   @override
   String get password => throw _privateConstructorUsedError;
   @override
-  int get genre => throw _privateConstructorUsedError;
+  GenreDataEnum get genre => throw _privateConstructorUsedError;
   @override
   String get memo => throw _privateConstructorUsedError;
   @override

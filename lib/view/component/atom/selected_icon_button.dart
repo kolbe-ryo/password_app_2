@@ -21,10 +21,8 @@ class SelectedIconButton extends ConsumerWidget {
         IconButton(
           onPressed: () {
             ref.read(selectedGenreProvider.state).state = genreData;
-            ref.read(itemProvider.state).state = ref
-                .read(itemProvider.state)
-                .state
-                .copyWith(genre: genreData.index);
+            ref.read(itemProvider.state).state =
+                ref.read(itemProvider.state).state.copyWith(genre: genreData);
           },
           icon: Icon(
             genreData.icon,

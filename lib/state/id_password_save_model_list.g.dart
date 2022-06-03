@@ -19,5 +19,5 @@ _$_IdPasswordSaveModelList _$$_IdPasswordSaveModelListFromJson(
 Map<String, dynamic> _$$_IdPasswordSaveModelListToJson(
         _$_IdPasswordSaveModelList instance) =>
     <String, dynamic>{
-      'modelList': instance.modelList.map((e) => e.toJson()).toList(),
+      'modelList': instance.modelList,
     };

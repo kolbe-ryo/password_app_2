@@ -5,7 +5,7 @@ class NotificationToast {
   static showToast() => Fluttertoast.showToast(
         msg: "コピーしました",
         toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.TOP,
+        gravity: ToastGravity.CENTER,
         timeInSecForIosWeb: 1,
         backgroundColor: Colors.white,
         textColor: Colors.black,
