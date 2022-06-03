@@ -28,9 +28,7 @@ class DataRegisterButton extends ConsumerWidget {
               .read(savingProvider.notifier)
               .addIdPasswordSaveModel(ref.watch(itemProvider.state).state);
           ref.read(savingProvider.notifier).save();
-          final data = await ref.read(savingProvider.notifier).get();
           // ref.read(savingProvider.notifier).delete(savingItem);
-          print(data);
           Navigator.pop(context);
         },
         child: Text(

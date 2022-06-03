@@ -12,10 +12,9 @@ class IdPasswordSaveViewModel extends StateNotifier<IdPasswordSaveModelList> {
   void addIdPasswordSaveModel(IdPasswordSaveModel model) =>
       state = state.copyWith(modelList: [...state.modelList, model]);
 
-  Future<IdPasswordSaveModelList?> get() async {
-    // await _interface.delete();
-    final test = await _interface.get();
-    return test;
+  Future<void> get() async {
+    final data = await _interface.get();
+    state = data ?? state.copyWith(modelList: []);
   }
 
   void save() => _interface.save(state);
