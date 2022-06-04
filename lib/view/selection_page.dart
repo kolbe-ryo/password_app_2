@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:password_app_2/constants/bottom_navigation_item.dart';
 import 'package:password_app_2/constants/const_letter.dart';
+import 'package:password_app_2/model/id_password_save_model.dart';
 import 'package:password_app_2/view/id_password_manager_page.dart';
 
 // provider for page index
@@ -22,14 +23,18 @@ class SelectionPage extends ConsumerWidget {
         builder: (context, ref, child) => kNavigationPageItems[pageIndex],
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const IdPasswordManagerPage(),
-          ),
-        ),
-      ),
+          child: const Icon(Icons.add),
+          onPressed: () {
+            ref
+                .read(itemProvider.state)
+                .update((state) => IdPasswordSaveModel(time: DateTime.now()));
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const IdPasswordManagerPage(),
+              ),
+            );
+          }),
       bottomNavigationBar: BottomNavigationBar(
         items: kBottomNavigationItems,
         currentIndex: pageIndex,

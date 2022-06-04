@@ -47,20 +47,27 @@ class InputTile extends ConsumerWidget {
   }
 
   void saveItemToIdPasswordModel(String text, WidgetRef ref) {
-    final state = ref.watch(itemProvider.state).state;
     switch (idPasswordManagerItem.attribute) {
       case IdPasswordManagerItems.name:
-        ref.watch(itemProvider.state).state = state.copyWith(name: text);
+        ref
+            .read(itemProvider.state)
+            .update((state) => state.copyWith(name: text));
         break;
       case IdPasswordManagerItems.id:
-        ref.watch(itemProvider.state).state = state.copyWith(id: text);
+        ref
+            .read(itemProvider.state)
+            .update((state) => state.copyWith(id: text));
         break;
       case IdPasswordManagerItems.password:
-        ref.watch(itemProvider.state).state = state.copyWith(password: text);
+        ref
+            .read(itemProvider.state)
+            .update((state) => state.copyWith(password: text));
         break;
       case IdPasswordManagerItems.genre:
       case IdPasswordManagerItems.memo:
-        ref.watch(itemProvider.state).state = state.copyWith(memo: text);
+        ref
+            .read(itemProvider.state)
+            .update((state) => state.copyWith(memo: text));
         break;
     }
   }

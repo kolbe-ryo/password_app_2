@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:password_app_2/constants/style.dart';
-import 'package:password_app_2/enum/genre_data_enum.dart';
-import 'package:password_app_2/model/id_password_card_model.dart';
 import 'package:password_app_2/state/id_password_save_model_list.dart';
 import 'package:password_app_2/view/component/atom/nothing_data_text.dart';
 import 'package:password_app_2/view/component/organisms/id_password_card.dart';
@@ -17,12 +15,12 @@ class RegistrationOrderPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final dataLength =
-        ref.watch(savingProvider.select((model) => model.modelList.length));
     return FutureBuilder(
       future: ref.watch(savingProvider.notifier).get(),
       builder: ((context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
+          final dataLength = ref
+              .watch(savingProvider.select((model) => model.modelList.length));
           return dataLength != 0
               ? GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -34,15 +32,7 @@ class RegistrationOrderPage extends ConsumerWidget {
                   itemBuilder: (context, index) {
                     final idPasswordSaveModel = ref.watch(savingProvider
                         .select((model) => model.modelList[index]));
-                    return IdPasswordCard(
-                      IdPasswordCardModel(
-                        title: idPasswordSaveModel.name,
-                        iconData: idPasswordSaveModel.genre.icon,
-                        id: 'id',
-                        password: 'password',
-                        color: idPasswordSaveModel.genre.color,
-                      ),
-                    );
+                    return IdPasswordCard(idPasswordSaveModel);
                   },
                   itemCount: dataLength,
                   padding: const EdgeInsets.all(kSpacing),

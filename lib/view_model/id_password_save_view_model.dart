@@ -13,7 +13,6 @@ class IdPasswordSaveViewModel extends StateNotifier<IdPasswordSaveModelList> {
       state = state.copyWith(modelList: [...state.modelList, model]);
 
   Future<void> get() async {
-    // ローディングアニメーション欲しい
     final data = await _interface.get();
     state = data ?? state.copyWith(modelList: []);
   }

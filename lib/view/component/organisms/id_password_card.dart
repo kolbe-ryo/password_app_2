@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:password_app_2/constants/style.dart';
+import 'package:password_app_2/enum/genre_data_enum.dart';
 import 'package:password_app_2/enum/id_password_enum.dart';
-import 'package:password_app_2/model/id_password_card_model.dart';
+import 'package:password_app_2/model/id_password_save_model.dart';
 import 'package:password_app_2/view/component/atom/title_text.dart';
 import 'package:password_app_2/view/component/molecules/copy_button.dart';
 import 'package:password_app_2/view/id_password_manager_page.dart';
 
 class IdPasswordCard extends ConsumerWidget {
-  const IdPasswordCard(this.idPasswordCardModel, {Key? key}) : super(key: key);
+  const IdPasswordCard(this.idPasswordSaveModel, {Key? key}) : super(key: key);
 
-  final IdPasswordCardModel idPasswordCardModel;
+  final IdPasswordSaveModel idPasswordSaveModel;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final GenreDataEnum genre = idPasswordSaveModel.genre;
     return GestureDetector(
       child: Card(
         color: Colors.white,
@@ -26,11 +28,11 @@ class IdPasswordCard extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
-                    child: TitleText(idPasswordCardModel.title),
+                    child: TitleText(idPasswordSaveModel.name),
                   ),
                   Icon(
-                    idPasswordCardModel.iconData,
-                    color: idPasswordCardModel.color,
+                    genre.icon,
+                    color: genre.color,
                     size: 40,
                   ),
                 ],
@@ -41,13 +43,13 @@ class IdPasswordCard extends ConsumerWidget {
               children: [
                 CopyButton(
                   title: IdPassword.id.value,
-                  idPass: idPasswordCardModel.id,
-                  color: idPasswordCardModel.color,
+                  idPass: idPasswordSaveModel.id,
+                  color: genre.color,
                 ),
                 CopyButton(
                   title: IdPassword.password.value,
-                  idPass: idPasswordCardModel.password,
-                  color: idPasswordCardModel.color,
+                  idPass: idPasswordSaveModel.password,
+                  color: genre.color,
                 ),
               ],
             ),
@@ -62,6 +64,7 @@ class IdPasswordCard extends ConsumerWidget {
       ),
       onTap: () => {
         // id_password_manager_pageに遷移
+        ref.read(itemProvider.state).update((state) => idPasswordSaveModel),
         Navigator.push(
           context,
           MaterialPageRoute(

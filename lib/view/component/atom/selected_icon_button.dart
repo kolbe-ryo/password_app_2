@@ -15,14 +15,14 @@ class SelectedIconButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selection = ref.watch(selectedGenreProvider.state).state;
-
     return Column(
       children: [
         IconButton(
           onPressed: () {
             ref.read(selectedGenreProvider.state).state = genreData;
-            ref.read(itemProvider.state).state =
-                ref.read(itemProvider.state).state.copyWith(genre: genreData);
+            ref
+                .read(itemProvider.state)
+                .update((state) => state.copyWith(genre: genreData));
           },
           icon: Icon(
             genreData.icon,
