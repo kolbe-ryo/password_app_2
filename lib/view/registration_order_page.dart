@@ -16,7 +16,7 @@ class RegistrationOrderPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return FutureBuilder(
-      future: ref.watch(savingProvider.notifier).get(),
+      future: ref.read(savingProvider.notifier).get(),
       builder: ((context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           final dataLength = ref
