@@ -13,7 +13,7 @@ class DataRegisterButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final genre = ref.watch(selectedGenreProvider.state).state;
+    final genre = ref.watch(itemProvider.select((state) => state.genre));
 
     return Padding(
       padding: const EdgeInsets.only(top: kSpacing * 2),
