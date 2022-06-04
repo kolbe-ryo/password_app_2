@@ -19,30 +19,39 @@ class RegistrationOrderPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final dataLength =
         ref.watch(savingProvider.select((model) => model.modelList.length));
-    return dataLength != 0
-        ? GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 1.5,
-              crossAxisCount: 2,
-              crossAxisSpacing: 8.0,
-              mainAxisSpacing: 8.0,
-            ),
-            itemBuilder: (context, index) {
-              final idPasswordSaveModel = ref.watch(
-                  savingProvider.select((model) => model.modelList[index]));
-              return IdPasswordCard(
-                IdPasswordCardModel(
-                  title: idPasswordSaveModel.name,
-                  iconData: idPasswordSaveModel.genre.icon,
-                  id: 'id',
-                  password: 'password',
-                  color: idPasswordSaveModel.genre.color,
-                ),
-              );
-            },
-            itemCount: dataLength,
-            padding: const EdgeInsets.all(kSpacing),
-          )
-        : const NothingDataText();
+    return FutureBuilder(
+      future: ref.watch(savingProvider.notifier).get(),
+      builder: ((context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return dataLength != 0
+              ? GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio: 1.5,
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 8.0,
+                    mainAxisSpacing: 8.0,
+                  ),
+                  itemBuilder: (context, index) {
+                    final idPasswordSaveModel = ref.watch(savingProvider
+                        .select((model) => model.modelList[index]));
+                    return IdPasswordCard(
+                      IdPasswordCardModel(
+                        title: idPasswordSaveModel.name,
+                        iconData: idPasswordSaveModel.genre.icon,
+                        id: 'id',
+                        password: 'password',
+                        color: idPasswordSaveModel.genre.color,
+                      ),
+                    );
+                  },
+                  itemCount: dataLength,
+                  padding: const EdgeInsets.all(kSpacing),
+                )
+              : const NothingDataText();
+        } else {
+          return const Center(child: CircularProgressIndicator());
+        }
+      }),
+    );
   }
 }
