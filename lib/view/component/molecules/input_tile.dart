@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:password_app_2/constants/id_password_manager_item.dart';
 import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/enum/id_password_manager_item_enum.dart';
+import 'package:password_app_2/model/id_password_save_model.dart';
 import 'package:password_app_2/view/id_password_manager_page.dart';
 
 final textProvider = StateProvider(((ref) => ''));
@@ -14,10 +15,13 @@ class InputTile extends ConsumerWidget {
   }) : super(key: key);
 
   final IdPasswordManagerItem idPasswordManagerItem;
-  final TextEditingController _textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // TODO 属性によってtextfieldに代入する値を変更する
+    final idPasswordSaveModel = ref.watch(itemProvider.state).state;
+    final TextEditingController _textEditingController =
+        TextEditingController(text: idPasswordSaveModel.name);
     return Column(
       children: [
         ListTile(
