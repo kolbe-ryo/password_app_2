@@ -24,7 +24,7 @@ class RegistrationOrderPage extends ConsumerWidget {
           return dataLength != 0
               ? GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 1.4,
+                    childAspectRatio: 1.3,
                     crossAxisCount: 2,
                     crossAxisSpacing: 8.0,
                     mainAxisSpacing: 8.0,
