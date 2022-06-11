@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:password_app_2/constants/style.dart';
-import 'package:password_app_2/view/component/molecules/app_dialog.dart';
+import 'package:password_app_2/view/component/molecules/app_delete_dialog.dart';
 import 'package:password_app_2/view/id_password_manager_page.dart';
 import 'package:password_app_2/view/registration_order_page.dart';
 
@@ -15,7 +15,7 @@ class DataDeleteButton extends ConsumerWidget {
       child: TextButton(
         onPressed: () async {
           final isDelete = await showDialog(
-              context: context, builder: (context) => const AppDialog());
+              context: context, builder: (context) => const AppDeleteDialog());
           if (isDelete) {
             final idPasswordSaveModel = ref.watch(itemProvider.state).state;
             ref.read(savingProvider.notifier).delete(idPasswordSaveModel);
