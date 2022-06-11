@@ -5,7 +5,7 @@ import 'package:password_app_2/enum/genre_data_enum.dart';
 import 'package:password_app_2/enum/id_password_enum.dart';
 import 'package:password_app_2/model/id_password_save_model.dart';
 import 'package:password_app_2/view/component/atom/title_text.dart';
-import 'package:password_app_2/view/component/molecules/copy_button.dart';
+import 'package:password_app_2/view/component/atom/copy_button.dart';
 import 'package:password_app_2/view/id_password_manager_page.dart';
 import 'package:password_app_2/view/selection_page.dart';
 

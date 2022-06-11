@@ -15,6 +15,12 @@ class IdPasswordSaveViewModel extends StateNotifier<IdPasswordSaveModelList> {
     state = data ?? state.copyWith(modelList: []);
   }
 
+  // secure_storageから取得
+  Future<void> getSortingGenre() async {
+    final data = await _interface.get();
+    state = data ?? state.copyWith(modelList: []);
+  }
+
   // secure_storageへ保存
   Future<void> save() async => await _interface.save(state);
 

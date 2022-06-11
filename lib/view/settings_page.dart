@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:password_app_2/view_model/settings_page_view_model.dart';
 
 class SettingsPage extends StatelessWidget {
