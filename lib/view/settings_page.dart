@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:password_app_2/view_model/settings_page_view_model.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -8,7 +9,11 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('設定'),
+      child: Center(
+          child: ElevatedButton(
+        onPressed: () => SettingsPageViewModel().delete(),
+        child: Text('削除'),
+      )),
     );
   }
 }
