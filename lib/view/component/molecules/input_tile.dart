@@ -8,7 +8,7 @@ import 'package:password_app_2/view/id_password_manager_page.dart';
 final textProvider = StateProvider(((ref) => ''));
 
 class InputTile extends ConsumerWidget {
-  InputTile(
+  const InputTile(
     this.idPasswordManagerItem, {
     Key? key,
   }) : super(key: key);
