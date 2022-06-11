@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:password_app_2/constants/style.dart';
-import 'package:password_app_2/view/component/molecules/notification_toast.dart';
+import 'package:password_app_2/view/component/atom/notification_toast.dart';
 
 class CopyButton extends StatelessWidget {
   const CopyButton({
