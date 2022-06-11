@@ -7,6 +7,7 @@ import 'package:password_app_2/model/id_password_save_model.dart';
 import 'package:password_app_2/view/component/atom/title_text.dart';
 import 'package:password_app_2/view/component/molecules/copy_button.dart';
 import 'package:password_app_2/view/id_password_manager_page.dart';
+import 'package:password_app_2/view/selection_page.dart';
 
 class IdPasswordCard extends ConsumerWidget {
   const IdPasswordCard(this.idPasswordSaveModel, {Key? key}) : super(key: key);
@@ -64,6 +65,7 @@ class IdPasswordCard extends ConsumerWidget {
       ),
       onTap: () => {
         // id_password_manager_pageに遷移
+        ref.read(isEditIdPasswordProvider.state).update((state) => true),
         ref.read(itemProvider.state).update((state) => idPasswordSaveModel),
         Navigator.push(
           context,
