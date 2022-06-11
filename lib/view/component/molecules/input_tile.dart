@@ -32,6 +32,7 @@ class InputTile extends ConsumerWidget {
           ),
           initialValue: initialText,
           onChanged: (String text) => saveItemToIdPasswordModel(text, ref),
+          style: kSecondTextStyle(),
         ),
       ],
     );

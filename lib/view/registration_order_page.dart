@@ -19,9 +19,9 @@ class RegistrationOrderPage extends ConsumerWidget {
       future: ref.read(savingProvider.notifier).get(),
       builder: ((context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          final dataLength = ref
-              .watch(savingProvider.select((model) => model.modelList.length));
-          return dataLength != 0
+          final idPasswordSaveModel =
+              ref.watch(savingProvider.select((model) => model.modelList));
+          return idPasswordSaveModel.isNotEmpty
               ? GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     childAspectRatio: 1.3,
@@ -30,11 +30,9 @@ class RegistrationOrderPage extends ConsumerWidget {
                     mainAxisSpacing: 8.0,
                   ),
                   itemBuilder: (context, index) {
-                    final idPasswordSaveModel = ref.watch(savingProvider
-                        .select((model) => model.modelList[index]));
-                    return IdPasswordCard(idPasswordSaveModel);
+                    return IdPasswordCard(idPasswordSaveModel[index]);
                   },
-                  itemCount: dataLength,
+                  itemCount: idPasswordSaveModel.length,
                   padding: const EdgeInsets.all(kSpacing),
                 )
               : const NothingDataText();
