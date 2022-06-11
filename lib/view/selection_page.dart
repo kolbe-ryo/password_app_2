@@ -26,9 +26,9 @@ class SelectionPage extends ConsumerWidget {
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
           onPressed: () {
-            ref
-                .read(itemProvider.state)
-                .update((state) => IdPasswordSaveModel(time: DateTime.now()));
+            ref.read(itemProvider.state).update(
+                  (state) => IdPasswordSaveModel(time: DateTime.now()),
+                );
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -36,7 +36,7 @@ class SelectionPage extends ConsumerWidget {
               ),
             );
           }),
-      bottomNavigationBar: BottomNavigationBarItems(pageIndex: pageIndex),
+      bottomNavigationBar: const BottomNavigationBarItems(),
     );
   }
 }

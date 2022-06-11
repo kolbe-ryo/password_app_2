@@ -2,55 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/enum/id_password_manager_item_enum.dart';
-import 'package:password_app_2/model/id_password_manager_item_model.dart';
 import 'package:password_app_2/view/id_password_manager_page.dart';
 
-final textProvider = StateProvider(((ref) => ''));
-
 class InputTile extends ConsumerWidget {
-  const InputTile(
-    this.idPasswordManagerItem, {
+  const InputTile({
+    required this.idPasswordManagerItem,
+    required this.initialText,
     Key? key,
   }) : super(key: key);
 
-  final IdPasswordManagerItem idPasswordManagerItem;
+  final IdPasswordManagerItems idPasswordManagerItem;
+  final String initialText;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // TODO 属性によってtextfieldに代入する値を変更する
-    final idPasswordSaveModel = ref.watch(itemProvider.state).state;
-    final TextEditingController _textEditingController =
-        TextEditingController(text: idPasswordSaveModel.name);
     return Column(
       children: [
         ListTile(
           contentPadding: const EdgeInsets.only(top: kSpacing),
           title: Text(
-            idPasswordManagerItem.caption,
+            idPasswordManagerItem.itemModel.caption,
             style: kCaptionTextStyle,
           ),
         ),
         TextFormField(
-          controller: _textEditingController,
           decoration: InputDecoration(
-            hintText: idPasswordManagerItem.hintText,
+            hintText: idPasswordManagerItem.itemModel.hintText,
             hintStyle: kSecondTextStyle(),
           ),
-          onChanged: (String text) => {
-            _textEditingController.text,
-            saveItemToIdPasswordModel(text, ref),
-          },
-          // TODO Validatorを発動させる
-          onSaved: (String? text) {},
-          validator: (String? text) =>
-              (text == null) ? 'Do not use the @ char.' : 'text',
+          initialValue: initialText,
+          onChanged: (String text) => saveItemToIdPasswordModel(text, ref),
         ),
       ],
     );
   }
 
   void saveItemToIdPasswordModel(String text, WidgetRef ref) {
-    switch (idPasswordManagerItem.attribute) {
+    switch (idPasswordManagerItem) {
       case IdPasswordManagerItems.name:
         ref
             .read(itemProvider.state)

@@ -6,10 +6,7 @@ import 'package:password_app_2/view/selection_page.dart';
 class BottomNavigationBarItems extends ConsumerWidget {
   const BottomNavigationBarItems({
     Key? key,
-    required this.pageIndex,
   }) : super(key: key);
-
-  final int pageIndex;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -17,7 +14,7 @@ class BottomNavigationBarItems extends ConsumerWidget {
       items: BottomNavigationBarItemEnum.values
           .map((item) => item.bottomNavigationBarItem)
           .toList(),
-      currentIndex: pageIndex,
+      currentIndex: ref.watch(pageIndexProvider.state).state,
       onTap: (int index) =>
           ref.read(pageIndexProvider.state).update((state) => index),
     );

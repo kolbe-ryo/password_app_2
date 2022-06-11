@@ -11,11 +11,12 @@ import 'package:password_app_2/view/component/molecules/input_tile.dart';
 final itemProvider =
     StateProvider((ref) => IdPasswordSaveModel(time: DateTime.now()));
 
-class IdPasswordManagerPage extends StatelessWidget {
+class IdPasswordManagerPage extends ConsumerWidget {
   const IdPasswordManagerPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final idPasswordSaveModel = ref.watch(itemProvider.state).state;
     return Scaffold(
       appBar: AppBar(
         title: const Text(kAppBarTitle),
@@ -25,13 +26,25 @@ class IdPasswordManagerPage extends StatelessWidget {
         padding: const EdgeInsets.all(kSpacing),
         child: Column(
           children: [
-            InputTile(IdPasswordManagerItems.name.itemModel),
-            InputTile(IdPasswordManagerItems.id.itemModel),
-            InputTile(IdPasswordManagerItems.password.itemModel),
-            GenreSelectTile(IdPasswordManagerItems.genre.itemModel),
-            InputTile(IdPasswordManagerItems.memo.itemModel),
-            InputTile(IdPasswordManagerItems.memo.itemModel),
+            InputTile(
+              idPasswordManagerItem: IdPasswordManagerItems.name,
+              initialText: idPasswordSaveModel.name,
+            ),
+            InputTile(
+              idPasswordManagerItem: IdPasswordManagerItems.id,
+              initialText: idPasswordSaveModel.id,
+            ),
+            InputTile(
+              idPasswordManagerItem: IdPasswordManagerItems.password,
+              initialText: idPasswordSaveModel.password,
+            ),
+            const GenreSelectTile(IdPasswordManagerItems.genre),
+            InputTile(
+              idPasswordManagerItem: IdPasswordManagerItems.memo,
+              initialText: idPasswordSaveModel.memo,
+            ),
             const DataRegisterButton(),
+            const SizedBox(height: kSpacing),
           ],
         ),
       ),
