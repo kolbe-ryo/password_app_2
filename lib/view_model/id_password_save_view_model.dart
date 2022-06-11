@@ -9,20 +9,22 @@ class IdPasswordSaveViewModel extends StateNotifier<IdPasswordSaveModelList> {
 
   final SecureStorageInterface _interface = SecureStorageService();
 
-  void addIdPasswordSaveModel(IdPasswordSaveModel model) =>
-      state = state.copyWith(
-        modelList: [...state.modelList, model],
-      );
-
+  // secure_storageから取得
   Future<void> get() async {
     final data = await _interface.get();
     state = data ?? state.copyWith(modelList: []);
   }
 
+  // secure_storageへ保存
   Future<void> save() async => await _interface.save(state);
 
+  void addIdPasswordSaveModel(IdPasswordSaveModel model) =>
+      state = state.copyWith(
+        modelList: [...state.modelList, model],
+      );
+
   // stateリスト内のmodelと合致したものを更新して再度保存する処理
-  Future<void> update(IdPasswordSaveModel model) async {
+  void update(IdPasswordSaveModel model) {
     state = state.copyWith(
       modelList: state.modelList
           .map((_model) => _model.time == model.time ? model : _model)
@@ -31,12 +33,11 @@ class IdPasswordSaveViewModel extends StateNotifier<IdPasswordSaveModelList> {
   }
 
   // stateリスト内のmodelと合致したものを除いて再度保存する処理
-  Future<void> delete(IdPasswordSaveModel model) async {
+  void delete(IdPasswordSaveModel model) {
     final modelList = state.modelList
         .map((_model) => _model)
         .where((_model) => _model.time != model.time)
         .toList();
     state = state.copyWith(modelList: modelList);
-    Future.delayed(Duration(microseconds: 100));
   }
 }
