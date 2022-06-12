@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Password App',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
+        primarySwatch: Colors.blue,
         appBarTheme: AppBarTheme.of(context).copyWith(
           backgroundColor: Colors.white,
           elevation: 1.0,

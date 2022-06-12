@@ -5,7 +5,7 @@ const kGreyColor = Color.fromRGBO(200, 200, 200, 1);
 
 // Text
 const kHeadLineStyle = TextStyle(
-  color: Colors.redAccent,
+  color: Colors.blueAccent,
   fontWeight: FontWeight.bold,
   fontSize: 20,
 );
