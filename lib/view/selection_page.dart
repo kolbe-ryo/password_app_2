@@ -6,10 +6,10 @@ import 'package:password_app_2/model/id_password_save_model.dart';
 import 'package:password_app_2/view/component/organisms/bottom_navigation_bar_items.dart';
 import 'package:password_app_2/view/id_password_manager_page.dart';
 
-// provider for page index: ボトムナビゲーションアイテムコントロール
+// provider for page index
 final pageIndexProvider = StateProvider<int>(((ref) => 0));
 
-// provider for edit idpassword: 登録時に更新か新規追加かを判別する
+// provider for edit idpassword
 final isEditIdPasswordProvider = StateProvider<bool>(((ref) => false));
 
 class SelectionPage extends ConsumerWidget {

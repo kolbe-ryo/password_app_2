@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:password_app_2/constants/const_letter.dart';
 import 'package:password_app_2/util/local_auth.dart';
-import 'package:password_app_2/view/selection_page.dart';
+import 'package:password_app_2/view/life_cycle_detection_page.dart';
 
 class LocalLoginPage extends StatelessWidget {
   const LocalLoginPage({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class LocalLoginPage extends StatelessWidget {
             if (isAuthenticated) {
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
-                  builder: ((context) => const SelectionPage()),
+                  builder: ((context) => const LifeCycleDetectionPage()),
                 ),
               );
             }
