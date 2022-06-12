@@ -57,6 +57,7 @@ dev_dependencies:
   fluttertoast: ^8.0.9
   flutter_gesture_password: ^0.0.1
   flutter_secure_storage: ^5.0.2
+  local_auth: ^2.1.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
