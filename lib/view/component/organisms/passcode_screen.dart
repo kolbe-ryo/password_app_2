@@ -1,12 +1,23 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:passcode_screen/passcode_screen.dart';
 import 'package:passcode_screen/circle.dart';
 import 'package:passcode_screen/keyboard.dart';
+import 'package:password_app_2/view/life_cycle_detection_page.dart';
 
-const storedPasscode = '123456';
+const storedPasscode = '1234';
 
-class PasscodeScreenPage extends StatelessWidget {
+class PasscodeScreenPage extends StatefulWidget {
   const PasscodeScreenPage({Key? key}) : super(key: key);
+
+  @override
+  State<PasscodeScreenPage> createState() => _PasscodeScreenPageState();
+}
+
+class _PasscodeScreenPageState extends State<PasscodeScreenPage> {
+  final StreamController<bool> _verificationNotifier =
+      StreamController<bool>.broadcast();
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +25,8 @@ class PasscodeScreenPage extends StatelessWidget {
       title: const Text(
         'Enter App Passcode',
         textAlign: TextAlign.center,
-        style: TextStyle(color: Colors.white, fontSize: 28),
+        style: TextStyle(color: Colors.blue, fontSize: 20),
       ),
-      circleUIConfig: const CircleUIConfig(
-          borderColor: Colors.blue, fillColor: Colors.blue, circleSize: 30),
-      keyboardUIConfig: const KeyboardUIConfig(
-          digitBorderWidth: 2, primaryColor: Colors.blue),
       passwordEnteredCallback: _onPasscodeEntered,
       cancelButton: const Text(
         'Cancel',
@@ -33,96 +40,24 @@ class PasscodeScreenPage extends StatelessWidget {
       ),
       shouldTriggerVerification: _verificationNotifier.stream,
       backgroundColor: Colors.black.withOpacity(0.8),
-      cancelCallback: _onPasscodeCancelled(context),
-      passwordDigits: 6,
-      bottomWidget: _buildPasscodeRestoreButton(context),
+      cancelCallback: () => Navigator.pop(context, Icons.female_sharp),
+      passwordDigits: 4,
+      isValidCallback: () => Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: ((context) => const LifeCycleDetectionPage()),
+        ),
+      ),
     );
+  }
+
+  @override
+  void dispose() {
+    _verificationNotifier.close();
+    super.dispose();
   }
 
   _onPasscodeEntered(String enteredPasscode) {
     bool isValid = storedPasscode == enteredPasscode;
     _verificationNotifier.add(isValid);
-    if (isValid) {
-      setState(() {
-        this.isAuthenticated = isValid;
-      });
-    }
-  }
-
-  _onPasscodeCancelled(BuildContext context) {
-    Navigator.maybePop(context);
-  }
-
-  _buildPasscodeRestoreButton(BuildContext context) => Align(
-        alignment: Alignment.bottomCenter,
-        child: Container(
-          margin: const EdgeInsets.only(bottom: 10.0, top: 20.0),
-          child: TextButton(
-            child: Text(
-              "Reset passcode",
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w300),
-            ),
-            onPressed: _resetAppPassword(context),
-            // splashColor: Colors.white.withOpacity(0.4),
-            // highlightColor: Colors.white.withOpacity(0.2),
-            // ),
-          ),
-        ),
-      );
-
-  _resetAppPassword(BuildContext context) {
-    Navigator.maybePop(context).then((result) {
-      if (!result) {
-        return;
-      }
-      _showRestoreDialog(
-        () {
-          Navigator.maybePop(context);
-          //TODO: Clear your stored passcode here
-        },
-        context,
-      );
-    });
-  }
-
-  _showRestoreDialog(VoidCallback onAccepted, BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(
-            "Reset passcode",
-            style: const TextStyle(color: Colors.black87),
-          ),
-          content: Text(
-            "Passcode reset is a non-secure operation!\n\nConsider removing all user data if this action performed.",
-            style: const TextStyle(color: Colors.black87),
-          ),
-          actions: <Widget>[
-            // usually buttons at the bottom of the dialog
-            TextButton(
-              child: Text(
-                "Cancel",
-                style: const TextStyle(fontSize: 18),
-              ),
-              onPressed: () {
-                Navigator.maybePop(context);
-              },
-            ),
-            TextButton(
-              child: Text(
-                "I understand",
-                style: const TextStyle(fontSize: 18),
-              ),
-              onPressed: onAccepted,
-            ),
-          ],
-        );
-      },
-    );
   }
 }

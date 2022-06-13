@@ -79,8 +79,9 @@ class LocalLoginPage extends StatelessWidget {
     }
   }
 
-  void _pushByPasscode(BuildContext context, bool opaque) =>
-      Navigator.of(context).push(
+  Future<void> _pushByPasscode(BuildContext context, bool opaque) async =>
+      await Navigator.push(
+        context,
         PageRouteBuilder(
           opaque: opaque,
           pageBuilder: (context, animation, secondaryAnimation) =>
