@@ -58,6 +58,7 @@ dev_dependencies:
   flutter_gesture_password: ^0.0.1
   flutter_secure_storage: ^5.0.2
   local_auth: ^2.1.0
+  passcode_screen: ^2.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

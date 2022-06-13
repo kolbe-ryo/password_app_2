@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:password_app_2/constants/const_letter.dart';
 import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/util/local_auth.dart';
+import 'package:password_app_2/view/component/organisms/passcode_screen.dart';
 import 'package:password_app_2/view/life_cycle_detection_page.dart';
 
 class LocalLoginPage extends StatelessWidget {
@@ -27,7 +28,7 @@ class LocalLoginPage extends StatelessWidget {
                     size: 50,
                   ),
                 ),
-                onPressed: () async => _push(context),
+                onPressed: () async => _pushByBiometrics(context),
                 style: ElevatedButton.styleFrom(
                   shape: const CircleBorder(),
                 ),
@@ -50,7 +51,7 @@ class LocalLoginPage extends StatelessWidget {
                     size: 50,
                   ),
                 ),
-                onPressed: () async => _push(context),
+                onPressed: () async => _pushByPasscode(context, false),
                 style: ElevatedButton.styleFrom(
                   shape: const CircleBorder(),
                 ),
@@ -67,7 +68,7 @@ class LocalLoginPage extends StatelessWidget {
     );
   }
 
-  Future<void> _push(BuildContext context) async {
+  Future<void> _pushByBiometrics(BuildContext context) async {
     final isAuthenticated = await LocalAuth.authenticate();
     if (isAuthenticated) {
       Navigator.of(context).pushReplacement(
@@ -77,4 +78,13 @@ class LocalLoginPage extends StatelessWidget {
       );
     }
   }
+
+  void _pushByPasscode(BuildContext context, bool opaque) =>
+      Navigator.of(context).push(
+        PageRouteBuilder(
+          opaque: opaque,
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const PasscodeScreenPage(),
+        ),
+      );
 }
