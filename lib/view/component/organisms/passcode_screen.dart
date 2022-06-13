@@ -2,11 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:passcode_screen/passcode_screen.dart';
-import 'package:passcode_screen/circle.dart';
-import 'package:passcode_screen/keyboard.dart';
 import 'package:password_app_2/view/life_cycle_detection_page.dart';
 
-const storedPasscode = '1234';
+const storedPasscode = '1111';
 
 class PasscodeScreenPage extends StatefulWidget {
   const PasscodeScreenPage({Key? key}) : super(key: key);
