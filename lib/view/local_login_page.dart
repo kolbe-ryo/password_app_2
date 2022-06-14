@@ -53,7 +53,8 @@ class LocalLoginPage extends ConsumerWidget {
                     size: 50,
                   ),
                 ),
-                onPressed: () {
+                onPressed: () async {
+                  await ref.read(passcodeProvider.notifier).get();
                   final isInit = ref.watch(
                     passcodeProvider.select((state) => state.initPass),
                   );

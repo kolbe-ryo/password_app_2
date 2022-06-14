@@ -24,6 +24,7 @@ class SelectionPage extends ConsumerWidget {
       appBar: AppBar(
         title: const Text(kAppBarTitle),
         elevation: 0,
+        leading: Image.asset('assets/images/logo.png'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(kSpacing),
