@@ -8,36 +8,41 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
+      children: [
         SettingTile(
           title: 'パスコード変更',
-          icon: Icon(Icons.key),
-          page: ChangePasscord(),
+          icon: const Icon(Icons.key),
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ChangePasscord(),
+            ),
+          ),
         ),
         SettingTile(
           title: 'パスワード削除',
-          icon: Icon(Icons.delete),
-          page: ChangePasscord(),
+          icon: const Icon(Icons.delete),
+          onTap: () => {},
         ),
         SettingTile(
           title: 'レビューする',
-          icon: Icon(Icons.star),
-          page: ChangePasscord(),
+          icon: const Icon(Icons.star),
+          onTap: () => {},
         ),
         SettingTile(
           title: '不具合報告',
-          icon: Icon(Icons.bug_report),
-          page: ChangePasscord(),
+          icon: const Icon(Icons.bug_report),
+          onTap: () => {},
         ),
         SettingTile(
           title: 'ヘルプ',
-          icon: Icon(Icons.help),
-          page: ChangePasscord(),
+          icon: const Icon(Icons.help),
+          onTap: () => {},
         ),
         SettingTile(
           title: 'ライセンス',
-          icon: Icon(Icons.flutter_dash),
-          page: ChangePasscord(),
+          icon: const Icon(Icons.flutter_dash),
+          onTap: () => {},
         ),
       ],
     );

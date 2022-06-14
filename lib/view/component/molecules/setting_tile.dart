@@ -6,22 +6,19 @@ class SettingTile extends StatelessWidget {
     Key? key,
     required this.title,
     required this.icon,
-    required this.page,
+    required this.onTap,
   }) : super(key: key);
 
   final String title;
   final Icon icon;
-  final Widget page;
+  final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
         contentPadding: const EdgeInsets.only(top: kSpacing),
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => page),
-        ),
+        onTap: onTap,
         title: Text(
           title,
           style: kSecondTextStyle(),

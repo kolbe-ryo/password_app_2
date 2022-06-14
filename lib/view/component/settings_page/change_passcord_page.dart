@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:password_app_2/constants/style.dart';
 
 class ChangePasscord extends StatelessWidget {
