@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         ),
         bottomNavigationBarTheme: BottomNavigationBarTheme.of(context).copyWith(
           // selectedItemColor: Colors.blueGrey,
-          unselectedItemColor: const Color.fromARGB(255, 205, 205, 205),
+          unselectedItemColor: const Color.fromARGB(255, 184, 184, 184),
         ),
       ),
       home: const LocalLoginPage(),
