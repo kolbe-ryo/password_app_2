@@ -18,7 +18,8 @@ class SettingTile extends StatelessWidget {
     return Card(
       child: ListTile(
         contentPadding: const EdgeInsets.only(top: kSpacing),
-        onTap: () => Navigator.of(context).push(
+        onTap: () => Navigator.push(
+          context,
           MaterialPageRoute(builder: (context) => page),
         ),
         title: Text(
