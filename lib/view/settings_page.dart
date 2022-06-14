@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:password_app_2/view/component/molecules/app_delete_dialog.dart';
 import 'package:password_app_2/view/component/molecules/setting_tile.dart';
 import 'package:password_app_2/view/component/settings_page/change_passcord_page.dart';
+import 'package:password_app_2/view_model/settings_page_view_model.dart';
 
-class SettingsPage extends StatelessWidget {
+final settingsProvider = Provider(((ref) => SettingsPageViewModel()));
+
+class SettingsPage extends ConsumerWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
         SettingTile(
@@ -22,7 +27,15 @@ class SettingsPage extends StatelessWidget {
         SettingTile(
           title: 'パスワード削除',
           icon: const Icon(Icons.delete),
-          onTap: () => {},
+          onTap: () async {
+            final isDelete = await showDialog(
+              context: context,
+              builder: (context) => const AppDeleteDialog('パスワードが\n全件削除されます'),
+            );
+            if (isDelete) {
+              ref.read(settingsProvider).deleteAll();
+            }
+          },
         ),
         SettingTile(
           title: 'レビューする',

@@ -15,7 +15,7 @@ class SecureStorageService implements SecureStorageInterface {
   }
 
   @override
-  Future<void> delete() async {
+  Future<void> deleteAll() async {
     _storage.deleteAll();
   }
 

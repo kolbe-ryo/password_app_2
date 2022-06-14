@@ -7,7 +7,7 @@ class AppDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoAlertDialog(
       title: const Text("名称は必須です"),
-      content: const Text("パスワード名称を入力してください"),
+      // content: const Text("パスワード名称を入力してください"),
       actions: [
         CupertinoDialogAction(
           child: const Text("OK"),

@@ -15,7 +15,9 @@ class DataDeleteButton extends ConsumerWidget {
       child: TextButton(
         onPressed: () async {
           final isDelete = await showDialog(
-              context: context, builder: (context) => const AppDeleteDialog());
+            context: context,
+            builder: (context) => const AppDeleteDialog('このパスワードを\n削除しますか'),
+          );
           if (isDelete) {
             final idPasswordSaveModel = ref.watch(itemProvider.state).state;
             ref.read(savingProvider.notifier).delete(idPasswordSaveModel);

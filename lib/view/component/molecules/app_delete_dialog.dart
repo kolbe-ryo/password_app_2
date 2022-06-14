@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 
 class AppDeleteDialog extends StatelessWidget {
-  const AppDeleteDialog({Key? key}) : super(key: key);
+  const AppDeleteDialog(this.message, {Key? key}) : super(key: key);
+
+  final String message;
 
   @override
   Widget build(BuildContext context) {
     return CupertinoAlertDialog(
-      title: const Text("パスワードを削除しますか"),
-      content: const Text("操作は元に戻せません"),
+      title: Text(message),
       actions: [
         CupertinoDialogAction(
           child: const Text("削除"),

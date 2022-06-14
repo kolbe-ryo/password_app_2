@@ -43,7 +43,7 @@ class DataRegisterButton extends ConsumerWidget {
           }
         },
         child: Text(
-          '登録する',
+          ref.watch(isEditIdPasswordProvider.state).state ? '変更する' : '登録する',
           style: TextStyle(fontSize: 20, color: genre.color),
         ),
       ),

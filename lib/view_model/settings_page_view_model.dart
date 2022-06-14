@@ -4,7 +4,7 @@ import 'package:password_app_2/service/secure_storage_service.dart';
 class SettingsPageViewModel {
   final SecureStorageInterface _interface = SecureStorageService();
 
-  void delete() {
-    _interface.delete();
+  void deleteAll() {
+    _interface.deleteAll();
   }
 }
