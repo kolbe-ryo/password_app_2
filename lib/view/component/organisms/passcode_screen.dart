@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:passcode_screen/passcode_screen.dart';
 import 'package:password_app_2/model/local_passcode_model.dart';
+import 'package:password_app_2/view/component/molecules/app_dialog.dart';
 import 'package:password_app_2/view/life_cycle_detection_page.dart';
 import 'package:password_app_2/view_model/passcode_screen_view_model.dart';
 

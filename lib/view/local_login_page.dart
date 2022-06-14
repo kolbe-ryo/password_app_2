@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:password_app_2/constants/const_letter.dart';
 import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/util/local_auth.dart';
+import 'package:password_app_2/view/component/molecules/app_dialog.dart';
 import 'package:password_app_2/view/component/organisms/passcode_screen.dart';
 import 'package:password_app_2/view/life_cycle_detection_page.dart';
 
@@ -79,13 +80,18 @@ class LocalLoginPage extends StatelessWidget {
     }
   }
 
-  Future<void> _pushByPasscode(BuildContext context, bool opaque) async =>
-      await Navigator.push(
-        context,
-        PageRouteBuilder(
-          opaque: opaque,
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const PasscodeScreenPage(),
-        ),
-      );
+  Future<void> _pushByPasscode(BuildContext context, bool opaque) async {
+    await showDialog(
+      context: context,
+      builder: (context) => const AppDialog("パスコードを変更してください"),
+    );
+    await Navigator.push(
+      context,
+      PageRouteBuilder(
+        opaque: opaque,
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const PasscodeScreenPage(),
+      ),
+    );
+  }
 }
