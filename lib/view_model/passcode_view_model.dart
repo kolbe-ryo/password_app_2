@@ -16,4 +16,10 @@ class PasscodeViewModel extends StateNotifier<LocalPasscodeModel> {
   void changeLength(int length) {
     state = state.copyWith(length: length);
   }
+
+  // 初期設定から変更があった場合、
+  Future<void> changePasscode(int length, String passcode) async {
+    state = state.copyWith(initPass: false, length: length, passcode: passcode);
+    await _interface.savePasscode(state);
+  }
 }

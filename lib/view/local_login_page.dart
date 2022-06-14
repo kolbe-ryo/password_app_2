@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:password_app_2/constants/const_letter.dart';
 import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/util/local_auth.dart';
@@ -6,11 +7,11 @@ import 'package:password_app_2/view/component/molecules/app_dialog.dart';
 import 'package:password_app_2/view/component/organisms/passcode_screen.dart';
 import 'package:password_app_2/view/life_cycle_detection_page.dart';
 
-class LocalLoginPage extends StatelessWidget {
+class LocalLoginPage extends ConsumerWidget {
   const LocalLoginPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(kAppBarTitle),
@@ -52,7 +53,12 @@ class LocalLoginPage extends StatelessWidget {
                     size: 50,
                   ),
                 ),
-                onPressed: () async => _pushByPasscode(context, false),
+                onPressed: () {
+                  final isInit = ref.watch(
+                    passcodeProvider.select((state) => state.initPass),
+                  );
+                  _pushByPasscode(context, false, isInit);
+                },
                 style: ElevatedButton.styleFrom(
                   shape: const CircleBorder(),
                 ),
@@ -80,11 +86,14 @@ class LocalLoginPage extends StatelessWidget {
     }
   }
 
-  Future<void> _pushByPasscode(BuildContext context, bool opaque) async {
-    await showDialog(
-      context: context,
-      builder: (context) => const AppDialog("パスコードを変更してください"),
-    );
+  Future<void> _pushByPasscode(
+      BuildContext context, bool opaque, bool isInit) async {
+    if (isInit) {
+      await showDialog(
+        context: context,
+        builder: (context) => const AppDialog("パスコードを変更してください"),
+      );
+    }
     await Navigator.push(
       context,
       PageRouteBuilder(

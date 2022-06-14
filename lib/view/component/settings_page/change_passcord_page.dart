@@ -3,7 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/view/component/atom/general_list_tile.dart';
 import 'package:password_app_2/view/component/atom/passcode_length_slider.dart';
+import 'package:password_app_2/view/component/organisms/change_passcode_screen.dart';
 import 'package:password_app_2/view/component/organisms/passcode_screen.dart';
+
+final passcodeLengthProvider = StateProvider<int>(
+    ((ref) => ref.watch(passcodeProvider.select((state) => state.length))));
 
 class ChangePasscord extends ConsumerWidget {
   const ChangePasscord({Key? key}) : super(key: key);
@@ -28,13 +32,11 @@ class ChangePasscord extends ConsumerWidget {
                 style: kCaptionTextStyle,
               ),
               trailing: Text(
-                ref.watch(
-                  passcodeProvider.select((state) => state.length.toString()),
-                ),
+                ref.watch(passcodeLengthProvider.state).state.toString(),
                 style: kCaptionTextStyle,
               ),
             ),
-            PasscodeLengthSlider(),
+            const PasscodeLengthSlider(),
             GeneralListTile('変更'),
             ElevatedButton(
               onPressed: () => _pushForChangePasscode(context, false),
@@ -52,7 +54,7 @@ class ChangePasscord extends ConsumerWidget {
       PageRouteBuilder(
         opaque: opaque,
         pageBuilder: (context, animation, secondaryAnimation) =>
-            const PasscodeScreenPage(),
+            const ChangePasscodeScreen(),
       ),
     );
   }

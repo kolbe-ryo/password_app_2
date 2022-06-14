@@ -39,8 +39,9 @@ class DataRegisterButton extends ConsumerWidget {
             Navigator.pop(context);
           } else {
             showDialog(
-                context: context,
-                builder: (context) => const AppDialog("名称は必須です"));
+              context: context,
+              builder: (context) => const AppDialog("名称は必須です"),
+            );
           }
         },
         child: Text(
