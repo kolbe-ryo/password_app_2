@@ -56,6 +56,7 @@ class IdPasswordCard extends ConsumerWidget {
             ),
           ],
         ),
+        elevation: 0.1,
         shape: const RoundedRectangleBorder(
           side: BorderSide(
             color: kGreyColor,

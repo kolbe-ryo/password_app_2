@@ -36,6 +36,7 @@ class GenreOrderPage extends ConsumerWidget {
                     )
                     .toList(),
               ),
+              const SizedBox(height: kSpacing),
               Expanded(
                 child: idPasswordSaveModel.isNotEmpty
                     ? GridView.builder(

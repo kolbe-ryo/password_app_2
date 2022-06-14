@@ -4,14 +4,15 @@ part 'local_passcode_model.freezed.dart';
 part 'local_passcode_model.g.dart';
 
 @freezed
-class LocalPasscordModel with _$LocalPasscordModel {
-  const LocalPasscordModel._();
+class LocalPasscodeModel with _$LocalPasscodeModel {
+  const LocalPasscodeModel._();
 
-  const factory LocalPasscordModel({
+  const factory LocalPasscodeModel({
+    @Default(true) bool initPass,
     @Default(4) int length,
     @Default('0000') String passcode,
-  }) = _LocalPasscordModel;
+  }) = _LocalPasscodeModel;
 
-  factory LocalPasscordModel.fromJson(Map<String, dynamic> json) =>
-      _$LocalPasscordModelFromJson(json);
+  factory LocalPasscodeModel.fromJson(Map<String, dynamic> json) =>
+      _$LocalPasscodeModelFromJson(json);
 }

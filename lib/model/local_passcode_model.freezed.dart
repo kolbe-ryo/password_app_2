@@ -14,44 +14,50 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-LocalPasscordModel _$LocalPasscordModelFromJson(Map<String, dynamic> json) {
-  return _LocalPasscordModel.fromJson(json);
+LocalPasscodeModel _$LocalPasscodeModelFromJson(Map<String, dynamic> json) {
+  return _LocalPasscodeModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$LocalPasscordModel {
+mixin _$LocalPasscodeModel {
+  bool get initPass => throw _privateConstructorUsedError;
   int get length => throw _privateConstructorUsedError;
   String get passcode => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LocalPasscordModelCopyWith<LocalPasscordModel> get copyWith =>
+  $LocalPasscodeModelCopyWith<LocalPasscodeModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LocalPasscordModelCopyWith<$Res> {
-  factory $LocalPasscordModelCopyWith(
-          LocalPasscordModel value, $Res Function(LocalPasscordModel) then) =
-      _$LocalPasscordModelCopyWithImpl<$Res>;
-  $Res call({int length, String passcode});
+abstract class $LocalPasscodeModelCopyWith<$Res> {
+  factory $LocalPasscodeModelCopyWith(
+          LocalPasscodeModel value, $Res Function(LocalPasscodeModel) then) =
+      _$LocalPasscodeModelCopyWithImpl<$Res>;
+  $Res call({bool initPass, int length, String passcode});
 }
 
 /// @nodoc
-class _$LocalPasscordModelCopyWithImpl<$Res>
-    implements $LocalPasscordModelCopyWith<$Res> {
-  _$LocalPasscordModelCopyWithImpl(this._value, this._then);
+class _$LocalPasscodeModelCopyWithImpl<$Res>
+    implements $LocalPasscodeModelCopyWith<$Res> {
+  _$LocalPasscodeModelCopyWithImpl(this._value, this._then);
 
-  final LocalPasscordModel _value;
+  final LocalPasscodeModel _value;
   // ignore: unused_field
-  final $Res Function(LocalPasscordModel) _then;
+  final $Res Function(LocalPasscodeModel) _then;
 
   @override
   $Res call({
+    Object? initPass = freezed,
     Object? length = freezed,
     Object? passcode = freezed,
   }) {
     return _then(_value.copyWith(
+      initPass: initPass == freezed
+          ? _value.initPass
+          : initPass // ignore: cast_nullable_to_non_nullable
+              as bool,
       length: length == freezed
           ? _value.length
           : length // ignore: cast_nullable_to_non_nullable
@@ -65,32 +71,37 @@ class _$LocalPasscordModelCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_LocalPasscordModelCopyWith<$Res>
-    implements $LocalPasscordModelCopyWith<$Res> {
-  factory _$$_LocalPasscordModelCopyWith(_$_LocalPasscordModel value,
-          $Res Function(_$_LocalPasscordModel) then) =
-      __$$_LocalPasscordModelCopyWithImpl<$Res>;
+abstract class _$$_LocalPasscodeModelCopyWith<$Res>
+    implements $LocalPasscodeModelCopyWith<$Res> {
+  factory _$$_LocalPasscodeModelCopyWith(_$_LocalPasscodeModel value,
+          $Res Function(_$_LocalPasscodeModel) then) =
+      __$$_LocalPasscodeModelCopyWithImpl<$Res>;
   @override
-  $Res call({int length, String passcode});
+  $Res call({bool initPass, int length, String passcode});
 }
 
 /// @nodoc
-class __$$_LocalPasscordModelCopyWithImpl<$Res>
-    extends _$LocalPasscordModelCopyWithImpl<$Res>
-    implements _$$_LocalPasscordModelCopyWith<$Res> {
-  __$$_LocalPasscordModelCopyWithImpl(
-      _$_LocalPasscordModel _value, $Res Function(_$_LocalPasscordModel) _then)
-      : super(_value, (v) => _then(v as _$_LocalPasscordModel));
+class __$$_LocalPasscodeModelCopyWithImpl<$Res>
+    extends _$LocalPasscodeModelCopyWithImpl<$Res>
+    implements _$$_LocalPasscodeModelCopyWith<$Res> {
+  __$$_LocalPasscodeModelCopyWithImpl(
+      _$_LocalPasscodeModel _value, $Res Function(_$_LocalPasscodeModel) _then)
+      : super(_value, (v) => _then(v as _$_LocalPasscodeModel));
 
   @override
-  _$_LocalPasscordModel get _value => super._value as _$_LocalPasscordModel;
+  _$_LocalPasscodeModel get _value => super._value as _$_LocalPasscodeModel;
 
   @override
   $Res call({
+    Object? initPass = freezed,
     Object? length = freezed,
     Object? passcode = freezed,
   }) {
-    return _then(_$_LocalPasscordModel(
+    return _then(_$_LocalPasscodeModel(
+      initPass: initPass == freezed
+          ? _value.initPass
+          : initPass // ignore: cast_nullable_to_non_nullable
+              as bool,
       length: length == freezed
           ? _value.length
           : length // ignore: cast_nullable_to_non_nullable
@@ -105,13 +116,17 @@ class __$$_LocalPasscordModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LocalPasscordModel extends _LocalPasscordModel {
-  const _$_LocalPasscordModel({this.length = 4, this.passcode = '0000'})
+class _$_LocalPasscodeModel extends _LocalPasscodeModel {
+  const _$_LocalPasscodeModel(
+      {this.initPass = true, this.length = 4, this.passcode = '0000'})
       : super._();
 
-  factory _$_LocalPasscordModel.fromJson(Map<String, dynamic> json) =>
-      _$$_LocalPasscordModelFromJson(json);
+  factory _$_LocalPasscodeModel.fromJson(Map<String, dynamic> json) =>
+      _$$_LocalPasscodeModelFromJson(json);
 
+  @override
+  @JsonKey()
+  final bool initPass;
   @override
   @JsonKey()
   final int length;
@@ -121,14 +136,15 @@ class _$_LocalPasscordModel extends _LocalPasscordModel {
 
   @override
   String toString() {
-    return 'LocalPasscordModel(length: $length, passcode: $passcode)';
+    return 'LocalPasscodeModel(initPass: $initPass, length: $length, passcode: $passcode)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LocalPasscordModel &&
+            other is _$_LocalPasscodeModel &&
+            const DeepCollectionEquality().equals(other.initPass, initPass) &&
             const DeepCollectionEquality().equals(other.length, length) &&
             const DeepCollectionEquality().equals(other.passcode, passcode));
   }
@@ -137,35 +153,40 @@ class _$_LocalPasscordModel extends _LocalPasscordModel {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(initPass),
       const DeepCollectionEquality().hash(length),
       const DeepCollectionEquality().hash(passcode));
 
   @JsonKey(ignore: true)
   @override
-  _$$_LocalPasscordModelCopyWith<_$_LocalPasscordModel> get copyWith =>
-      __$$_LocalPasscordModelCopyWithImpl<_$_LocalPasscordModel>(
+  _$$_LocalPasscodeModelCopyWith<_$_LocalPasscodeModel> get copyWith =>
+      __$$_LocalPasscodeModelCopyWithImpl<_$_LocalPasscodeModel>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LocalPasscordModelToJson(this);
+    return _$$_LocalPasscodeModelToJson(this);
   }
 }
 
-abstract class _LocalPasscordModel extends LocalPasscordModel {
-  const factory _LocalPasscordModel({final int length, final String passcode}) =
-      _$_LocalPasscordModel;
-  const _LocalPasscordModel._() : super._();
+abstract class _LocalPasscodeModel extends LocalPasscodeModel {
+  const factory _LocalPasscodeModel(
+      {final bool initPass,
+      final int length,
+      final String passcode}) = _$_LocalPasscodeModel;
+  const _LocalPasscodeModel._() : super._();
 
-  factory _LocalPasscordModel.fromJson(Map<String, dynamic> json) =
-      _$_LocalPasscordModel.fromJson;
+  factory _LocalPasscodeModel.fromJson(Map<String, dynamic> json) =
+      _$_LocalPasscodeModel.fromJson;
 
+  @override
+  bool get initPass => throw _privateConstructorUsedError;
   @override
   int get length => throw _privateConstructorUsedError;
   @override
   String get passcode => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$_LocalPasscordModelCopyWith<_$_LocalPasscordModel> get copyWith =>
+  _$$_LocalPasscodeModelCopyWith<_$_LocalPasscodeModel> get copyWith =>
       throw _privateConstructorUsedError;
 }

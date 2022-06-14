@@ -8,7 +8,7 @@ import 'package:password_app_2/view/life_cycle_detection_page.dart';
 import 'package:password_app_2/view_model/passcode_screen_view_model.dart';
 
 final passcodeProvider =
-    StateNotifierProvider<PasscodeScreenViewModel, LocalPasscordModel>(
+    StateNotifierProvider<PasscodeScreenViewModel, LocalPasscodeModel>(
         ((ref) => PasscodeScreenViewModel()));
 
 class PasscodeScreenPage extends ConsumerStatefulWidget {
@@ -25,11 +25,13 @@ class _PasscodeScreenPageState extends ConsumerState<PasscodeScreenPage> {
 
   @override
   Widget build(BuildContext context) {
+    final initPass =
+        ref.watch(passcodeProvider.select((state) => state.initPass));
     return PasscodeScreen(
-      title: const Text(
-        'Enter App Passcode',
+      title: Text(
+        initPass ? 'パスワードを入力してください\n初期設定は0000です' : 'パスワードを入力してください',
         textAlign: TextAlign.center,
-        style: TextStyle(color: Colors.blue, fontSize: 20),
+        style: const TextStyle(color: Colors.blue, fontSize: 20),
       ),
       passwordEnteredCallback: (enteredPass) =>
           _onPasscodeEntered(enteredPass, ref),
