@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/state/id_password_save_model_list.dart';
 import 'package:password_app_2/view/component/atom/nothing_data_text.dart';
 import 'package:password_app_2/view/component/organisms/id_password_card.dart';
