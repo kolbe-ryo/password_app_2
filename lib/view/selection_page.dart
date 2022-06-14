@@ -31,7 +31,7 @@ class SelectionPage extends ConsumerWidget {
             .toList()[pageIndex],
       ),
       floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add),
+          child: const Icon(Icons.key),
           onPressed: () {
             ref.read(isEditIdPasswordProvider.state).update((state) => false);
             ref.read(itemProvider.state).update(
