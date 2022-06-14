@@ -1,19 +1,25 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:passcode_screen/passcode_screen.dart';
+import 'package:password_app_2/model/local_passcode_model.dart';
 import 'package:password_app_2/view/life_cycle_detection_page.dart';
+import 'package:password_app_2/view_model/passcode_screen_view_model.dart';
 
-const storedPasscode = '0000';
+final passcodeProvider =
+    StateNotifierProvider<PasscodeScreenViewModel, LocalPasscordModel>(
+        ((ref) => PasscodeScreenViewModel()));
 
-class PasscodeScreenPage extends StatefulWidget {
+class PasscodeScreenPage extends ConsumerStatefulWidget {
   const PasscodeScreenPage({Key? key}) : super(key: key);
 
   @override
-  State<PasscodeScreenPage> createState() => _PasscodeScreenPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _PasscodeScreenPageState();
 }
 
-class _PasscodeScreenPageState extends State<PasscodeScreenPage> {
+class _PasscodeScreenPageState extends ConsumerState<PasscodeScreenPage> {
   final StreamController<bool> _verificationNotifier =
       StreamController<bool>.broadcast();
 
@@ -25,7 +31,8 @@ class _PasscodeScreenPageState extends State<PasscodeScreenPage> {
         textAlign: TextAlign.center,
         style: TextStyle(color: Colors.blue, fontSize: 20),
       ),
-      passwordEnteredCallback: _onPasscodeEntered,
+      passwordEnteredCallback: (enteredPass) =>
+          _onPasscodeEntered(enteredPass, ref),
       cancelButton: const Text(
         'Cancel',
         style: TextStyle(fontSize: 16, color: Colors.white),
@@ -39,7 +46,8 @@ class _PasscodeScreenPageState extends State<PasscodeScreenPage> {
       shouldTriggerVerification: _verificationNotifier.stream,
       backgroundColor: Colors.black.withOpacity(0.8),
       cancelCallback: () => Navigator.pop(context, Icons.female_sharp),
-      passwordDigits: 4,
+      passwordDigits:
+          ref.watch(passcodeProvider.select((state) => state.length)),
       isValidCallback: () => Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: ((context) => const LifeCycleDetectionPage()),
@@ -54,8 +62,9 @@ class _PasscodeScreenPageState extends State<PasscodeScreenPage> {
     super.dispose();
   }
 
-  _onPasscodeEntered(String enteredPasscode) {
-    bool isValid = storedPasscode == enteredPasscode;
+  _onPasscodeEntered(String enteredPasscode, WidgetRef ref) {
+    bool isValid = enteredPasscode ==
+        ref.watch(passcodeProvider.select((state) => state.passcode));
     _verificationNotifier.add(isValid);
   }
 }
