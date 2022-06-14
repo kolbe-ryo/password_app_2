@@ -1,3 +1,3 @@
-const kAppBarTitle = 'ID / PASSWORD';
+const kAppBarTitle = 'Simple Password';
 
 const storageKey = 'idPassword';

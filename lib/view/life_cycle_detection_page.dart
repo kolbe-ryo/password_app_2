@@ -30,15 +30,11 @@ class _LifeCycleDetectionPageState extends State<LifeCycleDetectionPage>
         break;
       case AppLifecycleState.inactive:
         if (mounted) {
-          setState(
-            () {
-              // do something
-              Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(
-                    builder: ((context) => const LocalLoginPage()),
-                  ),
-                  (route) => false);
-            },
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+              builder: ((context) => const LocalLoginPage()),
+            ),
+            (route) => false,
           );
         }
         break;

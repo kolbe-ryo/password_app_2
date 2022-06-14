@@ -50,7 +50,6 @@ class GenreOrderPage extends ConsumerWidget {
                           return IdPasswordCard(idPasswordSaveModel[index]);
                         },
                         itemCount: idPasswordSaveModel.length,
-                        padding: const EdgeInsets.all(kSpacing),
                       )
                     : const NothingDataText(),
               )

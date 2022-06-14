@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:passcode_screen/passcode_screen.dart';
 import 'package:password_app_2/view/life_cycle_detection_page.dart';
 
-const storedPasscode = '1111';
+const storedPasscode = '0000';
 
 class PasscodeScreenPage extends StatefulWidget {
   const PasscodeScreenPage({Key? key}) : super(key: key);

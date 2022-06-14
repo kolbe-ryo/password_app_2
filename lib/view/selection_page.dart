@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:password_app_2/constants/const_letter.dart';
+import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/enum/bottom_navigation_item_enum.dart';
 import 'package:password_app_2/model/id_password_save_model.dart';
 import 'package:password_app_2/view/component/organisms/bottom_navigation_bar_items.dart';
@@ -23,9 +24,12 @@ class SelectionPage extends ConsumerWidget {
       appBar: AppBar(
         title: const Text(kAppBarTitle),
       ),
-      body: BottomNavigationBarItemEnum.values
-          .map((item) => item.page)
-          .toList()[pageIndex],
+      body: Padding(
+        padding: const EdgeInsets.all(kSpacing),
+        child: BottomNavigationBarItemEnum.values
+            .map((item) => item.page)
+            .toList()[pageIndex],
+      ),
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
           onPressed: () {
