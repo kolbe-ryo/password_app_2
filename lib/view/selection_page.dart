@@ -30,20 +30,25 @@ class SelectionPage extends ConsumerWidget {
             .map((item) => item.page)
             .toList()[pageIndex],
       ),
-      floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.key),
-          onPressed: () {
-            ref.read(isEditIdPasswordProvider.state).update((state) => false);
-            ref.read(itemProvider.state).update(
-                  (state) => IdPasswordSaveModel(time: DateTime.now()),
+      floatingActionButton: pageIndex != 2
+          ? FloatingActionButton(
+              child: const Icon(Icons.key),
+              onPressed: () {
+                ref
+                    .read(isEditIdPasswordProvider.state)
+                    .update((state) => false);
+                ref.read(itemProvider.state).update(
+                      (state) => IdPasswordSaveModel(time: DateTime.now()),
+                    );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const IdPasswordManagerPage(),
+                  ),
                 );
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const IdPasswordManagerPage(),
-              ),
-            );
-          }),
+              },
+            )
+          : null,
       bottomNavigationBar: const BottomNavigationBarItems(),
     );
   }
