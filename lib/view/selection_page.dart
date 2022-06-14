@@ -23,6 +23,7 @@ class SelectionPage extends ConsumerWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text(kAppBarTitle),
+        elevation: 0,
       ),
       body: Padding(
         padding: const EdgeInsets.all(kSpacing),

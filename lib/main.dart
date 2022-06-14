@@ -13,11 +13,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Password App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blueGrey,
         appBarTheme: AppBarTheme.of(context).copyWith(
           backgroundColor: Colors.white,
           elevation: 1.0,
           titleTextStyle: kHeadLineStyle,
+        ),
+        bottomNavigationBarTheme: BottomNavigationBarTheme.of(context).copyWith(
+          // selectedItemColor: Colors.blueGrey,
+          unselectedItemColor: const Color.fromARGB(255, 205, 205, 205),
         ),
       ),
       home: const LocalLoginPage(),
