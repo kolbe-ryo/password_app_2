@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/constants/const_letter.dart';
 import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/util/local_auth.dart';
+import 'package:password_app_2/view/component/atom/logo_image.dart';
 import 'package:password_app_2/view/component/molecules/app_dialog.dart';
 import 'package:password_app_2/view/component/organisms/passcode_screen.dart';
 import 'package:password_app_2/view/life_cycle_detection_page.dart';
@@ -14,7 +14,9 @@ class LocalLoginPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(kAppBarTitle),
+        title: const LogoImage(),
+        centerTitle: true,
+        elevation: 0,
       ),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

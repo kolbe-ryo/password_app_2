@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/constants/const_letter.dart';
 import 'package:password_app_2/constants/style.dart';
 import 'package:password_app_2/enum/bottom_navigation_item_enum.dart';
 import 'package:password_app_2/model/id_password_save_model.dart';
+import 'package:password_app_2/view/component/atom/logo_image.dart';
 import 'package:password_app_2/view/component/organisms/bottom_navigation_bar_items.dart';
 import 'package:password_app_2/view/id_password_manager_page.dart';
 
@@ -22,9 +22,9 @@ class SelectionPage extends ConsumerWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text(kAppBarTitle),
+        title: const LogoImage(),
+        centerTitle: true,
         elevation: 0,
-        leading: Image.asset('assets/images/logo.png'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(kSpacing),
