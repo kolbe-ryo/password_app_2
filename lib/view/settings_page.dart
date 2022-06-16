@@ -40,7 +40,7 @@ class SettingsPage extends ConsumerWidget {
         SettingTile(
           title: 'レビューする',
           icon: const Icon(Icons.star),
-          onTap: () => {},
+          onTap: () => {print('something')},
         ),
         SettingTile(
           title: '不具合報告',
