@@ -40,8 +40,7 @@ class SelectionPage extends ConsumerWidget {
                     .read(isEditIdPasswordProvider.state)
                     .update((state) => false);
                 ref.read(itemProvider.state).update(
-                      (state) => IdPasswordSaveModel(time: DateTime.now()),
-                    );
+                    (state) => IdPasswordSaveModel(time: DateTime.now()));
                 Navigator.push(
                   context,
                   MaterialPageRoute(
