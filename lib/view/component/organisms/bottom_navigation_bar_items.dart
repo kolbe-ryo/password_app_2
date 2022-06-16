@@ -1,7 +1,12 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/enum/bottom_navigation_item_enum.dart';
-import 'package:password_app_2/view/selection_page.dart';
+
+// Project imports:
+import '../../../enum/bottom_navigation_item_enum.dart';
+import '../../selection_page.dart';
 
 class BottomNavigationBarItems extends ConsumerWidget {
   const BottomNavigationBarItems({
@@ -11,12 +16,9 @@ class BottomNavigationBarItems extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return BottomNavigationBar(
-      items: BottomNavigationBarItemEnum.values
-          .map((item) => item.bottomNavigationBarItem)
-          .toList(),
+      items: BottomNavigationBarItemEnum.values.map((item) => item.bottomNavigationBarItem).toList(),
       currentIndex: ref.watch(pageIndexProvider.state).state,
-      onTap: (int index) =>
-          ref.read(pageIndexProvider.state).update((state) => index),
+      onTap: (int index) => ref.read(pageIndexProvider.state).update((state) => index),
     );
   }
 }

@@ -1,7 +1,12 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/constants/style.dart';
-import 'package:password_app_2/view/local_login_page.dart';
+
+// Project imports:
+import 'constants/style.dart';
+import 'view/local_login_page.dart';
 
 void main() => runApp(const ProviderScope(child: MyApp()));
 

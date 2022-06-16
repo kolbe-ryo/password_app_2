@@ -1,11 +1,16 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/constants/style.dart';
-import 'package:password_app_2/enum/bottom_navigation_item_enum.dart';
-import 'package:password_app_2/model/id_password_save_model.dart';
-import 'package:password_app_2/view/component/atom/logo_image.dart';
-import 'package:password_app_2/view/component/organisms/bottom_navigation_bar_items.dart';
-import 'package:password_app_2/view/id_password_manager_page.dart';
+
+// Project imports:
+import '../constants/style.dart';
+import '../enum/bottom_navigation_item_enum.dart';
+import '../model/id_password_save_model.dart';
+import '../view/component/atom/logo_image.dart';
+import 'component/organisms/bottom_navigation_bar_items.dart';
+import 'id_password_manager_page.dart';
 
 // provider for page index
 final pageIndexProvider = StateProvider<int>(((ref) => 0));
@@ -28,17 +33,13 @@ class SelectionPage extends ConsumerWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(kSpacing),
-        child: BottomNavigationBarItemEnum.values
-            .map((item) => item.page)
-            .toList()[pageIndex],
+        child: BottomNavigationBarItemEnum.values.map((item) => item.page).toList()[pageIndex],
       ),
       floatingActionButton: pageIndex != 2
           ? FloatingActionButton(
               child: const Icon(Icons.key),
               onPressed: () {
-                ref
-                    .read(isEditIdPasswordProvider.state)
-                    .update((state) => false);
+                ref.read(isEditIdPasswordProvider.state).update((state) => false);
                 ref.read(itemProvider.state).update(
                       (state) => IdPasswordSaveModel(time: DateTime.now()),
                     );

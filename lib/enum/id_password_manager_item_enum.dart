@@ -1,4 +1,5 @@
-import 'package:password_app_2/model/id_password_manager_item_model.dart';
+// Project imports:
+import '../model/id_password_manager_item_model.dart';
 
 enum IdPasswordManagerItems {
   name,

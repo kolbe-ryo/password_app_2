@@ -1,3 +1,4 @@
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'local_passcode_model.freezed.dart';
@@ -13,6 +14,5 @@ class LocalPasscodeModel with _$LocalPasscodeModel {
     @Default('0000') String passcode,
   }) = _LocalPasscodeModel;
 
-  factory LocalPasscodeModel.fromJson(Map<String, dynamic> json) =>
-      _$LocalPasscodeModelFromJson(json);
+  factory LocalPasscodeModel.fromJson(Map<String, dynamic> json) => _$LocalPasscodeModelFromJson(json);
 }

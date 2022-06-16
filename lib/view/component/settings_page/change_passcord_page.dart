@@ -1,13 +1,18 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/constants/style.dart';
-import 'package:password_app_2/view/component/atom/general_list_tile.dart';
-import 'package:password_app_2/view/component/atom/passcode_length_slider.dart';
-import 'package:password_app_2/view/component/organisms/change_passcode_screen.dart';
-import 'package:password_app_2/view/component/organisms/passcode_screen.dart';
 
-final passcodeLengthProvider = StateProvider<int>(
-    ((ref) => ref.watch(passcodeProvider.select((state) => state.length))));
+// Package imports:
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
+import '../../../constants/style.dart';
+import '../atom/general_list_tile.dart';
+import '../atom/passcode_length_slider.dart';
+import '../organisms/change_passcode_screen.dart';
+import '../organisms/passcode_screen.dart';
+
+final passcodeLengthProvider =
+    StateProvider<int>(((ref) => ref.watch(passcodeProvider.select((state) => state.length))));
 
 class ChangePasscord extends ConsumerWidget {
   const ChangePasscord({Key? key}) : super(key: key);
@@ -53,8 +58,7 @@ class ChangePasscord extends ConsumerWidget {
       context,
       PageRouteBuilder(
         opaque: opaque,
-        pageBuilder: (context, animation, secondaryAnimation) =>
-            const ChangePasscodeScreen(),
+        pageBuilder: (context, animation, secondaryAnimation) => const ChangePasscodeScreen(),
       ),
     );
   }

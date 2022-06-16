@@ -44,3 +44,6 @@ flutter_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/images/icon.png"
+
+import_path_converter:
+  relative: true

@@ -1,5 +1,6 @@
-import 'package:password_app_2/interface/secure_storage_interface.dart';
-import 'package:password_app_2/service/secure_storage_service.dart';
+// Project imports:
+import '../interface/secure_storage_interface.dart';
+import '../service/secure_storage_service.dart';
 
 class SettingsPageViewModel {
   final SecureStorageInterface _interface = SecureStorageService();

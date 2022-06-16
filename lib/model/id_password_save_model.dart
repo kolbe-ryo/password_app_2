@@ -1,5 +1,8 @@
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:password_app_2/enum/genre_data_enum.dart';
+
+// Project imports:
+import '../enum/genre_data_enum.dart';
 
 part 'id_password_save_model.freezed.dart';
 part 'id_password_save_model.g.dart';
@@ -17,6 +20,5 @@ class IdPasswordSaveModel with _$IdPasswordSaveModel {
     required DateTime time,
   }) = _IdPasswordSaveModel;
 
-  factory IdPasswordSaveModel.fromJson(Map<String, dynamic> json) =>
-      _$IdPasswordSaveModelFromJson(json);
+  factory IdPasswordSaveModel.fromJson(Map<String, dynamic> json) => _$IdPasswordSaveModelFromJson(json);
 }

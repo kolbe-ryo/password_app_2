@@ -1,13 +1,17 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/constants/style.dart';
-import 'package:password_app_2/enum/genre_data_enum.dart';
-import 'package:password_app_2/enum/id_password_manager_item_enum.dart';
-import 'package:password_app_2/view/component/atom/selected_icon_button.dart';
+
+// Project imports:
+import '../../../constants/style.dart';
+import '../../../enum/genre_data_enum.dart';
+import '../../../enum/id_password_manager_item_enum.dart';
+import '../atom/selected_icon_button.dart';
 
 class GenreSelectTile extends ConsumerWidget {
-  const GenreSelectTile(this.idPasswordManagerItem, {Key? key})
-      : super(key: key);
+  const GenreSelectTile(this.idPasswordManagerItem, {Key? key}) : super(key: key);
 
   final IdPasswordManagerItems idPasswordManagerItem;
 

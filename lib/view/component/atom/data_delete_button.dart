@@ -1,9 +1,14 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/constants/style.dart';
-import 'package:password_app_2/view/component/molecules/app_delete_dialog.dart';
-import 'package:password_app_2/view/id_password_manager_page.dart';
-import 'package:password_app_2/view/registration_order_page.dart';
+
+// Project imports:
+import '../../../constants/style.dart';
+import '../../id_password_manager_page.dart';
+import '../../registration_order_page.dart';
+import '../molecules/app_delete_dialog.dart';
 
 class DataDeleteButton extends ConsumerWidget {
   const DataDeleteButton({Key? key}) : super(key: key);

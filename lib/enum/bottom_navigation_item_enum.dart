@@ -1,7 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:password_app_2/view/genre_order_page.dart';
-import 'package:password_app_2/view/registration_order_page.dart';
-import 'package:password_app_2/view/settings_page.dart';
+
+// Project imports:
+import '../view/genre_order_page.dart';
+import '../view/registration_order_page.dart';
+import '../view/settings_page.dart';
 
 enum BottomNavigationBarItemEnum {
   registrationOrder,

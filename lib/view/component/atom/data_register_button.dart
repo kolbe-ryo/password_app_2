@@ -1,11 +1,16 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/constants/style.dart';
-import 'package:password_app_2/enum/genre_data_enum.dart';
-import 'package:password_app_2/view/component/molecules/app_dialog.dart';
-import 'package:password_app_2/view/id_password_manager_page.dart';
-import 'package:password_app_2/view/registration_order_page.dart';
-import 'package:password_app_2/view/selection_page.dart';
+
+// Project imports:
+import '../../../constants/style.dart';
+import '../../../enum/genre_data_enum.dart';
+import '../../id_password_manager_page.dart';
+import '../../registration_order_page.dart';
+import '../../selection_page.dart';
+import '../molecules/app_dialog.dart';
 
 class DataRegisterButton extends ConsumerWidget {
   const DataRegisterButton({
@@ -25,14 +30,11 @@ class DataRegisterButton extends ConsumerWidget {
 
           if (validateItem) {
             // Save Item
-            final isEditIdPassword =
-                ref.watch(isEditIdPasswordProvider.state).state;
+            final isEditIdPassword = ref.watch(isEditIdPasswordProvider.state).state;
             final idPasswordSaveModel = ref.watch(itemProvider.state).state;
             (isEditIdPassword)
                 ? ref.read(savingProvider.notifier).update(idPasswordSaveModel)
-                : ref
-                    .read(savingProvider.notifier)
-                    .addIdPasswordSaveModel(idPasswordSaveModel);
+                : ref.read(savingProvider.notifier).addIdPasswordSaveModel(idPasswordSaveModel);
 
             ref.read(savingProvider.notifier).save();
 

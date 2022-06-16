@@ -1,5 +1,8 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:password_app_2/constants/style.dart';
+
+// Project imports:
+import '../../../constants/style.dart';
 
 class GeneralListTile extends StatelessWidget {
   const GeneralListTile(this.title, {Key? key}) : super(key: key);

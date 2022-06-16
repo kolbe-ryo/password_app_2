@@ -1,6 +1,11 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/view/component/settings_page/change_passcord_page.dart';
+
+// Project imports:
+import '../settings_page/change_passcord_page.dart';
 
 class PasscodeLengthSlider extends ConsumerWidget {
   const PasscodeLengthSlider({Key? key}) : super(key: key);
@@ -15,9 +20,7 @@ class PasscodeLengthSlider extends ConsumerWidget {
       min: 4,
       max: 8,
       divisions: 4,
-      onChanged: (value) => ref
-          .read(passcodeLengthProvider.state)
-          .update((state) => value.toInt()),
+      onChanged: (value) => ref.read(passcodeLengthProvider.state).update((state) => value.toInt()),
     );
   }
 }

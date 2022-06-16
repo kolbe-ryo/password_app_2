@@ -1,7 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:password_app_2/constants/style.dart';
-import 'package:password_app_2/view/component/atom/notification_toast.dart';
+
+// Project imports:
+import '../../../constants/style.dart';
+import 'notification_toast.dart';
 
 class CopyButton extends StatelessWidget {
   const CopyButton({

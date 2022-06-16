@@ -1,23 +1,27 @@
+// Dart imports:
 import 'dart:async';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:passcode_screen/passcode_screen.dart';
-import 'package:password_app_2/view/component/molecules/app_dialog.dart';
-import 'package:password_app_2/view/component/organisms/passcode_screen.dart';
-import 'package:password_app_2/view/component/settings_page/change_passcord_page.dart';
+
+// Project imports:
+import '../molecules/app_dialog.dart';
+import '../settings_page/change_passcord_page.dart';
+import 'passcode_screen.dart';
 
 class ChangePasscodeScreen extends ConsumerStatefulWidget {
   const ChangePasscodeScreen({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _ChangePasscodeScreenState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _ChangePasscodeScreenState();
 }
 
 class _ChangePasscodeScreenState extends ConsumerState<ChangePasscodeScreen> {
-  final StreamController<bool> _verificationNotifier =
-      StreamController<bool>.broadcast();
+  final StreamController<bool> _verificationNotifier = StreamController<bool>.broadcast();
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +32,7 @@ class _ChangePasscodeScreenState extends ConsumerState<ChangePasscodeScreen> {
           textAlign: TextAlign.center,
           style: TextStyle(color: Colors.blue, fontSize: 20),
         ),
-        passwordEnteredCallback: (enteredPass) =>
-            _onPasscodeEntered(enteredPass, length),
+        passwordEnteredCallback: (enteredPass) => _onPasscodeEntered(enteredPass, length),
         cancelButton: const Text(
           'Cancel',
           style: TextStyle(fontSize: 16, color: Colors.white),
@@ -63,9 +66,7 @@ class _ChangePasscodeScreenState extends ConsumerState<ChangePasscodeScreen> {
     bool isValid = enteredPasscode.length == length;
     _verificationNotifier.add(isValid);
     if (isValid) {
-      ref
-          .read(passcodeProvider.notifier)
-          .changePasscode(length, enteredPasscode);
+      ref.read(passcodeProvider.notifier).changePasscode(length, enteredPasscode);
     }
   }
 }

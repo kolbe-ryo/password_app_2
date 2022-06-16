@@ -1,7 +1,10 @@
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/interface/secure_storage_interface.dart';
-import 'package:password_app_2/model/local_passcode_model.dart';
-import 'package:password_app_2/service/secure_storage_service.dart';
+
+// Project imports:
+import '../interface/secure_storage_interface.dart';
+import '../model/local_passcode_model.dart';
+import '../service/secure_storage_service.dart';
 
 class PasscodeViewModel extends StateNotifier<LocalPasscodeModel> {
   PasscodeViewModel() : super(const LocalPasscodeModel());

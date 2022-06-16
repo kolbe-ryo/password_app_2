@@ -1,11 +1,16 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/constants/style.dart';
-import 'package:password_app_2/util/local_auth.dart';
-import 'package:password_app_2/view/component/atom/logo_image.dart';
-import 'package:password_app_2/view/component/molecules/app_dialog.dart';
-import 'package:password_app_2/view/component/organisms/passcode_screen.dart';
-import 'package:password_app_2/view/life_cycle_detection_page.dart';
+
+// Project imports:
+import '../constants/style.dart';
+import '../util/local_auth.dart';
+import 'component/atom/logo_image.dart';
+import 'component/molecules/app_dialog.dart';
+import 'component/organisms/passcode_screen.dart';
+import 'life_cycle_detection_page.dart';
 
 class LocalLoginPage extends ConsumerWidget {
   const LocalLoginPage({Key? key}) : super(key: key);
@@ -89,8 +94,7 @@ class LocalLoginPage extends ConsumerWidget {
     }
   }
 
-  Future<void> _pushByPasscode(
-      BuildContext context, bool opaque, bool isInit) async {
+  Future<void> _pushByPasscode(BuildContext context, bool opaque, bool isInit) async {
     if (isInit) {
       await showDialog(
         context: context,
@@ -101,8 +105,7 @@ class LocalLoginPage extends ConsumerWidget {
       context,
       PageRouteBuilder(
         opaque: opaque,
-        pageBuilder: (context, animation, secondaryAnimation) =>
-            const PasscodeScreenPage(),
+        pageBuilder: (context, animation, secondaryAnimation) => const PasscodeScreenPage(),
       ),
     );
   }

@@ -1,6 +1,9 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:password_app_2/constants/style.dart';
+
+// Project imports:
+import '../../../constants/style.dart';
 
 class TitleText extends StatelessWidget {
   const TitleText(this.title, {Key? key}) : super(key: key);

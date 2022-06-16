@@ -1,6 +1,9 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:password_app_2/view/local_login_page.dart';
-import 'package:password_app_2/view/selection_page.dart';
+
+// Project imports:
+import 'local_login_page.dart';
+import 'selection_page.dart';
 
 class LifeCycleDetectionPage extends StatefulWidget {
   const LifeCycleDetectionPage({Key? key}) : super(key: key);
@@ -9,8 +12,7 @@ class LifeCycleDetectionPage extends StatefulWidget {
   State<LifeCycleDetectionPage> createState() => _LifeCycleDetectionPageState();
 }
 
-class _LifeCycleDetectionPageState extends State<LifeCycleDetectionPage>
-    with WidgetsBindingObserver {
+class _LifeCycleDetectionPageState extends State<LifeCycleDetectionPage> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();

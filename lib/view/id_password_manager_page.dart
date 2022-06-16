@@ -1,17 +1,21 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/constants/style.dart';
-import 'package:password_app_2/enum/id_password_manager_item_enum.dart';
-import 'package:password_app_2/model/id_password_save_model.dart';
-import 'package:password_app_2/view/component/atom/data_delete_button.dart';
-import 'package:password_app_2/view/component/atom/data_register_button.dart';
-import 'package:password_app_2/view/component/atom/logo_image.dart';
-import 'package:password_app_2/view/component/molecules/genre_select_tile.dart';
-import 'package:password_app_2/view/component/molecules/input_tile.dart';
-import 'package:password_app_2/view/selection_page.dart';
 
-final itemProvider =
-    StateProvider((ref) => IdPasswordSaveModel(time: DateTime.now()));
+// Package imports:
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
+import '../constants/style.dart';
+import '../enum/id_password_manager_item_enum.dart';
+import '../model/id_password_save_model.dart';
+import 'component/atom/data_delete_button.dart';
+import 'component/atom/data_register_button.dart';
+import 'component/atom/logo_image.dart';
+import 'component/molecules/genre_select_tile.dart';
+import 'component/molecules/input_tile.dart';
+import 'selection_page.dart';
+
+final itemProvider = StateProvider((ref) => IdPasswordSaveModel(time: DateTime.now()));
 
 class IdPasswordManagerPage extends ConsumerWidget {
   const IdPasswordManagerPage({Key? key}) : super(key: key);
@@ -51,8 +55,7 @@ class IdPasswordManagerPage extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 const DataRegisterButton(),
-                if (ref.watch(isEditIdPasswordProvider.state).state)
-                  const DataDeleteButton(),
+                if (ref.watch(isEditIdPasswordProvider.state).state) const DataDeleteButton(),
               ],
             ),
             const SizedBox(height: kSpacing),

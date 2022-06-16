@@ -1,13 +1,18 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/constants/style.dart';
-import 'package:password_app_2/enum/genre_data_enum.dart';
-import 'package:password_app_2/enum/id_password_enum.dart';
-import 'package:password_app_2/model/id_password_save_model.dart';
-import 'package:password_app_2/view/component/atom/title_text.dart';
-import 'package:password_app_2/view/component/atom/copy_button.dart';
-import 'package:password_app_2/view/id_password_manager_page.dart';
-import 'package:password_app_2/view/selection_page.dart';
+
+// Project imports:
+import '../../../constants/style.dart';
+import '../../../enum/genre_data_enum.dart';
+import '../../../enum/id_password_enum.dart';
+import '../../../model/id_password_save_model.dart';
+import '../../id_password_manager_page.dart';
+import '../../selection_page.dart';
+import '../atom/copy_button.dart';
+import '../atom/title_text.dart';
 
 class IdPasswordCard extends ConsumerWidget {
   const IdPasswordCard(this.idPasswordSaveModel, {Key? key}) : super(key: key);
