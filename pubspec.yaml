@@ -18,8 +18,6 @@ dependencies:
   fluttertoast: ^8.0.9
   freezed: ^2.0.3+1
   freezed_annotation: ^2.0.3
-  import_path_converter: ^1.0.1
-  import_sorter: ^4.6.0
 
   # install
   json_serializable: ^6.2.0
@@ -32,6 +30,9 @@ dev_dependencies:
   flutter_lints: ^1.0.0
   flutter_test:
     sdk: flutter
+
+  import_path_converter: ^1.0.1
+  import_sorter: ^4.6.0
 
 flutter:
   uses-material-design: true

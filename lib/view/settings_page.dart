@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
 import 'package:password_app_2/view/component/molecules/app_delete_dialog.dart';
 import 'package:password_app_2/view/component/molecules/setting_tile.dart';
 import 'package:password_app_2/view/component/settings_page/change_passcord_page.dart';
@@ -40,7 +45,7 @@ class SettingsPage extends ConsumerWidget {
         SettingTile(
           title: 'レビューする',
           icon: const Icon(Icons.star),
-          onTap: () => {print('something')},
+          onTap: () => {},
         ),
         SettingTile(
           title: '不具合報告',
