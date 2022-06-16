@@ -57,7 +57,9 @@ class GenreOrderPage extends ConsumerWidget {
             ],
           );
         } else {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         }
       }),
     );
