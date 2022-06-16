@@ -53,7 +53,7 @@ class GenreOrderPage extends ConsumerWidget {
                         itemCount: idPasswordSaveModel.length,
                       )
                     : const NothingDataText(),
-              )
+              ),
             ],
           );
         } else {
