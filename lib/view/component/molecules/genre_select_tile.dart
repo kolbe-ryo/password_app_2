@@ -26,7 +26,7 @@ class GenreSelectTile extends ConsumerWidget {
             style: kCaptionTextStyle,
           ),
         ),
-        Row(
+        Wrap(
           children: GenreDataEnum.values
               .map(
                 (value) => SelectedIconButton(value),

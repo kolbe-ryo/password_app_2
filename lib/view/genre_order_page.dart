@@ -30,8 +30,7 @@ class GenreOrderPage extends ConsumerWidget {
           );
           return Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Wrap(
                 children: GenreDataEnum.values
                     .map(
                       (value) => SelectedIconButton(value),

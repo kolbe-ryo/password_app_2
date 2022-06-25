@@ -29,11 +29,15 @@ class SelectedIconButton extends ConsumerWidget {
             size: 30,
           ),
         ),
-        if (selectedGenre == genreData)
-          Text(
-            selectedGenre.name,
-            style: kSecondTextStyle(color: selectedGenre.color),
-          ),
+        (selectedGenre == genreData)
+            ? Text(
+                selectedGenre.name,
+                style: kSecondTextStyle(color: selectedGenre.color),
+              )
+            : Text(
+                genreData.name,
+                style: kSecondTextStyle(color: Colors.white),
+              )
       ],
     );
   }
