@@ -35,5 +35,8 @@ const _$GenreDataEnumEnumMap = {
   GenreDataEnum.transportation: 2,
   GenreDataEnum.sns: 3,
   GenreDataEnum.entertainment: 4,
-  GenreDataEnum.others: 5,
+  GenreDataEnum.study: 5,
+  GenreDataEnum.sports: 6,
+  GenreDataEnum.music: 8,
+  GenreDataEnum.others: 9,
 };

@@ -14,9 +14,10 @@ class PasscodeLengthSlider extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Slider(
       activeColor: Colors.blueAccent,
-      inactiveColor: Colors.blueAccent.withOpacity(0.5),
+      inactiveColor: Colors.blueAccent.withOpacity(0.2),
       thumbColor: Colors.blueAccent,
       value: ref.watch(passcodeLengthProvider.state).state.toDouble(),
+      label: ref.watch(passcodeLengthProvider.state).state.toString(),
       min: 4,
       max: 8,
       divisions: 4,

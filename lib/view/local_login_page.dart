@@ -98,7 +98,7 @@ class LocalLoginPage extends ConsumerWidget {
     if (isInit) {
       await showDialog(
         context: context,
-        builder: (context) => const AppDialog("パスコードを変更してください"),
+        builder: (context) => const AppDialog("パスコードが初期のままです\n変更してください"),
       );
     }
     await Navigator.push(

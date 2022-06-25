@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
 import '../../../constants/style.dart';
-import '../atom/general_list_tile.dart';
 import '../atom/passcode_length_slider.dart';
 import '../organisms/change_passcode_screen.dart';
 import '../organisms/passcode_screen.dart';
@@ -22,25 +21,32 @@ class ChangePasscord extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('パスコード設定')),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: kSpacing),
+        padding: const EdgeInsets.all(kSpacing),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ListTile(
-              contentPadding: const EdgeInsets.only(top: kSpacing),
-              title: Text(
-                '長さ',
-                style: kCaptionTextStyle,
-              ),
-              trailing: Text(
-                ref.watch(passcodeLengthProvider.state).state.toString(),
-                style: kCaptionTextStyle,
-              ),
+            Wrap(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              spacing: kSpacing / 2,
+              children: Iterable<int>.generate(
+                ref.watch(passcodeLengthProvider.state).state.toInt(),
+              )
+                  .map((e) => const Icon(
+                        Icons.circle_outlined,
+                        size: 30,
+                        color: Colors.blueGrey,
+                      ))
+                  .toList(),
             ),
+            const SizedBox(height: kSpacing),
             const PasscodeLengthSlider(),
-            GeneralListTile('変更'),
-            ElevatedButton(
+            const SizedBox(height: kSpacing),
+            TextButton(
               onPressed: () => _pushForChangePasscode(context, false),
-              child: Icon(Icons.apps),
+              child: const Text(
+                '変更する',
+                style: TextStyle(fontSize: 20, color: Colors.blue),
+              ),
             ),
           ],
         ),

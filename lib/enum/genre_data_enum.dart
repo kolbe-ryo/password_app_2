@@ -19,7 +19,9 @@ enum GenreDataEnum {
   study,
   @JsonValue(6)
   sports,
-  @JsonValue(7)
+  @JsonValue(8)
+  music,
+  @JsonValue(9)
   others,
 }
 
@@ -40,6 +42,8 @@ extension GenreDataEnumExt on GenreDataEnum {
         return '勉強';
       case GenreDataEnum.sports:
         return 'スポーツ';
+      case GenreDataEnum.music:
+        return '音楽';
       case GenreDataEnum.others:
         return 'その他';
     }
@@ -61,6 +65,8 @@ extension GenreDataEnumExt on GenreDataEnum {
         return Icons.mode_edit;
       case GenreDataEnum.sports:
         return Icons.directions_run;
+      case GenreDataEnum.music:
+        return Icons.music_note;
       case GenreDataEnum.others:
         return Icons.apps;
     }
@@ -79,9 +85,11 @@ extension GenreDataEnumExt on GenreDataEnum {
       case GenreDataEnum.entertainment:
         return Colors.orangeAccent;
       case GenreDataEnum.study:
-        return Colors.blueAccent;
-      case GenreDataEnum.sports:
         return Colors.teal;
+      case GenreDataEnum.sports:
+        return Colors.blueAccent;
+      case GenreDataEnum.music:
+        return Colors.green;
       case GenreDataEnum.others:
         return Colors.redAccent;
     }

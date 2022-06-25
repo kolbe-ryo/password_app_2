@@ -44,18 +44,8 @@ class SettingsPage extends ConsumerWidget {
           },
         ),
         SettingTile(
-          title: 'レビューする',
-          icon: Icons.star,
-          onTap: () => {},
-        ),
-        SettingTile(
-          title: '不具合報告',
+          title: 'レビュー・不具合報告',
           icon: Icons.bug_report,
-          onTap: () => {},
-        ),
-        SettingTile(
-          title: 'ヘルプ',
-          icon: Icons.help,
           onTap: () => {},
         ),
         SettingTile(
@@ -65,7 +55,6 @@ class SettingsPage extends ConsumerWidget {
             context: context,
             applicationIcon: const LogoImage(),
             applicationVersion: '1.0.0',
-            applicationName: null,
           ),
         ),
       ],
