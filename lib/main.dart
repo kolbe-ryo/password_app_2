@@ -16,13 +16,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Password App',
+      title: '',
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
         appBarTheme: AppBarTheme.of(context).copyWith(
           backgroundColor: Colors.white,
           elevation: 1.0,
           titleTextStyle: kHeadLineStyle,
+          iconTheme: const IconThemeData(color: kGreyColor),
         ),
         bottomNavigationBarTheme: BottomNavigationBarTheme.of(context).copyWith(
           // selectedItemColor: Colors.blueGrey,

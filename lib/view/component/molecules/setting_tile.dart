@@ -13,7 +13,7 @@ class SettingTile extends StatelessWidget {
   }) : super(key: key);
 
   final String title;
-  final Icon icon;
+  final IconData icon;
   final Function() onTap;
 
   @override
@@ -26,7 +26,10 @@ class SettingTile extends StatelessWidget {
           title,
           style: kSecondTextStyle(),
         ),
-        leading: icon,
+        leading: Icon(
+          icon,
+          color: Colors.blueGrey,
+        ),
         trailing: const Icon(Icons.keyboard_arrow_right),
       ),
       elevation: 0.5,

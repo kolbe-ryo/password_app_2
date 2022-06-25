@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:password_app_2/view/component/atom/logo_image.dart';
 
 // Project imports:
 import 'package:password_app_2/view/component/molecules/app_delete_dialog.dart';
@@ -21,7 +22,7 @@ class SettingsPage extends ConsumerWidget {
       children: [
         SettingTile(
           title: 'パスコード変更',
-          icon: const Icon(Icons.key),
+          icon: Icons.key,
           onTap: () => Navigator.push(
             context,
             MaterialPageRoute(
@@ -31,7 +32,7 @@ class SettingsPage extends ConsumerWidget {
         ),
         SettingTile(
           title: 'パスワード削除',
-          icon: const Icon(Icons.delete),
+          icon: Icons.delete,
           onTap: () async {
             final isDelete = await showDialog(
               context: context,
@@ -44,23 +45,28 @@ class SettingsPage extends ConsumerWidget {
         ),
         SettingTile(
           title: 'レビューする',
-          icon: const Icon(Icons.star),
+          icon: Icons.star,
           onTap: () => {},
         ),
         SettingTile(
           title: '不具合報告',
-          icon: const Icon(Icons.bug_report),
+          icon: Icons.bug_report,
           onTap: () => {},
         ),
         SettingTile(
           title: 'ヘルプ',
-          icon: const Icon(Icons.help),
+          icon: Icons.help,
           onTap: () => {},
         ),
         SettingTile(
           title: 'ライセンス',
-          icon: const Icon(Icons.flutter_dash),
-          onTap: () => {},
+          icon: Icons.flutter_dash,
+          onTap: () => showLicensePage(
+            context: context,
+            applicationIcon: const LogoImage(),
+            applicationVersion: '1.0.0',
+            applicationName: null,
+          ),
         ),
       ],
     );

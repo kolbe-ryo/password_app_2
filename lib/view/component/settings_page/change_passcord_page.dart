@@ -20,12 +20,7 @@ class ChangePasscord extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('パスコード設定'),
-        iconTheme: const IconThemeData(
-          color: kGreyColor,
-        ),
-      ),
+      appBar: AppBar(title: const Text('パスコード設定')),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: kSpacing),
         child: Column(

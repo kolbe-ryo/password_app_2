@@ -28,7 +28,6 @@ class IdPasswordManagerPage extends ConsumerWidget {
         title: const LogoImage(),
         centerTitle: true,
         elevation: 0,
-        iconTheme: const IconThemeData(color: kGreyColor),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(kSpacing),
