@@ -26,7 +26,6 @@ class ChangePasscord extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Wrap(
-              // mainAxisAlignment: MainAxisAlignment.center,
               spacing: kSpacing / 2,
               children: Iterable<int>.generate(
                 ref.watch(passcodeLengthProvider.state).state.toInt(),
@@ -45,7 +44,10 @@ class ChangePasscord extends ConsumerWidget {
               onPressed: () => _pushForChangePasscode(context, false),
               child: const Text(
                 '変更する',
-                style: TextStyle(fontSize: 20, color: Colors.blue),
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.blue,
+                ),
               ),
             ),
           ],
