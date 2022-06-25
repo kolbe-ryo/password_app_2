@@ -16,12 +16,8 @@ enum GenreDataEnum {
   @JsonValue(4)
   entertainment,
   @JsonValue(5)
-  study,
+  heart,
   @JsonValue(6)
-  sports,
-  @JsonValue(8)
-  music,
-  @JsonValue(9)
   others,
 }
 
@@ -38,12 +34,8 @@ extension GenreDataEnumExt on GenreDataEnum {
         return 'SNS';
       case GenreDataEnum.entertainment:
         return '遊び';
-      case GenreDataEnum.study:
-        return '勉強';
-      case GenreDataEnum.sports:
-        return 'スポーツ';
-      case GenreDataEnum.music:
-        return '音楽';
+      case GenreDataEnum.heart:
+        return '美容';
       case GenreDataEnum.others:
         return 'その他';
     }
@@ -61,12 +53,8 @@ extension GenreDataEnumExt on GenreDataEnum {
         return Icons.account_box;
       case GenreDataEnum.entertainment:
         return Icons.sports_esports;
-      case GenreDataEnum.study:
-        return Icons.mode_edit;
-      case GenreDataEnum.sports:
-        return Icons.directions_run;
-      case GenreDataEnum.music:
-        return Icons.music_note;
+      case GenreDataEnum.heart:
+        return Icons.favorite;
       case GenreDataEnum.others:
         return Icons.apps;
     }
@@ -75,7 +63,7 @@ extension GenreDataEnumExt on GenreDataEnum {
   Color get color {
     switch (this) {
       case GenreDataEnum.money:
-        return Colors.pink;
+        return Colors.yellow;
       case GenreDataEnum.shopping:
         return Colors.lightGreen;
       case GenreDataEnum.transportation:
@@ -84,14 +72,10 @@ extension GenreDataEnumExt on GenreDataEnum {
         return Colors.purpleAccent;
       case GenreDataEnum.entertainment:
         return Colors.orangeAccent;
-      case GenreDataEnum.study:
-        return Colors.teal;
-      case GenreDataEnum.sports:
-        return Colors.blueAccent;
-      case GenreDataEnum.music:
-        return Colors.green;
+      case GenreDataEnum.heart:
+        return Colors.pinkAccent;
       case GenreDataEnum.others:
-        return Colors.redAccent;
+        return Colors.brown;
     }
   }
 }
