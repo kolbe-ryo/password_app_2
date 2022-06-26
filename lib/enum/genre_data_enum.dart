@@ -75,7 +75,7 @@ extension GenreDataEnumExt on GenreDataEnum {
       case GenreDataEnum.heart:
         return Colors.pinkAccent;
       case GenreDataEnum.others:
-        return Colors.brown;
+        return Colors.teal;
     }
   }
 }

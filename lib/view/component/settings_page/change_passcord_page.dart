@@ -19,7 +19,7 @@ class ChangePasscord extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(title: const Text('パスコード設定')),
+      appBar: AppBar(title: const Text('パスコード変更')),
       body: Padding(
         padding: const EdgeInsets.all(kSpacing),
         child: Column(
