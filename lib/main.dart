@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
           titleTextStyle: kHeadLineStyle,
           iconTheme: const IconThemeData(color: kGreyColor),
         ),
+        scaffoldBackgroundColor: Colors.white,
         bottomNavigationBarTheme: BottomNavigationBarTheme.of(context).copyWith(
           // selectedItemColor: Colors.blueGrey,
           unselectedItemColor: const Color.fromARGB(255, 184, 184, 184),
