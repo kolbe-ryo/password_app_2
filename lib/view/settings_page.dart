@@ -44,11 +44,6 @@ class SettingsPage extends ConsumerWidget {
           },
         ),
         SettingTile(
-          title: '言語を変更する',
-          icon: Icons.language,
-          onTap: () => {},
-        ),
-        SettingTile(
           title: 'レビュー・不具合報告',
           icon: Icons.bug_report,
           onTap: () => {},
