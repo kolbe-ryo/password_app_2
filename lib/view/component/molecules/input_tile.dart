@@ -24,10 +24,10 @@ class InputTile extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
-        GeneralListTile(idPasswordManagerItem.itemModel.caption),
+        GeneralListTile(idPasswordManagerItem.itemModel(context).caption),
         TextFormField(
           decoration: InputDecoration(
-            hintText: idPasswordManagerItem.itemModel.hintText,
+            hintText: idPasswordManagerItem.itemModel(context).hintText,
             hintStyle: kSecondTextStyle(),
           ),
           initialValue: initialText,

@@ -2,14 +2,15 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
+import '../view_model/settings_page_view_model.dart';
 import 'component/atom/logo_image.dart';
 import 'component/molecules/app_delete_dialog.dart';
 import 'component/molecules/setting_tile.dart';
 import 'component/settings_page/change_passcord_page.dart';
-import '../view_model/settings_page_view_model.dart';
 
 final settingsProvider = Provider(((ref) => SettingsPageViewModel()));
 
@@ -21,7 +22,7 @@ class SettingsPage extends ConsumerWidget {
     return Column(
       children: [
         SettingTile(
-          title: 'パスコード変更',
+          title: AppLocalizations.of(context)!.change_passcode,
           icon: Icons.key,
           onTap: () => Navigator.push(
             context,
@@ -31,12 +32,14 @@ class SettingsPage extends ConsumerWidget {
           ),
         ),
         SettingTile(
-          title: 'パスワード削除',
+          title: AppLocalizations.of(context)!.delete_password,
           icon: Icons.delete,
           onTap: () async {
             final isDelete = await showDialog(
               context: context,
-              builder: (context) => const AppDeleteDialog('パスワードが\n全件削除されます'),
+              builder: (context) => AppDeleteDialog(
+                AppLocalizations.of(context)!.delete_all_password_confirmation,
+              ),
             );
             if (isDelete) {
               ref.read(settingsProvider).deleteAll();
@@ -44,12 +47,12 @@ class SettingsPage extends ConsumerWidget {
           },
         ),
         SettingTile(
-          title: 'レビュー・不具合報告',
+          title: AppLocalizations.of(context)!.review_bug,
           icon: Icons.bug_report,
           onTap: () => {},
         ),
         SettingTile(
-          title: 'ライセンス',
+          title: AppLocalizations.of(context)!.licenses,
           icon: Icons.flutter_dash,
           onTap: () => showLicensePage(
             context: context,

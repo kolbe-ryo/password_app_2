@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
@@ -21,7 +22,9 @@ class DataDeleteButton extends ConsumerWidget {
         onPressed: () async {
           final isDelete = await showDialog(
             context: context,
-            builder: (context) => const AppDeleteDialog('このパスワードを\n削除しますか'),
+            builder: (context) => AppDeleteDialog(
+              AppLocalizations.of(context)!.delete_a_password_confirmation,
+            ),
           );
           if (isDelete) {
             final idPasswordSaveModel = ref.watch(itemProvider.state).state;

@@ -22,7 +22,7 @@ class GenreSelectTile extends ConsumerWidget {
         ListTile(
           contentPadding: const EdgeInsets.only(top: kSpacing),
           title: Text(
-            idPasswordManagerItem.itemModel.caption,
+            idPasswordManagerItem.itemModel(context).caption,
             style: kCaptionTextStyle,
           ),
         ),

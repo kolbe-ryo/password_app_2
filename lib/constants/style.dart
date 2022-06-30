@@ -24,7 +24,7 @@ const kFirstTextStyle = TextStyle(
 
 kSecondTextStyle({Color color = Colors.black38}) => TextStyle(
       color: color,
-      fontSize: 15,
+      fontSize: 13,
       fontWeight: FontWeight.w600,
     );
 

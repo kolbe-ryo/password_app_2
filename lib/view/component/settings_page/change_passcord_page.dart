@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
@@ -19,7 +20,7 @@ class ChangePasscord extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(title: const Text('パスコード変更')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.change_passcode)),
       body: Padding(
         padding: const EdgeInsets.all(kSpacing),
         child: Column(
@@ -42,9 +43,9 @@ class ChangePasscord extends ConsumerWidget {
             const SizedBox(height: kSpacing),
             TextButton(
               onPressed: () => _pushForChangePasscode(context, false),
-              child: const Text(
-                '変更する',
-                style: TextStyle(
+              child: Text(
+                AppLocalizations.of(context)!.change_button,
+                style: const TextStyle(
                   fontSize: 20,
                   color: Colors.blue,
                 ),

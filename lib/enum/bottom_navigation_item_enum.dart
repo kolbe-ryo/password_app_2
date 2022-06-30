@@ -1,6 +1,9 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 // Project imports:
 import '../view/genre_order_page.dart';
 import '../view/registration_order_page.dart';
@@ -13,22 +16,22 @@ enum BottomNavigationBarItemEnum {
 }
 
 extension BottomNavigationBarItemEnumExt on BottomNavigationBarItemEnum {
-  BottomNavigationBarItem get bottomNavigationBarItem {
+  BottomNavigationBarItem bottomNavigationBarItem(BuildContext context) {
     switch (this) {
       case BottomNavigationBarItemEnum.registrationOrder:
-        return const BottomNavigationBarItem(
-          icon: Icon(Icons.access_time),
-          label: '登録順',
+        return BottomNavigationBarItem(
+          icon: const Icon(Icons.access_time),
+          label: AppLocalizations.of(context)!.registration_order,
         );
       case BottomNavigationBarItemEnum.genreOrder:
-        return const BottomNavigationBarItem(
-          icon: Icon(Icons.apps_outlined),
-          label: 'ジャンル別',
+        return BottomNavigationBarItem(
+          icon: const Icon(Icons.apps_outlined),
+          label: AppLocalizations.of(context)!.genre,
         );
       case BottomNavigationBarItemEnum.settings:
-        return const BottomNavigationBarItem(
-          icon: Icon(Icons.settings_outlined),
-          label: '設定',
+        return BottomNavigationBarItem(
+          icon: const Icon(Icons.settings_outlined),
+          label: AppLocalizations.of(context)!.settings,
         );
     }
   }

@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:passcode_screen/passcode_screen.dart';
 
@@ -27,10 +28,10 @@ class _ChangePasscodeScreenState extends ConsumerState<ChangePasscodeScreen> {
   Widget build(BuildContext context) {
     final length = ref.watch(passcodeLengthProvider.state).state;
     return PasscodeScreen(
-        title: const Text(
-          'パスコードを入力してください',
+        title: Text(
+          AppLocalizations.of(context)!.passcode_direction,
           textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.blue, fontSize: 20),
+          style: const TextStyle(color: Colors.blue, fontSize: 20),
         ),
         passwordEnteredCallback: (enteredPass) => _onPasscodeEntered(enteredPass, length),
         cancelButton: const Text(
@@ -50,7 +51,9 @@ class _ChangePasscodeScreenState extends ConsumerState<ChangePasscodeScreen> {
         isValidCallback: () async {
           await showDialog(
             context: context,
-            builder: (context) => const AppDialog("変更しました"),
+            builder: (context) => AppDialog(
+              AppLocalizations.of(context)!.complete_change,
+            ),
           );
           // Navigator.pop(context);
         });

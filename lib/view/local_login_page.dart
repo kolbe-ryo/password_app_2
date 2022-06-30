@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
@@ -44,7 +45,7 @@ class LocalLoginPage extends ConsumerWidget {
               ),
               const SizedBox(height: kSpacing),
               Text(
-                '生体認証',
+                AppLocalizations.of(context)!.biometrics,
                 style: kSecondTextStyle(),
               ),
             ],
@@ -73,7 +74,7 @@ class LocalLoginPage extends ConsumerWidget {
               ),
               const SizedBox(height: kSpacing),
               Text(
-                'パスコード',
+                AppLocalizations.of(context)!.passcode,
                 style: kSecondTextStyle(),
               ),
             ],
@@ -98,7 +99,9 @@ class LocalLoginPage extends ConsumerWidget {
     if (isInit) {
       await showDialog(
         context: context,
-        builder: (context) => const AppDialog("パスコードが初期のままです\n変更してください"),
+        builder: (context) => AppDialog(
+          AppLocalizations.of(context)!.initial_passcode_alert,
+        ),
       );
     }
     await Navigator.push(

@@ -31,7 +31,7 @@ class CopyButton extends StatelessWidget {
         await Clipboard.setData(copyData);
 
         // トースト表示
-        NotificationToast.showToast();
+        NotificationToast.showToast(context);
       },
       style: ElevatedButton.styleFrom(primary: color),
     );

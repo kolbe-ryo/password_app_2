@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:passcode_screen/passcode_screen.dart';
 
@@ -34,7 +35,9 @@ class _PasscodeScreenPageState extends ConsumerState<PasscodeScreenPage> {
           final initPass = ref.watch(passcodeProvider.select((state) => state.initPass));
           return PasscodeScreen(
             title: Text(
-              initPass ? 'パスコードを入力してください\n初期設定は0000です' : 'パスコードを入力してください',
+              initPass
+                  ? AppLocalizations.of(context)!.initial_passcode_direction
+                  : AppLocalizations.of(context)!.passcode_direction,
               textAlign: TextAlign.center,
               style: const TextStyle(color: Colors.blue, fontSize: 20),
             ),

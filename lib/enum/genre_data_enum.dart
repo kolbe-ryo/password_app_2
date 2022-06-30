@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 enum GenreDataEnum {
@@ -22,22 +23,22 @@ enum GenreDataEnum {
 }
 
 extension GenreDataEnumExt on GenreDataEnum {
-  String get name {
+  String name(BuildContext context) {
     switch (this) {
       case GenreDataEnum.money:
-        return 'お金';
+        return AppLocalizations.of(context)!.genre_money;
       case GenreDataEnum.shopping:
-        return '買物';
+        return AppLocalizations.of(context)!.genre_shopping;
       case GenreDataEnum.transportation:
-        return '交通';
+        return AppLocalizations.of(context)!.genre_transport;
       case GenreDataEnum.sns:
-        return 'SNS';
+        return AppLocalizations.of(context)!.genre_social;
       case GenreDataEnum.entertainment:
-        return '遊び';
+        return AppLocalizations.of(context)!.genre_entertainment;
       case GenreDataEnum.heart:
-        return '美容';
+        return AppLocalizations.of(context)!.genre_beauty;
       case GenreDataEnum.others:
-        return 'その他';
+        return AppLocalizations.of(context)!.genre_others;
     }
   }
 

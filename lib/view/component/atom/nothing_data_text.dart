@@ -1,7 +1,8 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
+// Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 // Project imports:
 import '../../../constants/style.dart';
@@ -15,7 +16,7 @@ class NothingDataText extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(kSpacing),
         child: Text(
-          'データはありません',
+          AppLocalizations.of(context)!.no_data,
           style: kSecondTextStyle(),
         ),
       ),

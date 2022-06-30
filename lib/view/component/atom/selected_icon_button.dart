@@ -31,11 +31,11 @@ class SelectedIconButton extends ConsumerWidget {
         ),
         (selectedGenre == genreData)
             ? Text(
-                selectedGenre.name,
+                selectedGenre.name(context),
                 style: kSecondTextStyle(color: selectedGenre.color),
               )
             : Text(
-                genreData.name,
+                genreData.name(context),
                 style: kSecondTextStyle(color: Colors.white),
               )
       ],

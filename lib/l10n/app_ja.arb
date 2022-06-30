@@ -32,9 +32,11 @@
   "delete_password": "パスワードを全件削除する",
   "review_bug": "レビューする",
   "licenses": "ライセンス",
-  "delete_all_password_confirmation": "全てのパスワードが削除されます",
+  "delete_all_password_confirmation": "全てのパスワードが\n削除されます",
   "delete_a_password_confirmation": "パスワードが削除されます",
   "confirm_delete": "削除",
   "cancel": "キャンセル",
-  "validation": "名称は必須です",  
+  "validation": "名称は必須です",
+  "complete_change": "変更しました",
+  "complete_copy": "コピーしました"
 }

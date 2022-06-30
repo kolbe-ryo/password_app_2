@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
@@ -42,12 +43,14 @@ class DataRegisterButton extends ConsumerWidget {
           } else {
             showDialog(
               context: context,
-              builder: (context) => const AppDialog("名称は必須です"),
+              builder: (context) => AppDialog(AppLocalizations.of(context)!.validation),
             );
           }
         },
         child: Text(
-          ref.watch(isEditIdPasswordProvider.state).state ? '変更する' : '登録する',
+          ref.watch(isEditIdPasswordProvider.state).state
+              ? AppLocalizations.of(context)!.change_button
+              : AppLocalizations.of(context)!.regist_button,
           style: TextStyle(fontSize: 20, color: genre.color),
         ),
       ),
