@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/view/component/atom/logo_image.dart';
 
 // Project imports:
-import 'package:password_app_2/view/component/molecules/app_delete_dialog.dart';
-import 'package:password_app_2/view/component/molecules/setting_tile.dart';
-import 'package:password_app_2/view/component/settings_page/change_passcord_page.dart';
-import 'package:password_app_2/view_model/settings_page_view_model.dart';
+import 'component/atom/logo_image.dart';
+import 'component/molecules/app_delete_dialog.dart';
+import 'component/molecules/setting_tile.dart';
+import 'component/settings_page/change_passcord_page.dart';
+import '../view_model/settings_page_view_model.dart';
 
 final settingsProvider = Provider(((ref) => SettingsPageViewModel()));
 
@@ -42,6 +42,11 @@ class SettingsPage extends ConsumerWidget {
               ref.read(settingsProvider).deleteAll();
             }
           },
+        ),
+        SettingTile(
+          title: '言語を変更する',
+          icon: Icons.language,
+          onTap: () => {},
         ),
         SettingTile(
           title: 'レビュー・不具合報告',
