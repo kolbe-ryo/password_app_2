@@ -18,48 +18,39 @@ class GenreOrderPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return FutureBuilder(
-      future: ref.read(savingProvider.notifier).get(),
-      builder: ((context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          final selectingGenre = ref.watch(itemProvider.select((value) => value.genre));
-          final idPasswordSaveModel = ref.watch(
-            savingProvider.select(
-              (model) => model.modelList.where((element) => element.genre == selectingGenre).toList(),
-            ),
-          );
-          return Column(
-            children: [
-              Wrap(
-                children: GenreDataEnum.values
-                    .map(
-                      (value) => SelectedIconButton(value),
-                    )
-                    .toList(),
-              ),
-              const SizedBox(height: kSpacing),
-              Expanded(
-                child: idPasswordSaveModel.isNotEmpty
-                    ? GridView.builder(
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          childAspectRatio: 1.3,
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 8.0,
-                          mainAxisSpacing: 8.0,
-                        ),
-                        itemBuilder: (context, index) {
-                          return IdPasswordCard(idPasswordSaveModel[index]);
-                        },
-                        itemCount: idPasswordSaveModel.length,
-                      )
-                    : const NothingDataText(),
-              ),
-            ],
-          );
-        } else {
-          return const Center(child: CircularProgressIndicator());
-        }
-      }),
+    final selectingGenre = ref.watch(itemProvider.select((value) => value.genre));
+    final idPasswordSaveModel = ref.watch(
+      savingProvider.select(
+        (model) => model.modelList.where((element) => element.genre == selectingGenre).toList(),
+      ),
+    );
+    return Column(
+      children: [
+        Wrap(
+          children: GenreDataEnum.values
+              .map(
+                (value) => SelectedIconButton(value),
+              )
+              .toList(),
+        ),
+        const SizedBox(height: kSpacing),
+        Expanded(
+          child: idPasswordSaveModel.isNotEmpty
+              ? GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio: 1.3,
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 8.0,
+                    mainAxisSpacing: 8.0,
+                  ),
+                  itemBuilder: (context, index) {
+                    return IdPasswordCard(idPasswordSaveModel[index]);
+                  },
+                  itemCount: idPasswordSaveModel.length,
+                )
+              : const NothingDataText(),
+        ),
+      ],
     );
   }
 }

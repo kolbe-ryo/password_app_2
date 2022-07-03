@@ -17,7 +17,7 @@ class NothingDataText extends StatelessWidget {
         padding: const EdgeInsets.all(kSpacing),
         child: Text(
           AppLocalizations.of(context)!.no_data,
-          style: kSecondTextStyle(),
+          style: kCaptionTextStyle,
         ),
       ),
     );

@@ -64,7 +64,7 @@ extension GenreDataEnumExt on GenreDataEnum {
   Color get color {
     switch (this) {
       case GenreDataEnum.money:
-        return Colors.yellow;
+        return Colors.teal;
       case GenreDataEnum.shopping:
         return Colors.lightGreen;
       case GenreDataEnum.transportation:
