@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:password_app_2/util/admob.dart';
 
 // Project imports:
 import '../constants/style.dart';
@@ -52,7 +54,21 @@ class SelectionPage extends ConsumerWidget {
               },
             )
           : null,
-      bottomNavigationBar: const BottomNavigationBarItems(),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const BottomNavigationBarItems(),
+          FutureBuilder(
+            future: Admob.getBannerWidget(context: context),
+            builder: (context, snapShot) {
+              if (snapShot.hasData) {
+                return snapShot.data as Widget;
+              }
+              return const Center(child: CircularProgressIndicator());
+            },
+          ),
+        ],
+      ),
     );
   }
 }
