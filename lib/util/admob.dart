@@ -34,7 +34,7 @@ class Admob {
       listener: const BannerAdListener(),
     );
 
-    await _updateRequestConfig(true);
+    await _updateRequestConfig(false);
 
     await bannerAd.load();
 
