@@ -43,7 +43,10 @@ class SelectionPage extends ConsumerWidget {
               onPressed: () {
                 ref.read(isEditIdPasswordProvider.state).update((state) => false);
                 ref.read(itemProvider.state).update(
-                      (state) => IdPasswordSaveModel(time: DateTime.now()),
+                      (state) => IdPasswordSaveModel(
+                        genre: ref.watch(itemProvider.select((state) => state.genre)),
+                        time: DateTime.now(),
+                      ),
                     );
                 Navigator.push(
                   context,
@@ -57,7 +60,6 @@ class SelectionPage extends ConsumerWidget {
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const BottomNavigationBarItems(),
           FutureBuilder(
             future: Admob.getBannerWidget(context: context),
             builder: (context, snapShot) {
@@ -67,6 +69,7 @@ class SelectionPage extends ConsumerWidget {
               return const Center(child: CircularProgressIndicator());
             },
           ),
+          const BottomNavigationBarItems(),
         ],
       ),
     );
