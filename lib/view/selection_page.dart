@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/util/admob.dart';
 
 // Project imports:
 import '../constants/style.dart';
 import '../enum/bottom_navigation_item_enum.dart';
 import '../model/id_password_save_model.dart';
+import '../util/admob.dart';
 import '../view/component/atom/logo_image.dart';
 import 'component/organisms/bottom_navigation_bar_items.dart';
 import 'id_password_manager_page.dart';

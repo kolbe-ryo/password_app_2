@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/view/component/settings_page/about_app_webview.dart';
 
 // Project imports:
 import '../view_model/settings_page_view_model.dart';
 import 'component/atom/logo_image.dart';
 import 'component/molecules/app_delete_dialog.dart';
 import 'component/molecules/setting_tile.dart';
+import 'component/settings_page/about_app_webview.dart';
 import 'component/settings_page/change_passcord_page.dart';
 
 final settingsProvider = Provider(((ref) => SettingsPageViewModel()));

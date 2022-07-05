@@ -1,7 +1,12 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:password_app_2/constants/const_letter.dart';
-import 'package:password_app_2/view/component/atom/logo_image.dart';
+
+// Package imports:
 import 'package:webview_flutter/webview_flutter.dart';
+
+// Project imports:
+import '../../../constants/const_letter.dart';
+import '../atom/logo_image.dart';
 
 class AboutAppWebview extends StatelessWidget {
   const AboutAppWebview({Key? key}) : super(key: key);
