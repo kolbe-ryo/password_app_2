@@ -39,5 +39,6 @@
   "cancel": "Cancel",
   "validation": "Name field is required",
   "complete_change": "Changed",
-  "complete_copy": "Copied"
+  "complete_copy": "Copied",
+  "about_this_app": "About this APP"
 }

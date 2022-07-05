@@ -38,5 +38,6 @@
   "cancel": "キャンセル",
   "validation": "名称は必須です",
   "complete_change": "変更しました",
-  "complete_copy": "コピーしました"
+  "complete_copy": "コピーしました",
+  "about_this_app": "このアプリについて"
 }

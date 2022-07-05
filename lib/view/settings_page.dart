@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:password_app_2/view/component/settings_page/about_app_webview.dart';
 
 // Project imports:
 import '../view_model/settings_page_view_model.dart';
@@ -47,9 +48,13 @@ class SettingsPage extends ConsumerWidget {
           },
         ),
         SettingTile(
-          title: AppLocalizations.of(context)!.review_bug,
-          icon: Icons.bug_report,
-          onTap: () => {},
+          title: AppLocalizations.of(context)!.about_this_app,
+          icon: Icons.app_registration,
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: ((context) => const AboutAppWebview()),
+            ),
+          ),
         ),
         SettingTile(
           title: AppLocalizations.of(context)!.licenses,

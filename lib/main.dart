@@ -14,7 +14,6 @@ import 'view/local_login_page.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   MobileAds.instance.initialize();
-  // await Admob.updateRequestConfig(true);
   runApp(const ProviderScope(child: MyApp()));
 }
 
