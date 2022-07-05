@@ -50,6 +50,7 @@ class MyApp extends StatelessWidget {
         Locale('ja', ''),
         Locale('en', ''),
       ],
+      debugShowCheckedModeBanner: false,
     );
   }
 }

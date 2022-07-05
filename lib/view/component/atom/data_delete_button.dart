@@ -33,9 +33,9 @@ class DataDeleteButton extends ConsumerWidget {
             Navigator.pop(context);
           }
         },
-        child: const Text(
-          '削除する',
-          style: TextStyle(fontSize: 20, color: Colors.red),
+        child: Text(
+          AppLocalizations.of(context)!.delete_button,
+          style: const TextStyle(fontSize: 20, color: Colors.red),
         ),
       ),
     );
