@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:password_app_2/view/registration_order_page.dart';
 
 // Project imports:
 import '../constants/style.dart';
@@ -25,6 +26,7 @@ class SelectionPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final pageIndex = ref.watch(pageIndexProvider);
+    ref.watch(savingProvider.notifier).get();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(

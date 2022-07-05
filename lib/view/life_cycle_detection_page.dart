@@ -51,6 +51,6 @@ class _LifeCycleDetectionPageState extends State<LifeCycleDetectionPage> with Wi
 
   @override
   Widget build(BuildContext context) {
-    return SelectionPage();
+    return const SelectionPage();
   }
 }
