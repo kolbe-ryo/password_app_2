@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:password_app_2/view/component/organisms/gridview_items.dart';
 
 // Project imports:
 import '../constants/style.dart';
 import '../enum/genre_data_enum.dart';
-import 'component/atom/nothing_data_text.dart';
 import 'component/atom/selected_icon_button.dart';
-import 'component/organisms/id_password_card.dart';
 import 'id_password_manager_page.dart';
 import 'registration_order_page.dart';
 
@@ -19,7 +18,7 @@ class GenreOrderPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectingGenre = ref.watch(itemProvider.select((value) => value.genre));
-    final idPasswordSaveModel = ref.watch(
+    final idPasswordSaveModels = ref.watch(
       savingProvider.select(
         (model) => model.modelList.where((element) => element.genre == selectingGenre).toList(),
       ),
@@ -34,22 +33,7 @@ class GenreOrderPage extends ConsumerWidget {
               .toList(),
         ),
         const SizedBox(height: kSpacing),
-        Expanded(
-          child: idPasswordSaveModel.isNotEmpty
-              ? GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 1.3,
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 8.0,
-                    mainAxisSpacing: 8.0,
-                  ),
-                  itemBuilder: (context, index) {
-                    return IdPasswordCard(idPasswordSaveModel[index]);
-                  },
-                  itemCount: idPasswordSaveModel.length,
-                )
-              : const NothingDataText(),
-        ),
+        Expanded(child: GridviewItems(idPasswordSaveModels)),
       ],
     );
   }
