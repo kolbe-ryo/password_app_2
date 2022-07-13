@@ -13,7 +13,7 @@ class LifeCycleDetectionPage extends StatefulWidget {
 }
 
 class _LifeCycleDetectionPageState extends State<LifeCycleDetectionPage> with WidgetsBindingObserver {
-  final WidgetsBinding _widgetsBinding = WidgetsBinding.instance;
+  final WidgetsBinding _widgetsBinding = WidgetsBinding.instance!;
 
   @override
   void initState() {
