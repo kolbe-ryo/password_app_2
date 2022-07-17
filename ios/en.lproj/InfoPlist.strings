@@ -6,3 +6,4 @@
   
 */
 CFBundleDisplayName = "KeyEasy";
+NSFaceIDUsageDescription = "Biometrics authentication is not set up on your device. Please either enable Touch ID or Face ID on your phone.";
