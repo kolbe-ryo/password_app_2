@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:passcode_screen/passcode_screen.dart';
+import 'package:password_app_2/view/local_login_page.dart';
 
 // Project imports:
 import '../../../model/local_passcode_model.dart';
@@ -34,34 +35,36 @@ class _PasscodeScreenPageState extends ConsumerState<PasscodeScreenPage> {
         if (snapShot.connectionState == ConnectionState.done) {
           final initPass = ref.watch(passcodeProvider.select((state) => state.initPass));
           return PasscodeScreen(
-            title: Text(
-              initPass
-                  ? AppLocalizations.of(context)!.initial_passcode_direction
-                  : AppLocalizations.of(context)!.passcode_direction,
-              textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.blue, fontSize: 20),
-            ),
-            passwordEnteredCallback: (enteredPass) => _onPasscodeEntered(enteredPass, ref),
-            cancelButton: const Text(
-              'Cancel',
-              style: TextStyle(fontSize: 16, color: Colors.white),
-              semanticsLabel: 'Cancel',
-            ),
-            deleteButton: const Text(
-              'Delete',
-              style: TextStyle(fontSize: 16, color: Colors.white),
-              semanticsLabel: 'Delete',
-            ),
-            shouldTriggerVerification: _verificationNotifier.stream,
-            backgroundColor: Colors.black.withOpacity(0.8),
-            cancelCallback: () => Navigator.pop(context, Icons.female_sharp),
-            passwordDigits: ref.watch(passcodeProvider.select((state) => state.length)),
-            isValidCallback: () => Navigator.of(context).pushReplacement(
-              MaterialPageRoute(
-                builder: ((context) => const LifeCycleDetectionPage()),
+              title: Text(
+                initPass
+                    ? AppLocalizations.of(context)!.initial_passcode_direction
+                    : AppLocalizations.of(context)!.passcode_direction,
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: Colors.blue, fontSize: 20),
               ),
-            ),
-          );
+              passwordEnteredCallback: (enteredPass) => _onPasscodeEntered(enteredPass, ref),
+              cancelButton: const Text(
+                'Cancel',
+                style: TextStyle(fontSize: 16, color: Colors.white),
+                semanticsLabel: 'Cancel',
+              ),
+              deleteButton: const Text(
+                'Delete',
+                style: TextStyle(fontSize: 16, color: Colors.white),
+                semanticsLabel: 'Delete',
+              ),
+              shouldTriggerVerification: _verificationNotifier.stream,
+              backgroundColor: Colors.black.withOpacity(0.8),
+              cancelCallback: () => Navigator.pop(context, Icons.female_sharp),
+              passwordDigits: ref.watch(passcodeProvider.select((state) => state.length)),
+              isValidCallback: () {
+                ref.read(isReLockProvider.notifier).update((state) => true);
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: ((context) => const LifeCycleDetectionPage()),
+                  ),
+                );
+              });
         } else {
           return const SizedBox.shrink();
         }

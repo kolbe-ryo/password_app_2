@@ -90,6 +90,7 @@ class LocalLoginPage extends ConsumerWidget {
   Future<void> _pushByBiometrics({required BuildContext context, required WidgetRef ref}) async {
     final isAuthenticated = await LocalAuth.authenticate();
     if (isAuthenticated) {
+      ref.read(isReLockProvider.notifier).update((state) => true);
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: ((context) => const LifeCycleDetectionPage()),

@@ -1,18 +1,19 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
 import 'local_login_page.dart';
 import 'selection_page.dart';
 
-class LifeCycleDetectionPage extends StatefulWidget {
+class LifeCycleDetectionPage extends ConsumerStatefulWidget {
   const LifeCycleDetectionPage({Key? key}) : super(key: key);
 
   @override
-  State<LifeCycleDetectionPage> createState() => _LifeCycleDetectionPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _LifeCycleDetectionPageState();
 }
 
-class _LifeCycleDetectionPageState extends State<LifeCycleDetectionPage> with WidgetsBindingObserver {
+class _LifeCycleDetectionPageState extends ConsumerState<LifeCycleDetectionPage> with WidgetsBindingObserver {
   final WidgetsBinding _widgetsBinding = WidgetsBinding.instance!;
 
   @override
@@ -33,12 +34,13 @@ class _LifeCycleDetectionPageState extends State<LifeCycleDetectionPage> with Wi
       case AppLifecycleState.resumed:
         break;
       case AppLifecycleState.inactive:
-        if (mounted) {
-          Navigator.of(context).pushAndRemoveUntil(
+        bool _isReLock = ref.read(isReLockProvider);
+        if (mounted && _isReLock) {
+          ref.read(isReLockProvider.notifier).update((state) => !state);
+          Navigator.of(context).push(
             MaterialPageRoute(
               builder: ((context) => const LocalLoginPage()),
             ),
-            (route) => false,
           );
         }
         break;
