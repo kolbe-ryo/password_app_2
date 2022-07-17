@@ -13,6 +13,9 @@ import 'component/molecules/app_dialog.dart';
 import 'component/organisms/passcode_screen.dart';
 import 'life_cycle_detection_page.dart';
 
+// Re-Lock state for controlling life cycle state method(state.inactive)
+final isReLockProvider = StateProvider<bool>(((ref) => false));
+
 class LocalLoginPage extends ConsumerWidget {
   const LocalLoginPage({Key? key}) : super(key: key);
 
@@ -38,7 +41,7 @@ class LocalLoginPage extends ConsumerWidget {
                     size: 50,
                   ),
                 ),
-                onPressed: () async => _pushByBiometrics(context),
+                onPressed: () async => _pushByBiometrics(context: context, ref: ref),
                 style: ElevatedButton.styleFrom(
                   shape: const CircleBorder(),
                 ),
@@ -66,7 +69,7 @@ class LocalLoginPage extends ConsumerWidget {
                   final isInit = ref.watch(
                     passcodeProvider.select((state) => state.initPass),
                   );
-                  _pushByPasscode(context, false, isInit);
+                  _pushByPasscode(context: context, ref: ref, isInit: isInit);
                 },
                 style: ElevatedButton.styleFrom(
                   shape: const CircleBorder(),
@@ -84,7 +87,7 @@ class LocalLoginPage extends ConsumerWidget {
     );
   }
 
-  Future<void> _pushByBiometrics(BuildContext context) async {
+  Future<void> _pushByBiometrics({required BuildContext context, required WidgetRef ref}) async {
     final isAuthenticated = await LocalAuth.authenticate();
     if (isAuthenticated) {
       Navigator.of(context).pushReplacement(
@@ -95,7 +98,11 @@ class LocalLoginPage extends ConsumerWidget {
     }
   }
 
-  Future<void> _pushByPasscode(BuildContext context, bool opaque, bool isInit) async {
+  Future<void> _pushByPasscode({
+    required BuildContext context,
+    required WidgetRef ref,
+    required bool isInit,
+  }) async {
     if (isInit) {
       await showDialog(
         context: context,
@@ -107,7 +114,7 @@ class LocalLoginPage extends ConsumerWidget {
     await Navigator.push(
       context,
       PageRouteBuilder(
-        opaque: opaque,
+        opaque: false,
         pageBuilder: (context, animation, secondaryAnimation) => const PasscodeScreenPage(),
       ),
     );
