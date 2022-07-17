@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:password_app_2/view/selection_page.dart';
 
 // Project imports:
 import '../view_model/settings_page_view_model.dart';
@@ -44,6 +45,11 @@ class SettingsPage extends ConsumerWidget {
             );
             if (isDelete) {
               ref.read(settingsProvider).deleteAll();
+              ref.read(pageIndexProvider.state).update((state) => 0);
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => const SelectionPage()),
+                (_) => false,
+              );
             }
           },
         ),
