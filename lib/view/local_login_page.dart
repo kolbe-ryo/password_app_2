@@ -13,89 +13,96 @@ import 'component/molecules/app_dialog.dart';
 import 'component/organisms/passcode_screen.dart';
 import 'life_cycle_detection_page.dart';
 
-// Re-Lock state for controlling life cycle state method(state.inactive)
-final isReLockProvider = StateProvider<bool>(((ref) => false));
-
 class LocalLoginPage extends ConsumerWidget {
-  const LocalLoginPage({Key? key}) : super(key: key);
+  const LocalLoginPage(this.isReLock, {Key? key}) : super(key: key);
+
+  final bool isReLock;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const LogoImage(),
-        centerTitle: true,
-        elevation: 0,
-      ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                child: const Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Icon(
-                    Icons.fingerprint,
-                    size: 50,
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const LogoImage(),
+          centerTitle: true,
+          elevation: 0,
+          automaticallyImplyLeading: ref.watch(isReLockProvider),
+        ),
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  child: const Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Icon(
+                      Icons.fingerprint,
+                      size: 50,
+                    ),
+                  ),
+                  onPressed: () async => _pushByBiometrics(context: context, ref: ref, isReLock: isReLock),
+                  style: ElevatedButton.styleFrom(
+                    shape: const CircleBorder(),
                   ),
                 ),
-                onPressed: () async => _pushByBiometrics(context: context, ref: ref),
-                style: ElevatedButton.styleFrom(
-                  shape: const CircleBorder(),
+                const SizedBox(height: kSpacing),
+                Text(
+                  AppLocalizations.of(context)!.biometrics,
+                  style: kSecondTextStyle(),
                 ),
-              ),
-              const SizedBox(height: kSpacing),
-              Text(
-                AppLocalizations.of(context)!.biometrics,
-                style: kSecondTextStyle(),
-              ),
-            ],
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                child: const Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Icon(
-                    Icons.apps,
-                    size: 50,
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  child: const Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Icon(
+                      Icons.apps,
+                      size: 50,
+                    ),
+                  ),
+                  onPressed: () async {
+                    await ref.read(passcodeProvider.notifier).get();
+                    final isInit = ref.watch(passcodeProvider.select((state) => state.initPass));
+                    _pushByPasscode(context: context, ref: ref, isInit: isInit);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: const CircleBorder(),
                   ),
                 ),
-                onPressed: () async {
-                  await ref.read(passcodeProvider.notifier).get();
-                  final isInit = ref.watch(
-                    passcodeProvider.select((state) => state.initPass),
-                  );
-                  _pushByPasscode(context: context, ref: ref, isInit: isInit);
-                },
-                style: ElevatedButton.styleFrom(
-                  shape: const CircleBorder(),
+                const SizedBox(height: kSpacing),
+                Text(
+                  AppLocalizations.of(context)!.passcode,
+                  style: kSecondTextStyle(),
                 ),
-              ),
-              const SizedBox(height: kSpacing),
-              Text(
-                AppLocalizations.of(context)!.passcode,
-                style: kSecondTextStyle(),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  Future<void> _pushByBiometrics({required BuildContext context, required WidgetRef ref}) async {
+  Future<void> _pushByBiometrics({required BuildContext context, required ref, required bool isReLock}) async {
     final isAuthenticated = await LocalAuth.authenticate();
     if (isAuthenticated) {
+      // In case of no initial login, pop and get previous page
+      if (isReLock) {
+        Navigator.of(context).pop();
+      } else {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: ((context) => const LifeCycleDetectionPage()),
+          ),
+        );
+      }
+      // Switch ReLockState to true for next lock page
       ref.read(isReLockProvider.notifier).update((state) => true);
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: ((context) => const LifeCycleDetectionPage()),
-        ),
-      );
     }
   }
 
@@ -116,7 +123,7 @@ class LocalLoginPage extends ConsumerWidget {
       context,
       PageRouteBuilder(
         opaque: false,
-        pageBuilder: (context, animation, secondaryAnimation) => const PasscodeScreenPage(),
+        pageBuilder: (context, animation, secondaryAnimation) => PasscodeScreenPage(isReLock),
       ),
     );
   }

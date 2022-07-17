@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:passcode_screen/passcode_screen.dart';
-import 'package:password_app_2/view/local_login_page.dart';
 
 // Project imports:
 import '../../../model/local_passcode_model.dart';
@@ -18,7 +17,9 @@ import '../../life_cycle_detection_page.dart';
 final passcodeProvider = StateNotifierProvider<PasscodeViewModel, LocalPasscodeModel>(((ref) => PasscodeViewModel()));
 
 class PasscodeScreenPage extends ConsumerStatefulWidget {
-  const PasscodeScreenPage({Key? key}) : super(key: key);
+  const PasscodeScreenPage(this.isReLock, {Key? key}) : super(key: key);
+
+  final bool isReLock;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _PasscodeScreenPageState();
@@ -58,12 +59,19 @@ class _PasscodeScreenPageState extends ConsumerState<PasscodeScreenPage> {
               cancelCallback: () => Navigator.pop(context, Icons.female_sharp),
               passwordDigits: ref.watch(passcodeProvider.select((state) => state.length)),
               isValidCallback: () {
+                // Switch ReLockState to true for next lock page
                 ref.read(isReLockProvider.notifier).update((state) => true);
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: ((context) => const LifeCycleDetectionPage()),
-                  ),
-                );
+
+                // In case of no initial login, pop and get previous page
+                if (widget.isReLock) {
+                  Navigator.of(context).pop();
+                } else {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: ((context) => const LifeCycleDetectionPage()),
+                    ),
+                  );
+                }
               });
         } else {
           return const SizedBox.shrink();

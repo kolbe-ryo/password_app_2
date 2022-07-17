@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
           unselectedItemColor: const Color.fromARGB(255, 184, 184, 184),
         ),
       ),
-      home: const LocalLoginPage(),
+      home: const LocalLoginPage(false),
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,

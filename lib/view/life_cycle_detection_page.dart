@@ -6,6 +6,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'local_login_page.dart';
 import 'selection_page.dart';
 
+// Re-Lock state for controlling life cycle state method(state.inactive)
+final isReLockProvider = StateProvider<bool>(((ref) => false));
+
 class LifeCycleDetectionPage extends ConsumerStatefulWidget {
   const LifeCycleDetectionPage({Key? key}) : super(key: key);
 
@@ -39,7 +42,7 @@ class _LifeCycleDetectionPageState extends ConsumerState<LifeCycleDetectionPage>
           ref.read(isReLockProvider.notifier).update((state) => !state);
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: ((context) => const LocalLoginPage()),
+              builder: ((context) => LocalLoginPage(_isReLock)),
             ),
           );
         }
