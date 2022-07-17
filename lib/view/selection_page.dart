@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/view/registration_order_page.dart';
 
 // Project imports:
+import 'registration_order_page.dart';
 import '../constants/style.dart';
 import '../enum/bottom_navigation_item_enum.dart';
 import '../model/id_password_save_model.dart';
