@@ -6,3 +6,5 @@
   
 */
 CFBundleDisplayName = "きーじー";
+
+NSFaceIDUsageDescription = "生体認証が有効化されていませ。\n設定を変更し、生体認証を有効化してください";
