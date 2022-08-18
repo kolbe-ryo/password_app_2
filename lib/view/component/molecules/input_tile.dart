@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:password_app_2/constants/style.dart';
 
 // Project imports:
-import '../../../constants/style.dart';
 import '../../../enum/id_password_manager_item_enum.dart';
 import '../../id_password_manager_page.dart';
 import '../atom/general_list_tile.dart';
