@@ -30,9 +30,7 @@ class LocalAuth {
       return await _auth.authenticate(
         localizedReason: 'Please authenticate to show account balance',
         options: const AuthenticationOptions(
-          useErrorDialogs: true,
           stickyAuth: true,
-          biometricOnly: true,
         ),
       );
     } on PlatformException catch (e) {
