@@ -22,9 +22,9 @@ const kFirstTextStyle = TextStyle(
   fontWeight: FontWeight.w600,
 );
 
-kSecondTextStyle({Color color = Colors.black38}) => TextStyle(
+kSecondTextStyle({Color color = Colors.black38, double size = 13.0}) => TextStyle(
       color: color,
-      fontSize: 13,
+      fontSize: size,
       fontWeight: FontWeight.w600,
     );
 

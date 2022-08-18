@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:password_app_2/view/component/input_text/input_text_id.dart';
+import 'package:password_app_2/view/component/input_text/input_text_memo.dart';
+import 'package:password_app_2/view/component/input_text/input_text_name.dart';
+import 'package:password_app_2/view/component/input_text/input_text_password.dart';
 
 // Project imports:
 import '../constants/style.dart';
@@ -12,7 +16,6 @@ import 'component/atom/data_delete_button.dart';
 import 'component/atom/data_register_button.dart';
 import 'component/atom/logo_image.dart';
 import 'component/molecules/genre_select_tile.dart';
-import 'component/molecules/input_tile.dart';
 import 'selection_page.dart';
 
 final itemProvider = StateProvider((ref) => IdPasswordSaveModel(time: DateTime.now()));
@@ -22,45 +25,46 @@ class IdPasswordManagerPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final idPasswordSaveModel = ref.watch(itemProvider.state).state;
     return Scaffold(
       appBar: AppBar(
         title: const LogoImage(),
         centerTitle: true,
         elevation: 0,
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(kSpacing),
-        child: Column(
-          children: [
-            InputTile(
-              idPasswordManagerItem: IdPasswordManagerItems.name,
-              initialText: idPasswordSaveModel.name,
-            ),
-            InputTile(
-              idPasswordManagerItem: IdPasswordManagerItems.id,
-              initialText: idPasswordSaveModel.id,
-            ),
-            InputTile(
-              idPasswordManagerItem: IdPasswordManagerItems.password,
-              initialText: idPasswordSaveModel.password,
-            ),
-            const GenreSelectTile(IdPasswordManagerItems.genre),
-            InputTile(
-              idPasswordManagerItem: IdPasswordManagerItems.memo,
-              initialText: idPasswordSaveModel.memo,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                const DataRegisterButton(),
-                if (ref.watch(isEditIdPasswordProvider.state).state) const DataDeleteButton(),
-              ],
-            ),
-            const SizedBox(height: kSpacing),
-          ],
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(kSpacing),
+          child: Column(
+            children: const [
+              InputTextName(),
+              InputTextId(),
+              InputTextPassword(),
+              GenreSelectTile(IdPasswordManagerItems.genre),
+              InputTextMemo(),
+              RegistChangeDeleteButton(),
+              SizedBox(height: kSpacing),
+            ],
+          ),
         ),
       ),
+    );
+  }
+}
+
+class RegistChangeDeleteButton extends ConsumerWidget {
+  const RegistChangeDeleteButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        const DataRegisterButton(),
+        if (ref.watch(isEditIdPasswordProvider.state).state) const DataDeleteButton(),
+      ],
     );
   }
 }
