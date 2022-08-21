@@ -25,26 +25,30 @@ class IdPasswordManagerPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const LogoImage(),
-        centerTitle: true,
-        elevation: 0,
-      ),
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(kSpacing),
-          child: Column(
-            children: const [
-              InputTextName(),
-              InputTextId(),
-              InputTextPassword(),
-              GenreSelectTile(IdPasswordManagerItems.genre),
-              InputTextMemo(),
-              RegistChangeDeleteButton(),
-              SizedBox(height: kSpacing),
-            ],
+    return WillPopScope(
+      onWillPop: () => Future.value(ref.watch(isBottomNavigation.notifier).update((state) => true)),
+      child: Scaffold(
+        resizeToAvoidBottomInset: true,
+        appBar: AppBar(
+          title: const LogoImage(),
+          centerTitle: true,
+          elevation: 0,
+        ),
+        body: GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(kSpacing),
+            child: Column(
+              children: const [
+                InputTextName(),
+                InputTextId(),
+                InputTextPassword(),
+                GenreSelectTile(IdPasswordManagerItems.genre),
+                InputTextMemo(),
+                RegistChangeDeleteButton(),
+                SizedBox(height: kSpacing),
+              ],
+            ),
           ),
         ),
       ),

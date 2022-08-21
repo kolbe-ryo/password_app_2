@@ -17,7 +17,7 @@ class BottomNavigationBarItems extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return BottomNavigationBar(
       items: BottomNavigationBarItemEnum.values.map((item) => item.bottomNavigationBarItem(context)).toList(),
-      currentIndex: ref.watch(pageIndexProvider.state).state,
+      currentIndex: ref.watch(pageIndexProvider),
       onTap: (int index) => ref.read(pageIndexProvider.state).update((state) => index),
     );
   }

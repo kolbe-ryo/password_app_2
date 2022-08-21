@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../constants/style.dart';
 import '../../../enum/id_password_manager_item_enum.dart';
 import '../../id_password_manager_page.dart';
+import '../../selection_page.dart';
 import '../atom/general_list_tile.dart';
 import 'input_tile_abstract.dart';
 
@@ -43,6 +44,7 @@ class _TfieldState extends ConsumerState<Tfield> {
         hintStyle: kSecondTextStyle(),
       ),
       initialValue: ref.watch(itemProvider.select((value) => value.name)),
+      onTap: () => ref.watch(isBottomNavigation.notifier).update((state) => false),
       onChanged: (String text) => ref.read(itemProvider.state).update((state) => state.copyWith(name: text)),
       style: kSecondTextStyle(color: Colors.blueGrey, size: 18.0),
     );

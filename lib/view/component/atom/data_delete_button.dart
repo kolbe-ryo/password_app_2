@@ -9,6 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../constants/style.dart';
 import '../../id_password_manager_page.dart';
 import '../../registration_order_page.dart';
+import '../../selection_page.dart';
 import '../molecules/app_delete_dialog.dart';
 
 class DataDeleteButton extends ConsumerWidget {
@@ -30,6 +31,7 @@ class DataDeleteButton extends ConsumerWidget {
             final idPasswordSaveModel = ref.watch(itemProvider.state).state;
             ref.read(savingProvider.notifier).delete(idPasswordSaveModel);
             await ref.read(savingProvider.notifier).save();
+            ref.watch(isBottomNavigation.notifier).update((state) => true);
             Navigator.pop(context);
           }
         },

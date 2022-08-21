@@ -38,7 +38,7 @@ class DataRegisterButton extends ConsumerWidget {
                 : ref.read(savingProvider.notifier).addIdPasswordSaveModel(idPasswordSaveModel);
 
             ref.read(savingProvider.notifier).save();
-
+            ref.watch(isBottomNavigation.notifier).update((state) => true);
             Navigator.pop(context);
           } else {
             showDialog(
