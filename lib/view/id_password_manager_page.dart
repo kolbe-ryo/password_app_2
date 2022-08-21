@@ -3,10 +3,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/view/component/input_text/input_text_id.dart';
-import 'package:password_app_2/view/component/input_text/input_text_memo.dart';
-import 'package:password_app_2/view/component/input_text/input_text_name.dart';
-import 'package:password_app_2/view/component/input_text/input_text_password.dart';
 
 // Project imports:
 import '../constants/style.dart';
@@ -15,6 +11,10 @@ import '../model/id_password_save_model.dart';
 import 'component/atom/data_delete_button.dart';
 import 'component/atom/data_register_button.dart';
 import 'component/atom/logo_image.dart';
+import 'component/input_text/input_text_id.dart';
+import 'component/input_text/input_text_memo.dart';
+import 'component/input_text/input_text_name.dart';
+import 'component/input_text/input_text_password.dart';
 import 'component/molecules/genre_select_tile.dart';
 import 'selection_page.dart';
 

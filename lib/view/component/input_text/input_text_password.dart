@@ -1,10 +1,15 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:password_app_2/constants/style.dart';
-import 'package:password_app_2/enum/id_password_manager_item_enum.dart';
-import 'package:password_app_2/view/component/atom/general_list_tile.dart';
-import 'package:password_app_2/view/component/input_text/input_tile_abstract.dart';
-import 'package:password_app_2/view/id_password_manager_page.dart';
+
+// Project imports:
+import '../../../constants/style.dart';
+import '../../../enum/id_password_manager_item_enum.dart';
+import '../../id_password_manager_page.dart';
+import '../atom/general_list_tile.dart';
+import 'input_tile_abstract.dart';
 
 class InputTextPassword extends InputTileAbstract {
   const InputTextPassword({Key? key}) : super(key: key);
