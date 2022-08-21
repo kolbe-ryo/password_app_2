@@ -10,11 +10,11 @@ import '../enum/id_password_manager_item_enum.dart';
 import '../model/id_password_save_model.dart';
 import 'component/atom/data_delete_button.dart';
 import 'component/atom/data_register_button.dart';
-import 'component/atom/logo_image.dart';
 import 'component/input_text/input_text_id.dart';
 import 'component/input_text/input_text_memo.dart';
 import 'component/input_text/input_text_name.dart';
 import 'component/input_text/input_text_password.dart';
+import 'component/molecules/custom_appbar.dart';
 import 'component/molecules/genre_select_tile.dart';
 import 'selection_page.dart';
 
@@ -26,29 +26,33 @@ class IdPasswordManagerPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return WillPopScope(
-      onWillPop: () => Future.value(ref.watch(isBottomNavigation.notifier).update((state) => true)),
+      onWillPop: () async => false,
       child: Scaffold(
         resizeToAvoidBottomInset: true,
-        appBar: AppBar(
-          title: const LogoImage(),
-          centerTitle: true,
-          elevation: 0,
-        ),
-        body: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(kSpacing),
-            child: Column(
-              children: const [
-                InputTextName(),
-                InputTextId(),
-                InputTextPassword(),
-                GenreSelectTile(IdPasswordManagerItems.genre),
-                InputTextMemo(),
-                RegistChangeDeleteButton(),
-                SizedBox(height: kSpacing),
-              ],
-            ),
+        body: SafeArea(
+          child: Column(
+            children: [
+              const CustomAppBar(),
+              Expanded(
+                child: GestureDetector(
+                  onTap: () => FocusScope.of(context).unfocus(),
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.all(kSpacing),
+                    child: Column(
+                      children: const [
+                        InputTextName(),
+                        InputTextId(),
+                        InputTextPassword(),
+                        GenreSelectTile(IdPasswordManagerItems.genre),
+                        InputTextMemo(),
+                        RegistChangeDeleteButton(),
+                        SizedBox(height: kSpacing),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

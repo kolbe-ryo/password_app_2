@@ -22,22 +22,17 @@ class InputTextName extends InputTileAbstract {
 
   @override
   Widget textField(BuildContext context, WidgetRef ref) {
-    return const Tfield();
+    return const _TextField();
   }
 }
 
-class Tfield extends ConsumerStatefulWidget {
-  const Tfield({
+class _TextField extends ConsumerWidget {
+  const _TextField({
     Key? key,
   }) : super(key: key);
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _TfieldState();
-}
-
-class _TfieldState extends ConsumerState<Tfield> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return TextFormField(
       decoration: InputDecoration(
         hintText: IdPasswordManagerItems.name.itemModel(context).hintText,
