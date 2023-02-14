@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:password_app_2/util/admob_reward/admob_reward_page_state.dart';
+import 'package:password_app_2/util/admob_reward/admob_reward_page_view_model.dart';
 
 // Project imports:
 import '../constants/style.dart';
@@ -22,6 +24,11 @@ final isEditIdPasswordProvider = StateProvider<bool>(((ref) => false));
 
 // Bottom hide bool
 final isBottomNavigation = StateProvider<bool>((ref) => true);
+
+// Admob Reward
+final admobRewardProvider = StateNotifierProvider<AdmobRewardPageViewModel, AdmobRewardPageState>(
+  ((ref) => AdmobRewardPageViewModel()),
+);
 
 class SelectionPage extends ConsumerWidget {
   const SelectionPage({Key? key}) : super(key: key);
@@ -47,7 +54,7 @@ class SelectionPage extends ConsumerWidget {
       floatingActionButton: pageIndex != 2
           ? FloatingActionButton(
               child: const Icon(Icons.key),
-              onPressed: () {
+              onPressed: () async {
                 ref.read(isEditIdPasswordProvider.state).update((state) => false);
                 ref.read(itemProvider.state).update(
                       (state) => IdPasswordSaveModel(
@@ -55,12 +62,29 @@ class SelectionPage extends ConsumerWidget {
                         time: DateTime.now(),
                       ),
                     );
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const IdPasswordManagerPage(),
-                  ),
-                );
+                // Admob Reward
+                final navigator = Navigator.of(context);
+                final admobRewardState = ref.read(admobRewardProvider);
+                final admobRewardViewModel = ref.read(admobRewardProvider.notifier);
+                if (admobRewardState.isLoaded && admobRewardState.rewardCount == 0) {
+                  // ライフサイクルでロックがかからないようにするフラグ
+                  admobRewardViewModel.switchBoolIsAdmob(true);
+                  await admobRewardViewModel.showRewardAd(() async {
+                    await navigator.push(
+                      MaterialPageRoute(
+                        builder: (context) => const IdPasswordManagerPage(),
+                      ),
+                    );
+                    ref.read(admobRewardProvider.notifier).switchBoolIsAdmob(false);
+                  });
+                } else {
+                  admobRewardViewModel.decrementRewardCount();
+                  navigator.push(
+                    MaterialPageRoute(
+                      builder: (context) => const IdPasswordManagerPage(),
+                    ),
+                  );
+                }
               },
             )
           : null,

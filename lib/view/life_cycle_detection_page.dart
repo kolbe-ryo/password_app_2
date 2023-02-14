@@ -39,6 +39,10 @@ class _LifeCycleDetectionPageState extends ConsumerState<LifeCycleDetectionPage>
       case AppLifecycleState.resumed:
         break;
       case AppLifecycleState.inactive:
+        // リワード広告に遷移した際にはinactiveと見做さない
+        if (ref.read(admobRewardProvider).isReward) {
+          return;
+        }
         bool _isReLock = ref.read(isReLockProvider);
         if (mounted && _isReLock) {
           ref.read(isReLockProvider.notifier).update((state) => !state);
@@ -58,6 +62,7 @@ class _LifeCycleDetectionPageState extends ConsumerState<LifeCycleDetectionPage>
 
   @override
   Widget build(BuildContext context) {
+    ref.read(admobRewardProvider.notifier).initState();
     return const SelectionPage();
   }
 }
