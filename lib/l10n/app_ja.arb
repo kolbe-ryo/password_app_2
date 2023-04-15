@@ -15,7 +15,6 @@
   "id_example": "例）1a2b3c4d",
   "password": "PASSWORD",
   "password_example": "例）1qazxsw2",
-  "genre": "ジャンル",
   "genre_money": "お金",
   "genre_shopping": "買物",
   "genre_transport": "交通",
@@ -39,5 +38,7 @@
   "validation": "名称は必須です",
   "complete_change": "変更しました",
   "complete_copy": "コピーしました",
-  "about_this_app": "このアプリについて"
+  "about_this_app": "このアプリについて",
+  "checkAdmobDisplay":"広告を表示しますか？",
+  "checkAdmobDisplayDetails":"パスワードを追加するには広告の視聴が必要です。"
 }

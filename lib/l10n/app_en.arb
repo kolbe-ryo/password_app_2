@@ -16,7 +16,6 @@
   "id_example": "ex) 1a2b3c4d",
   "password": "PASSWORD",
   "password_example": "ex) 1qazxsw2",
-  "genre": "Genre",
   "genre_money": "Money",
   "genre_shopping": "Shop",
   "genre_transport": "Transp",
@@ -40,5 +39,7 @@
   "validation": "Name field is required",
   "complete_change": "Changed",
   "complete_copy": "Copied",
-  "about_this_app": "About this APP"
+  "about_this_app": "About this APP",
+  "checkAdmobDisplay":"Can I display ads?",
+  "checkAdmobDisplayDetails":"You need to watch an ad to add new id/pass."
 }

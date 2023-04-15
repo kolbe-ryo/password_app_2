@@ -2,9 +2,14 @@
 import 'package:flutter/cupertino.dart';
 
 class AppDialog extends StatelessWidget {
-  const AppDialog(this.message, {Key? key}) : super(key: key);
+  const AppDialog(
+    this.message, {
+    this.isCancel = false,
+    Key? key,
+  }) : super(key: key);
 
   final String message;
+  final bool isCancel;
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +19,13 @@ class AppDialog extends StatelessWidget {
       actions: [
         CupertinoDialogAction(
           child: const Text("OK"),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => Navigator.pop(context, true),
         ),
+        if (isCancel)
+          CupertinoDialogAction(
+            child: const Text("Cancel"),
+            onPressed: () => Navigator.pop(context),
+          ),
       ],
     );
   }
