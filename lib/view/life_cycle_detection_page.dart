@@ -19,7 +19,7 @@ class LifeCycleDetectionPage extends ConsumerStatefulWidget {
 }
 
 class _LifeCycleDetectionPageState extends ConsumerState<LifeCycleDetectionPage> with WidgetsBindingObserver {
-  final WidgetsBinding _widgetsBinding = WidgetsBinding.instance!;
+  final WidgetsBinding _widgetsBinding = WidgetsBinding.instance;
 
   @override
   void initState() {
