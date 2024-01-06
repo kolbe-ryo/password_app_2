@@ -42,15 +42,16 @@ class SelectionPage extends ConsumerWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: true,
-      body: Padding(
-        padding: const EdgeInsets.all(kSpacing),
-        child: Column(
-          children: [
-            const LogoImage(),
-            Expanded(
-              child: BottomNavigationBarItemEnum.values.map((item) => item.page).toList()[pageIndex],
-            ),
-          ],
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(kSpacing),
+          child: Column(
+            children: [
+              Expanded(
+                child: BottomNavigationBarItemEnum.values.map((item) => item.page).toList()[pageIndex],
+              ),
+            ],
+          ),
         ),
       ),
       floatingActionButton: pageIndex != 2
